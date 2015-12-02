@@ -10,3 +10,4 @@
 *.bbl
 *.fdb_latexmk
 *.toc
+*.out

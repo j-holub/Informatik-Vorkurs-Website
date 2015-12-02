@@ -1,0 +1,17 @@
+<!-- Listet alle Roboter auf -->
+<template name="robots">
+
+	<table>
+	{{#each list}}
+		{{>robot}}
+	{{/each}}
+	</table>
+</template>
+
+<!-- Listet die Details zu einem Roboter -->
+<template name="robot">
+	<tr>
+		<td>{{name}}</td>
+		<td>{{description}}</td>
+	</tr>
+</template>

@@ -1,0 +1,79 @@
+\documentclass[Info_VK_Website_Dokumentation.tex]{subfiles}
+
+\begin{document}
+	
+\chapter{Datenbank Entitäten}
+
+\section{User}
+
+Der User repräsentiert einen Erstie/Studenten, der am Informatik Vorkurs teilnimmt.
+
+Jeder Erstie/Student benötigt einen Account, der mit solch einem User verknüpft ist, um sich einloggen zu können. Damit hat er Zugang zu all den Informationen und Funktionen der Website, wie z.B. die Installationsanleitungen und Roboter hochladen.
+
+Das Userobjekt speichert auch einige Informationen über den User, wie Kontaktinformationen und Ähnliches.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{r | c | l}
+\textbf{Name} & \textbf{Beschreibung} & \textbf{Typ} \\
+\hline
+\hline
+UserId  & Eindeutige Id & String \\
+\hline
+Email   & Email Adresse & String \\
+\hline
+userPic & Profilbild   & Bild oder Gravatar \\
+\hline
+SkypeId & Skype Adresse & String \\
+\hline
+LineId  & LineId        & String \\
+
+\end{tabular}
+\end{table}
+
+
+\section{Roboter}
+
+Die Ersties können die Roboter, die sie programmiert haben auf der Website hochladen, um diese dann zu einem Turnier anzumelden.
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ r | c | l }
+\textbf{Name} & \textbf{Beschreibung} & \textbf{Typ} \\
+\hline
+\hline
+id       & Eindeutige Id & String \\
+\hline
+name     & Name          & String \\
+\hline
+description & Beschreibung des Roboters & String \\
+\hline
+dateUploaded & Datum an dem der Roboter hochgeladen wurde & date \\ 
+\hline
+userId & Id des Users, dem dieser Roboter zugehörig ist & String \\
+\end{tabular}
+\end{table}
+
+
+
+\section{Turnier} 
+
+Wenn ein Turnier offen ist, können User ihre Roboter dafür anmelden. Die Idee dahinter ist, dass man dann nur noch auf einen Button drücken muss und dann alle Roboter für das Turnier direkt als Download bekommt.
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ r | c | l}
+\textbf{Name} & \textbf{Beschreibung} & \textbf{Typ} \\
+\hline
+\hline
+if       & Eindeutige Id & String \\
+\hline
+date  & Datum an dem das Turnier statt findet &  date \\
+\hline
+participantList & teilnehmende Roboter  & wird noch bestimmt \\ 
+\end{tabular}
+\end{table} 
+
+\end{document}

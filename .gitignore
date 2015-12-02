@@ -1,0 +1,12 @@
+#Ignore PDF Files and Latex Output
+*.pdf
+*.synctex.gz
+*.bcf
+*.lof
+*.blg
+*.run.xml
+*.aux
+*.log
+*.bbl
+*.fdb_latexmk
+*.toc

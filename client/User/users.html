@@ -18,4 +18,9 @@
 		<li>{{profile.firstname}}</li>
 		<li>{{profile.lastname}}</li>
 	</ul>
+
+	{{#if isActiveUser _id}}
+		Dieses Profil gehört zum aktuellen User
+	{{/if}}
+	
 </template>

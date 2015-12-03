@@ -1,0 +1,9 @@
+<template name="navigation">
+	<ul>
+		<li><a href="{{pathFor route='users'}}">User</a></li>
+		<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
+		{{#unless currentUser}}
+		<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
+		{{/unless}}
+	</ul>
+</template>

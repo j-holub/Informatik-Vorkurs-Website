@@ -1,6 +1,9 @@
 <template name="main">
 	<h1>Info VK</h1>
-	{{#if currentUser }}
+
+	{{>navigation}}
+
+	{{#if currentUser}}
 		{{>logout}}
 	{{else}}
 		{{>login}}

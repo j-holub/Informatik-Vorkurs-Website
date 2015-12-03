@@ -2,7 +2,10 @@
 	<h1>Info VK</h1>
 	{{#if currentUser }}
 		{{>logout}}
+	{{else}}
+		{{>login}}
 	{{/if}}
+
 	{{>yield}}
 
 </template>

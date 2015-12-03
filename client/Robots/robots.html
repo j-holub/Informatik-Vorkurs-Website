@@ -1,10 +1,19 @@
 <!-- Listet alle Roboter auf -->
 <template name="robots">
-
 	<table>
 	{{#each list}}
 		{{>robot}}
 	{{/each}}
+	</table>
+</template>
+
+<!-- Listet die Roboter zu einem User -->
+<template name="userRobots">
+	<table>
+		<!-- Die _id variable sickert von dem profile template durch und komm ursprünglich vom IronRouter -->
+		{{#each listUserRobots _id}}
+			{{>robot}}
+		{{/each}}
 	</table>
 </template>
 
@@ -13,5 +22,17 @@
 	<tr>
 		<td>{{name}}</td>
 		<td>{{description}}</td>
+		<td>{{uploaderName belongsTo}}</td>
 	</tr>
+</template>
+
+
+<!-- Roboter upload formular -->
+<template name="uploadRobot">
+	<h3>Einen neuen Roboter hochladen</h3>
+	<form action="" class="uploadRobot">
+		<p>Name: <input type="text" name="robotName"></p>
+		<p>Beschreibung: <input type="textfield" name="robotDescription"></p>
+		<p><input type="submit" value="Upload"></p>
+	</form>
 </template>

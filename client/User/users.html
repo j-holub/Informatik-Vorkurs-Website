@@ -19,8 +19,12 @@
 		<li>{{profile.lastname}}</li>
 	</ul>
 
+	<h3>Roboter</h3>
+
+	{{>userRobots}}
+
 	{{#if isActiveUser _id}}
-		Dieses Profil gehört zum aktuellen User
+		{{>uploadRobot}}
 	{{/if}}
 	
 </template>

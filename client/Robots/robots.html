@@ -23,6 +23,9 @@
 		<td>{{name}}</td>
 		<td>{{description}}</td>
 		<td>{{uploaderName belongsTo}}</td>
+		{{#if belongsToUser}}
+		<td><button name="deleteRobot">Löschen</button></td>
+		{{/if}}
 	</tr>
 </template>
 

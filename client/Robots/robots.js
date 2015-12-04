@@ -20,6 +20,17 @@ Template.robot.helpers({
 		var uploader = Meteor.users.findOne({_id: uploaderId});
 		var name = uploader.profile.firstname + " " + uploader.profile.lastname;
 		return name;
+	},
+	belongsToUser: function(){
+		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
+		return Meteor.userId() == this.belongsTo;
+	}
+});
+
+Template.robot.events({
+	'click [name=deleteRobot]': function () {
+		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
+		Robots.remove({_id: this._id});
 	}
 });
 

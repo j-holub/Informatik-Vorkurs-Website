@@ -1,0 +1,33 @@
+<template name="tournaments">
+
+	<h2>Turniere</h2>
+
+	{{#each listTournaments}}
+		<table>
+		{{>tournament}}
+		</table>
+	{{/each}}
+
+	{{>createTournament}}
+
+</template>
+
+<template name="tournament">
+	<tr>
+		<td><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a></td>
+		<td>{{date}}</td>
+	</tr>
+</template>
+
+<template name="createTournament">
+	<form action="" class="createTournament">
+		<p><input type="text" name="tournamentName"></p>
+		<p><input type="submit" value="Erstellen"></p>
+	</form>
+</template>
+
+
+<template name="tournamentDetail">
+	<h3>{{name}}</h3>
+	<p>Endet: {{date}}</p>
+</template>

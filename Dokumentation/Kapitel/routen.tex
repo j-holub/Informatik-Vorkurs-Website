@@ -1,0 +1,30 @@
+\documentclass[Info_VK_Website_Dokumentation.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Routen}
+
+Die verschiedene \emph{URL} Routen der Website sind hier alle aufgelistet.
+
+Dabei werden die Routen ab nach der Domain angegeben. Läuft die Website als auf \emph{www.example.de} bezieht sich die Route "/exampleRoute" auf \emph{www.example.de/exampleRoute}.
+
+<xyz> bezieht sich dabei auf Variablen.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ l | l | l }
+\textbf{Route} & \textbf{Beschreibung} & \textbf{User exklusiv} \\
+\hline
+\hline
+/       & Die Landing Page der Website & Nein \\
+/users  & Listet alle User auf 		  & Ja \\
+/users/<userId> & Userprofil & Ja \\ 
+/robots & Listet alle hochgelandenen Roboter auf & Ja \\
+/tournaments & Listet alle Turniere auf & Ja \\
+/tournaments/<tourId> & Turnier Detail Seite  & Ja \\
+/register & Registrierungsseite & Nein \\
+\end{tabular*} 
+\end{table} 
+
+
+\end{document}

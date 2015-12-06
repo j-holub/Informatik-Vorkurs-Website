@@ -4,6 +4,7 @@
 		<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
 		<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
 		{{#unless currentUser}}
+		<li><a href="{{pathFor route='login'}}">Login</a></li>
 		<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
 		{{/unless}}
 	</ul>

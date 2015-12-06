@@ -24,6 +24,9 @@ Template.robot.helpers({
 	belongsToUser: function(){
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
 		return Meteor.userId() == this.belongsTo;
+	},
+	isDownloadable: function(){
+		return this.downloadable;
 	}
 });
 
@@ -31,6 +34,12 @@ Template.robot.events({
 	'click [name=deleteRobot]': function () {
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
 		Robots.remove({_id: this._id});
+	},
+	'change [name=downloadState]': function(event){
+		// this._id referenziert die Id des Roboters mit dem das Template gerendert wurde
+		var robotId = this._id;
+		// status in der Datenbank updaten
+		Robots.update({_id: robotId}, {$set: {downloadable: event.target.checked}});
 	}
 });
 
@@ -49,7 +58,8 @@ Template.uploadRobot.events({
 			name: name,
 			description: description,
 			dateUploaded: new Date(),
-			belongsTo: currentUserId
+			belongsTo: currentUserId,
+			downloadable: false,
 		});
 		// Eingabefelder leeren
 		$('[name=robotName]').val('');

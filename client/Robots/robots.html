@@ -24,8 +24,13 @@
 		<td>{{description}}</td>
 		<td>{{uploaderName belongsTo}}</td>
 		{{#if belongsToUser}}
-		<td><button name="deleteRobot">Löschen</button></td>
+			<td><input type="checkbox" name="downloadState" checked="{{isDownloadable}}"	/></td>
+			<td><button name="deleteRobot">Löschen</button></td>
 		{{/if}}
+		{{#if isDownloadable }}
+			<td><button>Download</button></td>
+		{{/if}}
+
 	</tr>
 </template>
 

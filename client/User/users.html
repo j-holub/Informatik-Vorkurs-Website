@@ -10,21 +10,3 @@
 <template name="user">
 	<a href="{{pathFor route='profile'}}"><li>{{profile.firstname}} {{profile.lastname}}</li></a>
 </template>
-
-
-<!-- Dieses Template bekommt über den IronRouter die informationen über den user -->
-<template name="profile">
-	<ul>
-		<li>{{profile.firstname}}</li>
-		<li>{{profile.lastname}}</li>
-	</ul>
-
-	<h3>Roboter</h3>
-
-	{{>userRobots}}
-
-	{{#if isActiveUser _id}}
-		{{>uploadRobot}}
-	{{/if}}
-	
-</template>

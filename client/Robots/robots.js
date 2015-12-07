@@ -27,6 +27,9 @@ Template.robot.helpers({
 	},
 	isDownloadable: function(){
 		return this.downloadable;
+	},
+	isDownloadableOrBelongsToUser: function(){
+		return (Meteor.userId() == this.belongsTo) || (this.downloadable);
 	}
 });
 

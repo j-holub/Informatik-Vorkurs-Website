@@ -27,7 +27,7 @@
 			<td><input type="checkbox" name="downloadState" checked="{{isDownloadable}}"	/></td>
 			<td><button name="deleteRobot">Löschen</button></td>
 		{{/if}}
-		{{#if isDownloadable }}
+		{{#if isDownloadableOrBelongsToUser }}
 			<td><button>Download</button></td>
 		{{/if}}
 

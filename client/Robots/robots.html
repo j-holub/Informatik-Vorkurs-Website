@@ -28,7 +28,7 @@
 			<td><button name="deleteRobot">Löschen</button></td>
 		{{/if}}
 		{{#if isDownloadableOrBelongsToUser }}
-			<td><button>Download</button></td>
+			<td><a href="{{data.url download=true}}">Download</a></td>
 		{{/if}}
 
 	</tr>
@@ -38,9 +38,10 @@
 <!-- Roboter upload formular -->
 <template name="uploadRobot">
 	<h3>Einen neuen Roboter hochladen</h3>
-	<form action="" class="uploadRobot">
+	<form action="" id="uploadRobot">
 		<p>Name: <input type="text" name="robotName"></p>
 		<p>Beschreibung: <input type="textfield" name="robotDescription"></p>
+		<p>Datei: <input type="file"  name="robotData"></p>
 		<p><input type="submit" value="Upload"></p>
 	</form>
 </template>

@@ -36,7 +36,20 @@ Template.robot.helpers({
 Template.robot.events({
 	'click [name=deleteRobot]': function () {
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
-		Robots.remove({_id: this._id});
+		console.log("foo?");
+		var robot = Robots.findOne({_id: this._id});
+		var robotId = robot._id;
+		// Daten löschen
+		console.log("That's where I am");
+		RobotData.remove({_id: robot.data._id}, function(error, file){
+			if(error){
+				console.log(error.reason);
+			}
+			else{
+				// Den Roboter selbst löschen
+				Robots.remove({_id: robotId});
+			}
+		});
 	},
 	'change [name=downloadState]': function(event){
 		// this._id referenziert die Id des Roboters mit dem das Template gerendert wurde
@@ -49,23 +62,36 @@ Template.robot.events({
 
 Template.uploadRobot.events({
 	// Handelt das Upload Formular um einen Roboter hochzuladen
-	'submit form': function (event) {
+	'submit form': function (event, template) {
 		// verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		// Daten sammeln
 		var name = $('[name=robotName]').val();
 		var description = $('[name=robotDescription]').val();
+		var robotFile = template.find('input:file').files[0];
 		var currentUserId = Meteor.userId();
-		// Roboter in die Datenbank eintragen
-		Robots.insert({
-			name: name,
-			description: description,
-			dateUploaded: new Date(),
-			belongsTo: currentUserId,
-			downloadable: false,
+		// Robot Data hochladen
+		var uploadedRobot = RobotData.insert(robotFile, function(error, fileObj){
+			// Überprüfung ob es fehler gab
+			if(error){
+				console.log(error.reason);
+			}
+			// wenn nicht den Roboter anlegen
+			else{
+				// Roboter in die Datenbank eintragen
+				Robots.insert({
+					name: name,
+					description: description,
+					dateUploaded: new Date(),
+					belongsTo: currentUserId,
+					downloadable: false,
+					data: uploadedRobot,
+				});
+				// Uploadform resetten
+				$('#uploadRobot')[0].reset();
+
+			}
 		});
-		// Eingabefelder leeren
-		$('[name=robotName]').val('');
-		$('[name=robotDescription]').val('');
+		
 	}
 });

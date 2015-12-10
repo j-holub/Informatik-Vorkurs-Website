@@ -1,4 +1,5 @@
 
+
 Template.robots.helpers({
 	// Listet alle Roboter auf
 	list: function () {

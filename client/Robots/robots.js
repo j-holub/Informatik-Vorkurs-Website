@@ -37,18 +37,20 @@ Template.robot.helpers({
 Template.robot.events({
 	'click [name=deleteRobot]': function () {
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
-		console.log("foo?");
 		var robot = Robots.findOne({_id: this._id});
 		var robotId = robot._id;
 		// Daten löschen
-		console.log("That's where I am");
 		RobotData.remove({_id: robot.data._id}, function(error, file){
 			if(error){
 				console.log(error.reason);
 			}
 			else{
 				// Den Roboter selbst löschen
-				Robots.remove({_id: robotId});
+				Meteor.call('deleteRobot', robotId, function (error, result) {
+					if(error){
+						console.log(error.reason);
+					}
+				});
 			}
 		});
 	},
@@ -56,7 +58,11 @@ Template.robot.events({
 		// this._id referenziert die Id des Roboters mit dem das Template gerendert wurde
 		var robotId = this._id;
 		// status in der Datenbank updaten
-		Robots.update({_id: robotId}, {$set: {downloadable: event.target.checked}});
+		Meteor.call('changeDownloadState', robotId, event.target.checked, function (error, result) {
+			if(error){
+				console.log(error.reason)
+			}
+		});
 	}
 });
 
@@ -80,13 +86,11 @@ Template.uploadRobot.events({
 			// wenn nicht den Roboter anlegen
 			else{
 				// Roboter in die Datenbank eintragen
-				Robots.insert({
-					name: name,
-					description: description,
-					dateUploaded: new Date(),
-					belongsTo: currentUserId,
-					downloadable: false,
-					data: uploadedRobot,
+				Meteor.call('uploadRobot', name, description, uploadedRobot, function(error, resultId){
+					if(error){
+						console.log(error.reason);
+						// TODO: upload datei löschen						
+					}
 				});
 				// Uploadform resetten
 				$('#uploadRobot')[0].reset();

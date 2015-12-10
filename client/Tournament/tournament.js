@@ -32,10 +32,11 @@ Template.createTournament.events({
 		event.preventDefault();
 		// Die Input Fields abfragen
 		var name = $('[name=tournamentName]').val();
-		Tournaments.insert({
-			name: name,
-			date: new Date(),
-			participants: [],
+		// Turnier erstellen
+		Meteor.call('createTournament', name, function (error, result) {
+			if(error){
+				console.log(error.reason);
+			}
 		});
 		// Input Felder leeren
 		$('[name=tournamentName]').val('');
@@ -68,7 +69,11 @@ Template.tournamentEntry.events({
 		// Die RoboterId raussuchen
 		var chosenRobotId = $('[name=availableRobots]').val();
 		// In das richtige Turnier eintragen
-		Tournaments.update({_id: this._id}, {$push: {participants: chosenRobotId}});
+		Meteor.call('signUpRobot', this._id, chosenRobotId, function (error, result) {
+			if(error){
+				console.log(error.reason);
+			}
+		});
 	}
 });
 
@@ -92,6 +97,10 @@ Template.tournamentRobot.events({
 		// TODO: hier eine bessere Methode suchen um an das richtige Turnier zu kommen
 		var tournamentId = $('h3').data('id');
 		// this._id referenziert den Roboter des Templates
-		Tournaments.update({_id: tournamentId}, {$pull: {participants: this._id}});
+		Meteor.call('signOutRobot', tournamentId, this._id, function (error, result) {
+			if(error){
+				console.log(error.reason);
+			}
+		});		
 	}
 });

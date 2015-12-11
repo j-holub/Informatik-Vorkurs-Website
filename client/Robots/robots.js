@@ -40,7 +40,7 @@ Template.robot.events({
 		var robot = Robots.findOne({_id: this._id});
 		var robotId = robot._id;
 		// Daten löschen
-		RobotData.remove({_id: robot.data._id}, function(error, file){
+		var deletedRobot = RobotData.remove({_id: robot.data._id}, function(error, file){
 			if(error){
 				console.log(error.reason);
 			}
@@ -48,6 +48,8 @@ Template.robot.events({
 				// Den Roboter selbst löschen
 				Meteor.call('deleteRobot', robotId, function (error, result) {
 					if(error){
+						// Ist das löschen in der DB fehlgschlagen fügen wir die Daten auch wieder hinzu
+						RobotData.insert(deletedRobot);
 						console.log(error.reason);
 					}
 				});
@@ -88,8 +90,9 @@ Template.uploadRobot.events({
 				// Roboter in die Datenbank eintragen
 				Meteor.call('uploadRobot', name, description, uploadedRobot, function(error, resultId){
 					if(error){
+						// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
+						RobotData.remove(uploadedRobot);
 						console.log(error.reason);
-						// TODO: upload datei löschen						
 					}
 				});
 				// Uploadform resetten

@@ -21,8 +21,15 @@ Meteor.methods({
 	'signUpRobot': function(tournamentId, robotId){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// eintragen
-			return Tournaments.update({_id: tournamentId}, {$push: {participants: robotId}});
+			// überprüfen ob der Roboter überhaupt dem User gehört
+			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
+				// eintragen
+				return Tournaments.update({_id: tournamentId}, {$push: {participants: robotId}});
+			}
+			// ansonsten Fehler werfen
+			else{
+				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter an zu melden");
+			}
 		}
 		// Fehler werfen
 		else{
@@ -33,8 +40,14 @@ Meteor.methods({
 	'signOutRobot': function(tournamentId, robotId){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// austragen
-			return Tournaments.update({_id: tournamentId}, {$pull: {participants: robotId}});
+			// überprüfen ob der Roboter überhaupt dem User gehört
+			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
+				// austragen
+				return Tournaments.update({_id: tournamentId}, {$pull: {participants: robotId}});
+			}
+			else{
+				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter ab zu melden");
+			}
 		}
 		// Fehler werfen
 		else{

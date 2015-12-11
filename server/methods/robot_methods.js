@@ -28,8 +28,16 @@ Meteor.methods({
 	'deleteRobot': function(robotId){
 		// überpürfen ob aktuell ein User eingeloggt ist
 		if(Meteor.userId()){
-			return Robots.remove({_id: robotId});
+			// überprüfen ob der Roboter überhaupt dem User gehört
+			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
+				return Robots.remove({_id: robotId});			
+			}
+			// ansonsten Fehler werfen
+			else{
+				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter zu löschen");
+			}
 		}
+		// Fehler werfen
 		else{
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");	
 		}
@@ -37,7 +45,14 @@ Meteor.methods({
 	'changeDownloadState': function(robotId, checkState){
 		// überprüfen ob aktuell ein User eingeloggt ist
 		if(Meteor.userId()){
-			Robots.update({_id: robotId}, {$set: {downloadable: checkState}});
+			// überprüfen ob der Roboter überhaupt dem User gehört
+			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){		
+				Robots.update({_id: robotId}, {$set: {downloadable: checkState}});
+			}
+			// ansonsten Fehler werfen
+			else{
+				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter zu ändern");
+			}
 		}
 		// Fehler werfen
 		else{

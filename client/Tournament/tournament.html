@@ -17,15 +17,20 @@
 <template name="tournament">
 	<tr>
 		<td><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a></td>
-		<td>{{date}}</td>
+		<td>{{displayDate}}</td>
 	</tr>
 </template>
 
 
 
 <template name="createTournament">
-	<form action="" class="createTournament">
-		<p><input type="text" name="tournamentName"></p>
+	<form action="" id="createTournament">
+		<p><input type="text" name="tournamentName" placeholder="Name"></p>
+		<p>
+			<input type="text" name="day" placeholder="01">
+			<input type="text" name="month" placeholder="01">
+			<input type="text" name="year" placeholder="2015">
+		</p>
 		<p><input type="submit" value="Erstellen"></p>
 	</form>
 </template>
@@ -33,20 +38,22 @@
 
 
 <template name="tournamentDetail">
-	<h3 data-id="{{_id}}">{{name}}</h3>
-	<p>Endet: {{date}}</p>
+	<h2 data-id="{{_id}}">{{name}}</h2>
+	<p>Endet: {{displayDate}} {{#if ended}}(Beendet){{/if}}</p>
 
 	{{>tournamentParticipants}}
 	
 	{{#unless userHasRobotInTournament}}
-		{{>tournamentEntry}}
+		{{#unless ended}}
+			{{>tournamentEntry}}
+		{{/unless}}
 	{{/unless}}
 </template>
 
 
 
 <template name="tournamentParticipants">
-	<h2>Teilnehmer</h2>
+	<h3>Teilnehmer</h3>
 	<table>
 		{{#each particpatingRobots}}
 			{{>tournamentRobot}}
@@ -57,7 +64,7 @@
 
 
 <template name="tournamentEntry">
-	<h2>Teilnehmen</h2>
+	<h3>Teilnehmen</h3>
 	<form action="">
 		<p>
 			<select name="availableRobots">
@@ -77,7 +84,9 @@
 		<td>{{name}}</td>
 		<td>{{uploaderName belongsTo}}</td>
 		{{#if belongsToUser}}
-		<td><button name="removeRobot">Austragen</button></td>
+			{{#unless ended }}
+				<td><button name="removeRobot">Austragen</button></td>
+			{{/unless}}
 		{{/if}}
 	</tr>
 </template>

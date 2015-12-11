@@ -58,5 +58,5 @@ Meteor.methods({
 		else{
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
-	}
+	},
 });

@@ -12,12 +12,24 @@ Template.users.helpers({
 
 // Sucheingabe feld
 Template.users.events({
+	// handelt die Suche
 	'keyup [name=userSearch]': _.throttle(function (event) {
 		event.preventDefault();
 		var searchText = $('[name=userSearch]').val();
 		UserSearch.search(searchText);
-	}, 200)
+	}, 200),
+	// öffnet das erste Suchergebnis
+	'keypress [name=userSearch]': function(event){
+		// Enter Key abfragen
+		if(event.charCode == 13){
+			// Holt den link des ersten Users aus dem a Element
+			var link = $('#userList').find('a')[0].href;
+			// Gehe zu link
+			Router.go(link);
+		}
+	}
 });
+
 
 Template.users.rendered = function () {
 	// führt beim rendern des Templates direkt eine leer Suche aus um alle User anzuzeigen

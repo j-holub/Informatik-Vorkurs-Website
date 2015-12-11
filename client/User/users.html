@@ -2,7 +2,7 @@
 
 	<p><input type="text" name="userSearch" /></p>
 
-	<ul>
+	<ul id="userList">
 		{{#each listUsers}}
 			{{{firstname}}}
 			{{>user}}
@@ -12,5 +12,5 @@
 
 
 <template name="user">
-	<a href="{{pathFor route='profile'}}"><li>{{profile.firstname}} {{profile.lastname}}</li></a>
+	<li><a href="{{pathFor route='profile'}}">{{profile.firstname}} {{profile.lastname}}</a></li>
 </template>

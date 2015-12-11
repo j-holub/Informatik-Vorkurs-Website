@@ -1,11 +1,16 @@
 <template name="navigation">
 	<ul>
-		<li><a href="{{pathFor route='users'}}">User</a></li>
-		<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
-		<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
+		{{#if currentUser}}
+			<li><a href="{{pathFor route='users'}}">User</a></li>
+			<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
+			<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
+		{{else}}
+			<li><a href="{{pathFor route='login'}}">Login</a></li>
+			<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
+		{{/if}}
+		
 		{{#unless currentUser}}
-		<li><a href="{{pathFor route='login'}}">Login</a></li>
-		<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
+		
 		{{/unless}}
 	</ul>
 </template>

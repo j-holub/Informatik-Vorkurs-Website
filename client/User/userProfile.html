@@ -1,5 +1,8 @@
 <!-- Dieses Template bekommt über den IronRouter die informationen über den user -->
 <template name="profile">
+
+	{{> avatar user=this shape="circle" size="large"}}
+
 	<ul>
 		<li>{{profile.firstname}}</li>
 		<li>{{profile.lastname}}</li>
@@ -13,4 +16,4 @@
 		{{>uploadRobot}}
 	{{/if}}
 	
-</template>
+</template> 

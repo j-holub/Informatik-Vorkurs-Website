@@ -24,3 +24,4 @@ cfs:ejson-file
 check
 ejson
 utilities:avatar
+meteorhacks:search-source

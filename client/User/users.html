@@ -1,6 +1,10 @@
 <template name="users">
+
+	<p><input type="text" name="userSearch" /></p>
+
 	<ul>
 		{{#each listUsers}}
+			{{{firstname}}}
 			{{>user}}
 		{{/each}}
 	</ul>

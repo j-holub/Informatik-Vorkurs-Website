@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAQA,UAGC;EAFA,WAAW,EAAE,eAAe;EAC5B,GAAG,EAAE,iCAAiC;ACVvC,IAAI;EACH,WAAW,EDWG,eAAe",
+"sources": ["../sass/info_vk_base.scss","../sass/modules/_body.scss"],
+"names": [],
+"file": "info_vk.css"
+}

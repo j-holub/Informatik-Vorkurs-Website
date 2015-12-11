@@ -11,3 +11,6 @@
 *.fdb_latexmk
 *.toc
 *.out
+
+#Sass Cache
+.sass-cache/

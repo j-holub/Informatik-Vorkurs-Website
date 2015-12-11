@@ -1,0 +1,19 @@
+
+// Farben definieren
+$primaryColor: #1F3641;
+$secondaryColor: #0085A1;
+$highlightColor: #FA522A;
+$backgroundColor: #F5F4EE;
+
+// Typographie
+@font-face {
+	font-family: 'HelveticaNeue';
+	src: url('../fonts/HelveticaNeue.ttf');
+}
+
+$standartFont: 'HelveticaNeue';
+
+
+// Alle Module importieren
+@import "modules/body";
+@import "modules/navigation";

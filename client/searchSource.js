@@ -5,6 +5,6 @@ var options = {
 	localSearch: true
 };
 
-var fields = ['firstname', 'lastname']
+var fields = ['profile.firstname', 'profile.lastname']
 
 UserSearch = new SearchSource('users', fields, options);

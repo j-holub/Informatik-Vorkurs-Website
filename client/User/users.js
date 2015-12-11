@@ -2,7 +2,11 @@
 Template.users.helpers({
 	listUsers: function () {
 		// return Meteor.users.find({}, {sort: {lastname: 1}}).fetch();
-		return UserSearch.getData({});
+		return UserSearch.getData({
+			transform: function(matchText, regExp){
+				return matchText.replace(regExp, "<b>$&</b>")
+			},
+		});
 	}
 });
 

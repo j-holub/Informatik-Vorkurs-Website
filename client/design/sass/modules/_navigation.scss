@@ -8,6 +8,8 @@ nav{
 	top: 0;
 	width: 100%;
 
+	padding: 0;
+
 	background-color: $backgroundColor;
 
 	border-bottom: 2px solid #6C7A89;
@@ -15,6 +17,19 @@ nav{
 	font-family: 'Nevis';
 
 	ul#navi{
+
+		list-style-type: none;
+		height: $navigationHeight;
+		padding: 0;
+
+		margin-top: 0;
+		margin-bottom: 0;
+
+		li{
+			text-align: center;
+			float: left;
+		}
+
 		a{
 			color: $primaryColor !important;
 			font-size: 1.4em;
@@ -32,10 +47,14 @@ nav{
 
 // user Information
 ul#userInfo{
+	height: $navigationHeight;
 	line-height: $navigationHeight;
 	position: absolute;
-	right: 0;
+	right: 1em;
 	top: 0;
+
+	margin-top: 0;
+	margin-bottom: 0;
 
 
 	li{
@@ -65,33 +84,39 @@ nav{
 		margin-left: auto;
 
 		width: 70%;
-		height: $navigationHeight;
-
-		list-style-type: none;
-
-		padding: 0;
 
 		li{
-		float: left;
-		width: 12%;
-		text-align: center;
+			width: 10em;
+			min-width: 10em;
 		}
 
 		a{
-		// hiermit werden die einzeln Menüpunkte ordentlich zentriert
-		line-height: $navigationHeight;
+			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
+			line-height: $navigationHeight;
 
-		// macht den ganzen Bereich clickbar
-		// display: block;
+			// macht den ganzen Bereich clickbar
+			// display: block;
 
 		}
 
 	}
 
 	
+	#menuButton{
+		display: none;
+	}
 
+	.avatar{
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	// Das dient der vertikalen zetrierung
+	.userImage{
+		display: inline-block;
+		height: 100%;
+	}
 	
-
 
 }
 }
@@ -99,18 +124,74 @@ nav{
 // mobile
 @media screen and (max-width: 800px){
 
-	ul#navi{
+// collapsed menu
+.collapsed{
 
-			width: 90%;
-			list-style: none;
+	li{
+		// display: none;
+		height: 0 !important;
 
-		li{
-			float: left;
-			width: 100%;
-			text-align: center;
-			
-		}
-
+		border-top: none !important;
 	}
+
+	a{
+		display: none;	
+	}
+
+
+}
+
+
+ul#userInfo{
+
+	// abstand nach rechts veringern
+	right: 0;
+
+	// Avatar verstecken
+	.avatar{
+		display: none;
+	}
+
+}
+
+ul#navi{
+
+		// genau unter der Navileiste platzieren
+		margin-top: $navigationHeight !important;
+
+		padding: 0;		
+
+		width: 100%;
+
+		height: 0 !important;
+		// display: none;
+
+	li{
+		width: 100%;
+		
+		height: $navigationHeight * 0.9;
+		line-height: $navigationHeight * 0.9;
+
+		border-top: 1px solid $primaryColor;
+
+		-webkit-transition: height 0.5s ease-in-out;
+		transition: height 0.5s ease-in-out;
+	}
+
+
+}
+
+#menuButton{
+
+	position: absolute;
+
+	top: 0;
+	left: 0.7em;
+
+	font-size: 1.5em;
+
+	line-height: $navigationHeight;
+
+}
 
 }

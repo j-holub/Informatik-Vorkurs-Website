@@ -14,3 +14,4 @@
 
 #Sass Cache
 .sass-cache/
+*.css.map

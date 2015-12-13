@@ -1,10 +1,10 @@
 <template name="navigation">
 
-
-
 	<nav>
+
+	<i id="menuButton" class="fa fa-bars"></i>
 	
-	<ul id="navi">
+	<ul id="navi" class="collapsed">
 		{{#if currentUser}}
 			<li><a href="{{pathFor route='users'}}">User</a></li>
 			<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
@@ -20,7 +20,7 @@
 	{{#with currentUser }}
 	<ul id="userInfo">
 		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }}</a></li>
-		<li><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
+		<li class="userImage"><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
 		<li>{{>logout}}</li>
 	</ul>
 	{{/with}}

@@ -3,17 +3,29 @@
 $primaryColor: #1F3641;
 $secondaryColor: #0085A1;
 $highlightColor: #FA522A;
-$backgroundColor: #F5F4EE;
+// $backgroundColor: #F5F4EE;
+$backgroundColor: #fff;
 
 // Typographie
 @font-face {
 	font-family: 'HelveticaNeue';
 	src: url('../fonts/HelveticaNeue.ttf');
 }
+@font-face {
+	font-family: 'Nevis';
+	src: url('../fonts/nevis.ttf');
+}
+@font-face {
+	font-family: 'Sertig';
+	src: url('../fonts/Sertig.otf');
+}
 
 $standartFont: 'HelveticaNeue';
 
+// Navigation
+$navigationHeight: 50px;
 
 // Alle Module importieren
-@import "modules/body";
 @import "modules/navigation";
+@import "modules/body";
+@import "modules/links";

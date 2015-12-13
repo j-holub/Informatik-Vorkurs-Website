@@ -1,1 +1,116 @@
-_navigation.scss
+
+
+// allgemeines
+nav{
+
+	// positioniert die Leiste ganz oben
+	position: absolute;
+	top: 0;
+	width: 100%;
+
+	background-color: $backgroundColor;
+
+	border-bottom: 2px solid #6C7A89;
+
+	font-family: 'Nevis';
+
+	ul#navi{
+		a{
+			color: $primaryColor !important;
+			font-size: 1.4em;
+
+			letter-spacing: 1px;
+		}
+
+		a:hover{
+			// text-decoration: underline;
+			border-bottom: 1px solid $primaryColor;
+		}
+	}
+}
+
+
+// user Information
+ul#userInfo{
+	line-height: $navigationHeight;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+
+	li{
+		float: left;
+		display: inline-block;
+		text-align: center;
+
+		margin-left: 10px;
+		margin-right: 10px;
+
+		font-family: 'Sertig';
+		font-size: 1.3em;
+
+	}
+
+}
+
+
+// desktop
+@media screen and (min-width: 800px){
+
+nav{
+	
+
+	ul#navi{
+		margin-right: auto;
+		margin-left: auto;
+
+		width: 70%;
+		height: $navigationHeight;
+
+		list-style-type: none;
+
+		padding: 0;
+
+		li{
+		float: left;
+		width: 12%;
+		text-align: center;
+		}
+
+		a{
+		// hiermit werden die einzeln Menüpunkte ordentlich zentriert
+		line-height: $navigationHeight;
+
+		// macht den ganzen Bereich clickbar
+		// display: block;
+
+		}
+
+	}
+
+	
+
+	
+
+
+}
+}
+
+// mobile
+@media screen and (max-width: 800px){
+
+	ul#navi{
+
+			width: 90%;
+			list-style: none;
+
+		li{
+			float: left;
+			width: 100%;
+			text-align: center;
+			
+		}
+
+	}
+
+}

@@ -1,3 +1,9 @@
 body{
 	font-family: $standartFont;
+
+	margin: 0;
+	
+	padding-top: $navigationHeight;
+
+	background-color: $backgroundColor;
 }

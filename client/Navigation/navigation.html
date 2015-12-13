@@ -1,5 +1,10 @@
 <template name="navigation">
-	<ul>
+
+
+
+	<nav>
+	
+	<ul id="navi">
 		{{#if currentUser}}
 			<li><a href="{{pathFor route='users'}}">User</a></li>
 			<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
@@ -9,8 +14,16 @@
 			<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
 		{{/if}}
 		
-		{{#unless currentUser}}
-		
-		{{/unless}}
 	</ul>
+
+	
+	{{#with currentUser }}
+	<ul id="userInfo">
+		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }}</a></li>
+		<li><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
+	</ul>
+	{{/with}}
+
+	</nav>
+
 </template>

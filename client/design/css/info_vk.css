@@ -107,4 +107,12 @@ a, a:hover, a:active, a:visited, a:hover {
   text-decoration: none;
   color: black; }
 
+#loading {
+  width: 100%;
+  min-height: 500px;
+  text-align: center;
+  background-color: #FFF i;
+    background-color-line-height: 500px;
+    background-color-font-size: 5em; }
+
 /*# sourceMappingURL=info_vk.css.map */

@@ -21,6 +21,7 @@
 	<ul id="userInfo">
 		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }}</a></li>
 		<li><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
+		<li>{{>logout}}</li>
 	</ul>
 	{{/with}}
 

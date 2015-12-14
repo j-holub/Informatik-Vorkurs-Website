@@ -8,7 +8,7 @@ SearchSource.defineSource('users', function(searchText, options){
 		// RegularExpression basteln
 		var searchWords = searchText.trim().split(' ');
 		var searchRegEx = new RegExp('(' + searchWords.join('|') + ')', 'ig');
-		console.log(searchRegEx)
+		// console.log(searchRegEx)
 		// selektor für die Suche
 		var selector = {$or: [
 			{'profile.firstname': searchRegEx},

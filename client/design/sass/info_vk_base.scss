@@ -4,6 +4,7 @@ $primaryColor: #1F3641;
 $secondaryColor: #0085A1;
 $highlightColor: #FA522A;
 // $backgroundColor: #F5F4EE;
+$grey: #95a5a6;
 $backgroundColor: #fff;
 
 // Typographie
@@ -30,3 +31,5 @@ $navigationHeight: 70px;
 @import "modules/body";
 @import "modules/links";
 @import "modules/misc";
+@import "modules/forms";
+@import "modules/user";

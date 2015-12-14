@@ -2,11 +2,44 @@
 Template.users.helpers({
 	listUsers: function () {
 		// return Meteor.users.find({}, {sort: {lastname: 1}}).fetch();
-		return UserSearch.getData({
+		var data = UserSearch.getData({
 			transform: function(matchText, regExp){
 				return matchText.replace(regExp, "<b>$&</b>")
 			},
+			sort: {'profile.firstname': 1}
 		});
+
+		console.log(data);
+
+		if(data.length > 4){
+
+		// Rückgabeliste basteln
+		var formattedResultList = new Array(Math.round(data.length / 4));
+		// neues Array in jedem eintrag erstellen
+		for (var i = 0; i < formattedResultList.length; i++) {
+			formattedResultList[i] = [];
+		};
+		// Die Suchergebnisse entsprechend einsortieren
+		for (var i = 0; i < data.length; i++) {
+			// console.log(data[i]);
+			formattedResultList[Math.floor(i/4)][i % 4] = data[i];
+		};
+
+		}
+		else{
+			formattedResultList = new Array(1);
+			formattedResultList[0] = data;
+		}
+
+		// an den Client liefern
+		return formattedResultList;
+	},
+	// überprüft den zeilenumbruch
+	rowBegin: function(index){
+		return index % 4 == 0;
+	},
+	rowEnd: function(index){
+		return index % 4 == 3;
 	}
 });
 

@@ -1,0 +1,22 @@
+
+div.user{
+	text-align: center;
+
+	padding: 0.5em;
+
+	font-size: 1.3em;
+	line-height: 2.2em;
+
+	letter-spacing: 0.1em;
+
+	.avatar{
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+#userList{
+	a:hover{
+		color: $secondaryColor;
+	}
+}

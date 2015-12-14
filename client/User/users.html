@@ -1,19 +1,40 @@
 <template name="users">
 
-	<h2>User</h2>
+	<div class="container">
 
-	<p><input type="text" name="userSearch" /></p>
+	<div class="row">
+		<div class="col s12">
+			<p><input type="text" name="userSearch" class="topSearchBar" /></p>
+		</div>
+	</div>
 
-	<ul id="userList">
-		{{#each listUsers}}
-			{{{firstname}}}
-			{{>user}}
+	<div id="userList">
+	{{#each listUsers}}
+		
+		<div class="row">
+		{{#each this}}
+			
+		{{>user}}
+
 		{{/each}}
-	</ul>
+		</div>
+
+	{{/each}}
+	</div>
+
+	<!-- container -->
+	</div>
 
 </template>
 
 
 <template name="user">
-	<li><a href="{{pathFor route='profile'}}">{{profile.firstname}} {{profile.lastname}}</a></li>
+	<div class="col s6 m6 l3">
+		<a href="{{pathFor route='profile'}}">
+		<div class="user">
+		{{>avatar user=this shape="circle" size="large"}}
+		{{profile.firstname}} {{profile.lastname}}
+		</div>
+		</a>
+	</div>
 </template>

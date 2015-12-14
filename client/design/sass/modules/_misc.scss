@@ -1,4 +1,5 @@
 
+// Loading Page
 #loading{
 	width: 100%;
 	min-height: 500px;
@@ -12,5 +13,16 @@
 		line-height: 500px;
 		font-size: 5em;
 	}
+
+}
+
+
+// Such leiste oben
+.topSearchBar{
+
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
 
 }

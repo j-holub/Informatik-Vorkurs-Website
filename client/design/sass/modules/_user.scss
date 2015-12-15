@@ -20,3 +20,43 @@ div.user{
 		color: $secondaryColor;
 	}
 }
+
+div#userProfile{
+
+	.avatar{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3em;
+
+		display: block;
+	}
+
+	h3, h4{
+		text-align: center;
+	}
+
+	p.username{
+		text-align: center;
+		
+		font-size: 2em;
+		font-weight: bold;
+
+		color: $headingColor;
+		font-family: 'Sertig';
+	}
+
+	p{
+		text-align: center;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	i{
+		cursor: pointer;
+	}
+	i:hover{
+		color: $secondaryColor;
+	}
+
+}

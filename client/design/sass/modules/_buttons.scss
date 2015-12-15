@@ -1,0 +1,44 @@
+
+button{
+
+	border: none;
+	border-radius: 0.3em;
+
+	padding: 0.75em 1.5em;
+
+	font-size: 1.2em;
+	letter-spacing: 1px;
+
+	min-width: 7em;
+
+	background-color: $primaryColor;
+
+	color: $backgroundColor;
+
+	cursor: pointer;
+
+}
+
+button:hover{
+	background-color: $secondaryColor;
+}
+
+.borderButton{
+
+	background-color: $backgroundColor;
+
+	border: 3px solid $primaryColor;
+
+	color: $primaryColor;
+
+}
+
+.borderButton:hover{
+	background-color: $backgroundColor;
+	border: 3px solid $secondaryColor;
+	color: $secondaryColor;
+}
+
+button:focus{
+	appearance: none;
+}

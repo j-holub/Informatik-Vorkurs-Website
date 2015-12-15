@@ -7,6 +7,84 @@
 @font-face {
   font-family: 'Sertig';
   src: url("../fonts/Sertig.otf"); }
+#loading {
+  width: 100%;
+  min-height: 500px;
+  text-align: center;
+  background-color: #FFF i;
+    background-color-line-height: 500px;
+    background-color-font-size: 5em; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #4B4B4C; }
+
+.topSearchBar {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  display: block; }
+
+.invisible {
+  display: none; }
+
+button, input[type=submit], input[type=file] + label {
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  min-width: 7em;
+  background-color: #1F3641;
+  color: #fff;
+  cursor: pointer; }
+
+button:hover, input[type=submit]:hover, input[type=file] + label:hover {
+  background-color: #0085A1; }
+
+.borderButton {
+  background-color: #fff;
+  border: 3px solid #1F3641;
+  color: #1F3641; }
+
+.borderButton:hover {
+  background-color: #fff;
+  border: 3px solid #0085A1;
+  color: #0085A1; }
+
+button:focus, input[type=submit]:focus, input[type=file] + label:focus {
+  appearance: none; }
+
+input[type=text],
+textarea {
+  padding: 0.6em;
+  font-size: 1.1em;
+  border-radius: 0.3em;
+  appearance: none;
+  box-shadow: none;
+  border: 2px solid #4B4B4C;
+  min-width: 13em; }
+
+input[type=text] {
+  text-align: center; }
+
+input[type=text]:focus,
+input[type=text]:hover,
+textarea:focus,
+textarea:hover {
+  border: 2px solid #0085A1;
+  outline: none; }
+
+input[type=file] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+input[type=file] + label {
+  display: inline-block; }
+
 nav {
   position: absolute;
   top: 0;
@@ -15,6 +93,8 @@ nav {
   background-color: #fff;
   border-bottom: 2px solid #6C7A89;
   font-family: 'Nevis'; }
+  nav li:hover {
+    color: #0085A1; }
   nav ul#navi {
     list-style-type: none;
     height: 70px;
@@ -39,7 +119,10 @@ ul#userInfo {
   right: 1em;
   top: 0;
   margin-top: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  color: #4B4B4C; }
+  ul#userInfo i {
+    cursor: pointer; }
   ul#userInfo li {
     float: left;
     display: inline-block;
@@ -89,8 +172,8 @@ ul#userInfo {
       height: 63px;
       line-height: 63px;
       border-top: 1px solid #1F3641;
-      -webkit-transition: height 0.5s ease-in-out;
-      transition: height 0.5s ease-in-out; }
+      -webkit-transition: height 0.2s ease-in-out;
+      transition: height 0.2s ease-in-out; }
 
   #menuButton {
     position: absolute;
@@ -100,41 +183,14 @@ ul#userInfo {
     line-height: 70px; } }
 body {
   font-family: "HelveticaNeue";
+  color: #7B7C7F;
   margin: 0;
-  padding-top: 91px;
+  padding-top: 105px;
   background-color: #fff; }
 
 a, a:hover, a:active, a:visited, a:hover {
   text-decoration: none;
   color: black; }
-
-#loading {
-  width: 100%;
-  min-height: 500px;
-  text-align: center;
-  background-color: #FFF i;
-    background-color-line-height: 500px;
-    background-color-font-size: 5em; }
-
-.topSearchBar {
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block; }
-
-input[type=text] {
-  padding: 0.6em;
-  font-size: 1.1em;
-  text-align: center;
-  border-radius: 0.3em;
-  appearance: none;
-  box-shadow: none;
-  border: 2px solid #95a5a6; }
-
-input[type=text]:focus,
-input[type=text]:hover {
-  border: 2px solid #0085A1;
-  outline: none; }
 
 div.user {
   text-align: center;
@@ -147,6 +203,28 @@ div.user {
     margin-left: auto; }
 
 #userList a:hover {
+  color: #0085A1; }
+
+div#userProfile .avatar {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  display: block; }
+div#userProfile h3, div#userProfile h4 {
+  text-align: center; }
+div#userProfile p.username {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #4B4B4C;
+  font-family: 'Sertig'; }
+div#userProfile p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+div#userProfile i {
+  cursor: pointer; }
+div#userProfile i:hover {
   color: #0085A1; }
 
 /*# sourceMappingURL=info_vk.css.map */

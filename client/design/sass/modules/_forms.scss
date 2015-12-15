@@ -1,10 +1,9 @@
 
-input[type=text]{
+input[type=text],
+textarea{
 	padding: 0.6em;
 
 	font-size: 1.1em;
-
-	text-align: center;
 	
 	border-radius: 0.3em;
 
@@ -12,12 +11,42 @@ input[type=text]{
 	appearance: none;
 	box-shadow: none;
 
-	border: 2px solid $grey;
+	border: 2px solid $headingColor;
+
+	min-width: 13em;
 	
 }
 
+input[type=text]{
+	text-align: center;
+}
+
+
+
 input[type=text]:focus,
-input[type=text]:hover{
+input[type=text]:hover,
+textarea:focus,
+textarea:hover{
 	border: 2px solid $secondaryColor;
 	outline: none;
+}
+
+input[type=submit]{
+	@extend button;
+}
+
+// Diese Attribute machen das Input Feld zwar unsichtbar,
+// aber man kann es immernoch mit Tab anwählen
+input[type=file]{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+input[type=file] + label{
+	@extend button;
+	display: inline-block;
 }

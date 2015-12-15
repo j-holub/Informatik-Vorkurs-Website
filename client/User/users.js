@@ -9,8 +9,6 @@ Template.users.helpers({
 			sort: {'profile.firstname': 1}
 		});
 
-		console.log(data);
-
 		if(data.length > 4){
 
 		// Rückgabeliste basteln
@@ -21,7 +19,6 @@ Template.users.helpers({
 		};
 		// Die Suchergebnisse entsprechend einsortieren
 		for (var i = 0; i < data.length; i++) {
-			// console.log(data[i]);
 			formattedResultList[Math.floor(i/4)][i % 4] = data[i];
 		};
 
@@ -33,6 +30,10 @@ Template.users.helpers({
 
 		// an den Client liefern
 		return formattedResultList;
+	},
+	// überprüft ob die Suche noch am laden ist
+	isLoading: function(){
+		return UserSearch.getStatus().loading();
 	},
 	// überprüft den zeilenumbruch
 	rowBegin: function(index){
@@ -51,7 +52,7 @@ Template.users.events({
 		var searchText = $('[name=userSearch]').val();
 		UserSearch.search(searchText);
 	}, 200),
-	// öffnet das erste Suchergebnis
+	// Tastenevents für die Suchleiste
 	'keypress [name=userSearch]': function(event){
 		// Enter Key abfragen
 		if(event.charCode == 13){
@@ -60,6 +61,13 @@ Template.users.events({
 			var link = $('#userList').find('a')[0].href;
 			// Gehe zu link
 			Router.go(link);
+		}
+		// Escape Key abfragen
+		else if(event.charCode == 27){
+			$('[name=userSearch]').val(' ');
+			$('[name=userSearch]').blur();
+			// leere Suche
+			UserSearch.search(' ');
 		}
 	}
 });

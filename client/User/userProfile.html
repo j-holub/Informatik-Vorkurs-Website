@@ -1,17 +1,29 @@
 <!-- Dieses Template bekommt über den IronRouter die informationen über den user -->
 <template name="profile">
 
-	{{> avatar user=this shape="circle" size="large"}}
+	<div id="userProfile" class="container">
+	<div class="row">
 
-	<ul>
-		<li>{{profile.firstname}}</li>
-		<li>{{profile.lastname}}</li>
-	</ul>
+	<div class="col s12 m5 l5">
 
+	{{> avatar user=this shape="circle" size="profile"}}
+
+	<p class="username">{{profile.firstname}} {{profile.lastname}}</p>
+
+	</div>
+	<div class="col s12 m7 l7">
 	{{>userRobots}}
 
 	{{#if isActiveUser _id}}
+		<br/>
 		{{>uploadRobot}}
 	{{/if}}
+
+	</div>
+
+	<!-- Row -->
+	</div>
+	<!-- Container -->
+	</div>
 	
 </template> 

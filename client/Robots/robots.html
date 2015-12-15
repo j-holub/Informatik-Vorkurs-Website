@@ -13,12 +13,15 @@
 <!-- Listet die Roboter zu einem User -->
 <template name="userRobots">
 	<h3>Roboter</h3>
-	<table>
-		<!-- Die _id variable sickert von dem profile template durch und komm ursprünglich vom IronRouter -->
-		{{#each listUserRobots _id}}
-			{{>robot}}
-		{{/each}}
-	</table>
+	<!-- Die _id variable sickert von dem profile template durch und komm ursprünglich vom IronRouter -->
+	{{#each listUserRobots _id}}
+		{{>profileRobot}}
+	{{/each}}
+</template>
+
+<template name="profileRobot">
+	<h4>{{name}} {{#if isDownloadableOrBelongsToUser}} <a href="{{data.url download=true}}"><i class="fa fa-download"></i></a> {{/if}} {{#if belongsToUser }} <i class="fa fa-trash" name="deleteRobot"></i> {{/if}}</h4>
+	<p>{{description}}</p>
 </template>
 
 <!-- Listet die Details zu einem Roboter -->
@@ -40,12 +43,26 @@
 
 
 <!-- Roboter upload formular -->
-<template name="uploadRobot">
+<template name="uploadRobotOld">
 	<h3>Einen neuen Roboter hochladen</h3>
 	<form action="" id="uploadRobot">
 		<p>Name: <input type="text" name="robotName"></p>
-		<p>Beschreibung: <input type="textfield" name="robotDescription"></p>
+		<!-- <p>Beschreibung: <input type="textfield" name="robotDescription"></p> -->
+		<p>Beschreibung: <textarea name="robotDescription"  cols="30" rows="5"></textarea></p>
 		<p>Datei: <input type="file"  name="robotData"></p>
 		<p><input type="submit" value="Upload"></p>
 	</form>
+</template>
+
+<template name="uploadRobot">
+
+	<p><button id="uploadRobotButton" class="borderButton">Roboter hochladen</button></p>
+
+	<form id="uploadRobot" class="invisible">
+		<p><input type="text" name="robotName" placeholder="Name"></p>
+		<p><textarea name="robotDescription" cols="10" rows="3" placeholder="Beschreibung"></textarea></p>
+		<p><input type="file" name="robotData" id="robotData"><label for="robotData"><i class="fa fa-upload"></i> <span>Datei</span></label></p>
+		<p><input type="submit" value="Upload"></p>
+	</form>
+
 </template>

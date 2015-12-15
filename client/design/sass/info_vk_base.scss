@@ -4,7 +4,10 @@ $primaryColor: #1F3641;
 $secondaryColor: #0085A1;
 $highlightColor: #FA522A;
 // $backgroundColor: #F5F4EE;
-$grey: #95a5a6;
+
+$textColor: #7B7C7F;
+$headingColor: #4B4B4C;
+
 $backgroundColor: #fff;
 
 // Typographie
@@ -27,9 +30,11 @@ $standartFont: 'HelveticaNeue';
 $navigationHeight: 70px;
 
 // Alle Module importieren
+@import "modules/misc";
+@import "modules/buttons";
+@import "modules/forms";
+
 @import "modules/navigation";
 @import "modules/body";
 @import "modules/links";
-@import "modules/misc";
-@import "modules/forms";
 @import "modules/user";

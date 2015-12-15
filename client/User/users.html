@@ -9,6 +9,12 @@
 	</div>
 
 	<div id="userList">
+
+	{{#if isLoading }}
+		{{>loading}}
+	{{else}}
+	
+	
 	{{#each listUsers}}
 		
 		<div class="row">
@@ -20,6 +26,9 @@
 		</div>
 
 	{{/each}}
+
+	{{/if}}
+	<!-- userList -->
 	</div>
 
 	<!-- container -->

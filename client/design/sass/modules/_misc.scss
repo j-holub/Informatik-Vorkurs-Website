@@ -16,6 +16,10 @@
 
 }
 
+h1,h2,h3,h4,h5,h6{
+	color: $headingColor;
+}
+
 
 // Such leiste oben
 .topSearchBar{
@@ -25,4 +29,9 @@
 	margin-left: auto;
 	display: block;
 
+}
+
+// unsichtbar
+.invisible{
+	display: none;
 }

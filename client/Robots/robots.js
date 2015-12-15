@@ -15,7 +15,7 @@ Template.userRobots.helpers({
 	}
 });
 
-Template.robot.helpers({
+Template.profileRobot.helpers({
 	// sucht zu einer UserId ddes Uploaders en Vor- und Nachnamen raus
 	uploaderName: function (uploaderId) {
 		var uploader = Meteor.users.findOne({_id: uploaderId});
@@ -34,7 +34,7 @@ Template.robot.helpers({
 	}
 });
 
-Template.robot.events({
+Template.profileRobot.events({
 	'click [name=deleteRobot]': function () {
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
 		var robot = Robots.findOne({_id: this._id});
@@ -65,7 +65,7 @@ Template.robot.events({
 				console.log(error.reason)
 			}
 		});
-	}
+	},
 });
 
 
@@ -97,9 +97,35 @@ Template.uploadRobot.events({
 				});
 				// Uploadform resetten
 				$('#uploadRobot')[0].reset();
-
+				// Form verschwinden lassen
+				$('#uploadRobot').addClass('invisible');
+				// Button sichtbar machen
+				$('#uploadRobotButton').removeClass('invisible');
 			}
 		});
-		
+	},
+	'click #uploadRobotButton': function(){
+		// Button verschwinden lassen
+		$('#uploadRobotButton').addClass('invisible');
+		// das Form sichtbar machen
+		$('#uploadRobot').removeClass('invisible');
+		// Das erste Eingabefeld fokusieren
+		$('[name=robotName]').focus();
+	},
+	// zeigt den Dateinamen auf dem Button an
+	'change #robotData': function(event){
+		// Datei namen von dem event holen
+		var fileName = event.target.value.split('\\').pop();
+		var label = $('#robotData').next('label');
+		var originalLabelValue = label.val();
+
+		if(fileName){
+			// Label auf den Dateinamen setzten
+			label.find('span').html(fileName);
+		}
+		else{
+			// auf den Originalen Text setzen
+			label.html(originalLabelValue);
+		}
 	}
 });

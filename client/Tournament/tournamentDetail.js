@@ -7,11 +7,13 @@ Template.tournamentParticipants.helpers({
 		if(robots.length > 3){
 
 			// Rückgabeliste basteln
-			formattedResultList = new Array(Math.round(robots.length / 3));
+			formattedResultList = new Array(Math.ceil(robots.length / 3));
+			
 			// neues Array in jedem eintrag erstellen
 			for (var i  = 0; i  < formattedResultList.length; i++) {
 				formattedResultList[i] = [];
 			};
+
 			// Die Suchergebnisse entsprechend einsortieren
 			for (var i = 0; i < robots.length; i++) {
 				formattedResultList[Math.floor(i/3)][i % 3] = robots[i];
@@ -72,7 +74,6 @@ Template.tournamentDetail.helpers({
 	},
 	userHasRobots: function(){
 		var userRobots = Robots.find({belongsTo: Meteor.userId()}).fetch();
-		console.log(userRobots);
 		return userRobots.length > 0;
 	}
 });
@@ -97,7 +98,6 @@ Template.tournamentEntry.events({
 		}
 	},
 	'click #tournamentEntryButton': function(event){
-		console.log("foo");
 		$('#tournamentEntryButton').addClass('invisible');
 		$('#robotDropdown').removeClass('invisible');
 		$('#signUpButton').removeClass('invisible');

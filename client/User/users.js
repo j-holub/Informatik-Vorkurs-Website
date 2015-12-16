@@ -9,10 +9,12 @@ Template.users.helpers({
 			sort: {'profile.firstname': 1}
 		});
 
+		var formattedResultList;
+
 		if(data.length > 4){
 
 		// Rückgabeliste basteln
-		var formattedResultList = new Array(Math.round(data.length / 4));
+		formattedResultList = new Array(Math.round(data.length / 4));
 		// neues Array in jedem eintrag erstellen
 		for (var i = 0; i < formattedResultList.length; i++) {
 			formattedResultList[i] = [];
@@ -33,7 +35,7 @@ Template.users.helpers({
 	},
 	// überprüft ob die Suche noch am laden ist
 	isLoading: function(){
-		return UserSearch.getStatus().loading();
+		return UserSearch.getStatus().loading;
 	},
 	// überprüft den zeilenumbruch
 	rowBegin: function(index){

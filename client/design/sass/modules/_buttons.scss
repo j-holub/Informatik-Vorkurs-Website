@@ -21,6 +21,8 @@ button{
 
 button:hover{
 	background-color: $secondaryColor;
+
+	transition: all 0.3s ease-out;
 }
 
 .borderButton{

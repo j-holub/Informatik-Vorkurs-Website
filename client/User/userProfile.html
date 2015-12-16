@@ -4,14 +4,14 @@
 	<div id="userProfile" class="container">
 	<div class="row">
 
-	<div class="col s12 m5 l5">
+	<div class="col s12 m6 l6">
 
 	{{> avatar user=this shape="circle" size="profile"}}
 
 	<p class="username">{{profile.firstname}} {{profile.lastname}}</p>
 
 	</div>
-	<div class="col s12 m7 l7">
+	<div class="col s12 m6 l6">
 	{{>userRobots}}
 
 	{{#if isActiveUser _id}}

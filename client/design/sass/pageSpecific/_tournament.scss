@@ -1,0 +1,58 @@
+
+div#tournamentList{
+
+	i{
+		color: $headingColor;
+	}
+
+	h2,p{
+		text-align: center;
+	}
+
+	form{
+		table{
+
+			width: 30%;
+
+			margin-right: auto;
+			margin-left: auto;
+
+			td{
+				text-align: center;
+
+				padding: 0.2em;
+
+			}
+			input[type=text]{
+				width: 100%;
+			}
+		}
+	}
+
+}
+
+div#tournamentDetail{
+	
+	h1,h2, h3, p{
+		text-align: center;
+	}
+
+	h3{
+		margin-bottom: 0.2em;
+	}
+
+	.owner{
+		text-align: center;
+		margin-top: 0.05em;
+
+		font-size: 0.8em;
+	}
+	
+	.robot i{
+		cursor: pointer;
+	}
+	.robot i:hover{
+		color: $secondaryColor;
+	}
+
+}

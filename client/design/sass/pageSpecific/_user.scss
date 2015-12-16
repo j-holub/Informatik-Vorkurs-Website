@@ -59,4 +59,8 @@ div#userProfile{
 		color: $secondaryColor;
 	}
 
+	input[type=text], textarea{
+			min-width: 13em;
+	}
+
 }

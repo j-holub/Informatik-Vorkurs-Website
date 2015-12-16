@@ -1,92 +1,43 @@
 <template name="tournaments">
 
-	<h2>Turniere</h2>
+	<div class="container" id="tournamentList">
 
 	{{#each listTournaments}}
-		<table>
 		{{>tournament}}
-		</table>
+		<br/>
 	{{/each}}
 
 	{{>createTournament}}
+
+	</div>
 
 </template>
 
 
 
 <template name="tournament">
-	<tr>
-		<td><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a></td>
-		<td>{{displayDate}}</td>
-	</tr>
+		<h2><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a></h2>
+		<p><i class="fa fa-calendar"></i> {{displayDate}} <i class="fa fa-users"></i> {{paticipantCount}} </p>
 </template>
 
 
 
 <template name="createTournament">
-	<form action="" id="createTournament">
-		<p><input type="text" name="tournamentName" placeholder="Name"></p>
-		<p>
-			<input type="text" name="day" placeholder="01">
-			<input type="text" name="month" placeholder="01">
-			<input type="text" name="year" placeholder="2015">
-		</p>
-		<p><input type="submit" value="Erstellen"></p>
+
+	<p><button id="createTournamentButton" class="borderButton">Turnier Erstellen</button></p>
+
+	<form action="" id="createTournament" class="invisible">
+		<table>
+			<tr><td colspan="3"><input type="text" name="tournamentName" placeholder="Name"></td></tr>
+			<tr>
+				<td><input type="text" name="day" placeholder="01"></td>
+				<td><input type="text" name="month" placeholder="01"></td>
+				<td><input type="text" name="year" placeholder="2015"></td>
+			</tr>
+			<tr><td colspan="3"><input type="submit" value="Erstellen"></td></tr>
+		</table>
 	</form>
 </template>
 
 
 
-<template name="tournamentDetail">
-	<h2 data-id="{{_id}}">{{name}}</h2>
-	<p>Endet: {{displayDate}} {{#if ended}}(Beendet){{/if}}</p>
-
-	{{>tournamentParticipants}}
-	
-	{{#unless userHasRobotInTournament}}
-		{{#unless ended}}
-			{{>tournamentEntry}}
-		{{/unless}}
-	{{/unless}}
-</template>
-
-
-
-<template name="tournamentParticipants">
-	<h3>Teilnehmer</h3>
-	<table>
-		{{#each particpatingRobots}}
-			{{>tournamentRobot}}
-		{{/each}}
-	</table>
-</template>
-
-
-
-<template name="tournamentEntry">
-	<h3>Teilnehmen</h3>
-	<form action="">
-		<p>
-			<select name="availableRobots">
-				{{#each listUserRobots}}
-					<option value="{{_id}}">{{name}}</option>
-				{{/each}}
-			</select>
-		</p>
-		<p><input type="submit" value="Eintragen"></p>
-	</form>
-</template>
-
-
-
-<template name="tournamentRobot">
-	<tr>
-		<td>{{name}}</td>
-		<td>{{uploaderName belongsTo}}</td>
-		{{#if belongsToUser}}
-			{{#unless ended }}
-				<td><button name="removeRobot">Austragen</button></td>
-			{{/unless}}
-		{{/if}}
-	</tr>
-</template>

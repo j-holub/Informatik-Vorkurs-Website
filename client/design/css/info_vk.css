@@ -39,7 +39,8 @@ button, input[type=submit], input[type=file] + label {
   cursor: pointer; }
 
 button:hover, input[type=submit]:hover, input[type=file] + label:hover {
-  background-color: #0085A1; }
+  background-color: #0085A1;
+  transition: all 0.3s ease-out; }
 
 .borderButton {
   background-color: #fff;
@@ -71,7 +72,8 @@ input[type=text]:hover,
 textarea:focus,
 textarea:hover {
   border: 2px solid #0085A1;
-  outline: none; }
+  outline: none;
+  transition: all 0.3s ease-out; }
 
 input[type=file] {
   width: 0.1px;
@@ -83,6 +85,71 @@ input[type=file] {
 
 input[type=file] + label {
   display: inline-block; }
+
+input[type=file] + label:hover {
+  background-color: #0085A1;
+  transition: all 0.3s ease-out; }
+
+.dropdownWrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.75em 1.5em;
+  max-width: 8em;
+  background: #1F3641;
+  border-radius: 0.3em;
+  border: 1px solid #1F3641;
+  color: #fff;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-out; }
+  .dropdownWrapper i {
+    position: absolute;
+    right: 1em; }
+
+.dropdownWrapper.active {
+  border-radius: 5px 5px 0 0;
+  background-color: #0085A1;
+  border: 1px solid #0085A1;
+  border-bottom: none; }
+  .dropdownWrapper.active .dropdown {
+    max-height: 1000px; }
+
+.dropdownWrapper:hover {
+  background-color: #0085A1;
+  border: 1px solid #0085A1;
+  transition: all 0.3s ease-out; }
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  background-color: #fff;
+  border-radius: 0 0 0.3em 0.3em;
+  border: 1px solid #1F3641;
+  border-top: none;
+  border-bottom: none;
+  list-style-type: none;
+  padding-left: 0;
+  transition: all 0.3s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #1F3641; }
+  .dropdown li {
+    padding: 0 1.5em;
+    margin: 0 0.3em;
+    color: #4B4B4C; }
+    .dropdown li a {
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid #7B7C7F;
+      padding: 0.75em 0; }
+  .dropdown li:nth-last-of-type(1) a {
+    border: none; }
 
 body {
   font-family: "HelveticaNeue";
@@ -96,7 +163,8 @@ a, a:hover, a:active, a:visited, a:hover {
   color: black; }
 
 a:hover {
-  color: #0085A1; }
+  color: #0085A1;
+  transition: all 0.3s ease-out; }
 
 nav {
   position: absolute;
@@ -166,9 +234,8 @@ ul#userInfo {
 @media screen and (max-width: 992px) {
   .collapsed li {
     height: 0 !important;
-    border-top: none !important; }
-  .collapsed a {
-    display: none; }
+    border-top: none !important;
+    overflow: hidden; }
 
   ul#userInfo {
     right: 0; }
@@ -228,6 +295,8 @@ div#userProfile i {
   cursor: pointer; }
 div#userProfile i:hover {
   color: #0085A1; }
+div#userProfile input[type=text], div#userProfile textarea {
+  min-width: 13em; }
 
 div#tournamentList i {
   color: #4B4B4C; }
@@ -242,5 +311,18 @@ div#tournamentList form table {
     padding: 0.2em; }
   div#tournamentList form table input[type=text] {
     width: 100%; }
+
+div#tournamentDetail h1, div#tournamentDetail h2, div#tournamentDetail h3, div#tournamentDetail p {
+  text-align: center; }
+div#tournamentDetail h3 {
+  margin-bottom: 0.2em; }
+div#tournamentDetail .owner {
+  text-align: center;
+  margin-top: 0.05em;
+  font-size: 0.8em; }
+div#tournamentDetail .robot i {
+  cursor: pointer; }
+div#tournamentDetail .robot i:hover {
+  color: #0085A1; }
 
 /*# sourceMappingURL=info_vk.css.map */

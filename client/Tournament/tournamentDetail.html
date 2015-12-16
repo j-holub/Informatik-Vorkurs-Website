@@ -1,0 +1,65 @@
+<template name="tournamentDetail">
+	
+	<div class="container" id="tournamentDetail">
+
+	<h1 data-id="{{_id}}">{{name}}</h1>
+	<p><i class="fa fa-calendar"></i> {{displayDate}} <i class="fa fa-users"></i> {{paticipantCount}} </p>
+
+	<br/>
+
+	{{#if hasParticipants}}
+	{{>tournamentParticipants}}
+	{{/if}}
+	
+	{{#unless userHasRobotInTournament}}
+		{{#unless ended}}
+			{{#if userHasRobots}}
+				<br/>
+				{{>tournamentEntry}}
+			{{/if}}
+		{{/unless}}
+	{{/unless}}
+
+	</div>
+</template>
+
+
+
+<template name="tournamentParticipants">
+	<h2>Teilnehmer</h2>
+		{{#each particpatingRobots}}
+			<div class="row">
+			{{#each this}}
+			{{>tournamentRobot}}
+			{{/each}}
+			</div>
+		{{/each}}
+</template>
+
+
+
+<template name="tournamentEntry">
+	
+	<p><button id="tournamentEntryButton" class="borderButton">Teilnehmen</button></p>
+
+	<div id="robotDropdown" class="dropdownWrapper invisible" tabindex="1" data-id="">
+		<span>Roboter</span> <i class="fa fa-chevron-down"></i>
+		<ul class="dropdown">
+			{{#each listUserRobots}}
+			<li><a data-id="{{_id}}">{{name}}</a></li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<p><button class="invisible" id="signUpButton">Eintragen</button></p>
+	
+</template>
+
+
+
+<template name="tournamentRobot">
+		<div class="col s12 m4 l4 robot">
+		<h3>{{name}} {{#if belongsToUser}}{{#unless ended}} <i class="fa fa-close" name="signOutRobot"></i> {{/unless}}{{/if}}</h3>
+		<p class="owner"><a href="{{pathFor route='profile' _id=belongsTo }}">{{uploaderName belongsTo}}</a></p>
+		</div>
+</template>

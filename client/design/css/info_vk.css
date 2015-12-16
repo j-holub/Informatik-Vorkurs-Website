@@ -170,11 +170,14 @@ nav {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 9999;
   padding: 0;
   background-color: #fff;
   border-bottom: 2px solid #6C7A89;
   font-family: 'Nevis'; }
-  nav li:hover {
+  nav i:hover {
+    color: #0085A1; }
+  nav #menuButton.active {
     color: #0085A1; }
   nav ul#navi {
     list-style-type: none;
@@ -191,7 +194,8 @@ nav {
       letter-spacing: 1px; }
     nav ul#navi a:hover {
       border-bottom: 1px solid #0085A1;
-      color: #0085A1; }
+      color: #0085A1;
+      transition: all 0.3s ease-out; }
 
 ul#userInfo {
   height: 70px;
@@ -214,23 +218,25 @@ ul#userInfo {
     font-size: 1.3em; }
 
 @media screen and (min-width: 993px) {
-  nav ul#navi {
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%; }
-    nav ul#navi li {
-      width: 10em;
-      min-width: 10em; }
-    nav ul#navi a {
-      line-height: 70px; }
-  nav #menuButton {
-    display: none; }
-  nav .avatar {
-    vertical-align: middle;
-    display: inline-block; }
-  nav .userImage {
-    display: inline-block;
-    height: 100%; } }
+  nav {
+    height: 70px; }
+    nav ul#navi {
+      position: absolute;
+      top: 0;
+      left: 0; }
+      nav ul#navi li {
+        width: 10em;
+        min-width: 10em; }
+      nav ul#navi a {
+        line-height: 70px; }
+    nav #menuButton {
+      display: none; }
+    nav .avatar {
+      vertical-align: middle;
+      display: inline-block; }
+    nav .userImage {
+      display: inline-block;
+      height: 100%; } }
 @media screen and (max-width: 992px) {
   .collapsed li {
     height: 0 !important;

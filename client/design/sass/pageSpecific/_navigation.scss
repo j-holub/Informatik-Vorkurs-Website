@@ -8,6 +8,9 @@ nav{
 	top: 0;
 	width: 100%;
 
+	// Sorgt dafür, dass die Leiste immer ganz oben ist
+	z-index: 9999;
+
 	padding: 0;
 
 	background-color: $backgroundColor;
@@ -16,8 +19,11 @@ nav{
 
 	font-family: 'Nevis';
 
+	i:hover{
+		color: $secondaryColor;
+	}
 
-	li:hover{
+	#menuButton.active{
 		color: $secondaryColor;
 	}
 
@@ -46,6 +52,8 @@ nav{
 			// text-decoration: underline;
 			border-bottom: 1px solid $secondaryColor;
 			color: $secondaryColor;
+
+			transition: all 0.3s ease-out;
 		}
 	}
 }
@@ -90,12 +98,15 @@ ul#userInfo{
 
 nav{
 	
+	height: $navigationHeight;
 
 	ul#navi{
-		margin-right: auto;
-		margin-left: auto;
+		
+		position: absolute;
 
-		width: 70%;
+		top: 0;
+		left: 0;
+		
 
 		li{
 			width: 10em;

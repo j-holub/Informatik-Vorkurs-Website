@@ -26,6 +26,15 @@ $backgroundColor: #fff;
 
 $standartFont: 'HelveticaNeue';
 
+
+// Breakpoints
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+
 // Navigation
 $navigationHeight: 70px;
 
@@ -33,8 +42,11 @@ $navigationHeight: 70px;
 @import "modules/misc";
 @import "modules/buttons";
 @import "modules/forms";
-
-@import "modules/navigation";
 @import "modules/body";
 @import "modules/links";
-@import "modules/user";
+
+
+// Seiten spezifische Styles
+@import "pageSpecific/navigation";
+@import "pageSpecific/user";
+@import "pageSpecific/tournament";

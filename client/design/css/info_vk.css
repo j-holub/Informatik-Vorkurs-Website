@@ -56,13 +56,12 @@ button:focus, input[type=submit]:focus, input[type=file] + label:focus {
 
 input[type=text],
 textarea {
-  padding: 0.6em;
+  padding: 0.6em 0;
   font-size: 1.1em;
   border-radius: 0.3em;
   appearance: none;
   box-shadow: none;
-  border: 2px solid #4B4B4C;
-  min-width: 13em; }
+  border: 2px solid #7B7C7F; }
 
 input[type=text] {
   text-align: center; }
@@ -84,6 +83,20 @@ input[type=file] {
 
 input[type=file] + label {
   display: inline-block; }
+
+body {
+  font-family: "HelveticaNeue";
+  color: #7B7C7F;
+  margin: 0;
+  padding-top: 105px;
+  background-color: #fff; }
+
+a, a:hover, a:active, a:visited, a:hover {
+  text-decoration: none;
+  color: black; }
+
+a:hover {
+  color: #0085A1; }
 
 nav {
   position: absolute;
@@ -132,7 +145,7 @@ ul#userInfo {
     font-family: 'Sertig';
     font-size: 1.3em; }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 993px) {
   nav ul#navi {
     margin-right: auto;
     margin-left: auto;
@@ -150,7 +163,7 @@ ul#userInfo {
   nav .userImage {
     display: inline-block;
     height: 100%; } }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
   .collapsed li {
     height: 0 !important;
     border-top: none !important; }
@@ -181,17 +194,6 @@ ul#userInfo {
     left: 0.7em;
     font-size: 1.5em;
     line-height: 70px; } }
-body {
-  font-family: "HelveticaNeue";
-  color: #7B7C7F;
-  margin: 0;
-  padding-top: 105px;
-  background-color: #fff; }
-
-a, a:hover, a:active, a:visited, a:hover {
-  text-decoration: none;
-  color: black; }
-
 div.user {
   text-align: center;
   padding: 0.5em;
@@ -226,5 +228,19 @@ div#userProfile i {
   cursor: pointer; }
 div#userProfile i:hover {
   color: #0085A1; }
+
+div#tournamentList i {
+  color: #4B4B4C; }
+div#tournamentList h2, div#tournamentList p {
+  text-align: center; }
+div#tournamentList form table {
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto; }
+  div#tournamentList form table td {
+    text-align: center;
+    padding: 0.2em; }
+  div#tournamentList form table input[type=text] {
+    width: 100%; }
 
 /*# sourceMappingURL=info_vk.css.map */

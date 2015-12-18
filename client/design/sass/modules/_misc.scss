@@ -24,11 +24,31 @@ h1,h2,h3,h4,h5,h6{
 // Such leiste oben
 .topSearchBar{
 
-	width: 60%;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
 
+	opacity: 0.2;
+
+	font-size: 2em;
+}
+.topSearchBar:hover,
+.topSearchBar:focus{
+	opacity: 1;
+	color: $textColor !important;
+}
+
+// Desktop
+@media screen and (min-width: $large-screen-up){
+	.topSearchBar{
+		width: 40%;
+	}
+}
+// Mobile
+@media screen and (max-width: $large-screen){
+	.topSearchBar{
+		width: 60%;
+	}
 }
 
 // unsichtbar

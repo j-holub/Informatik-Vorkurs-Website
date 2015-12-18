@@ -47,6 +47,10 @@ Template.createTournament.events({
 		});
 		// Input Felder leeren
 		$('#createTournament')[0].reset();
+		// Form verstecken
+		$('#createTournament').addClass('invisible');
+		// Button wieder sichtbar machen
+		$('#createTournamentButton').removeClass('invisible');
 	},
 	'click #createTournamentButton': function(event){
 		// Button unsichtbar machen

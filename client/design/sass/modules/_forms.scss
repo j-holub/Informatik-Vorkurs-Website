@@ -1,7 +1,9 @@
 
 input[type=text],
+input[type=email],
+input[type=password],
 textarea{
-	padding: 0.6em 0;
+	padding: 0.6em 0.6em;
 
 	font-size: 1.1em;
 	
@@ -12,10 +14,16 @@ textarea{
 	box-shadow: none;
 
 	border: 2px solid $textColor;
+
+	color: $textColor;
+
+	transition: all 0.3s ease-out;
 	
 }
 
-input[type=text]{
+input[type=text],
+input[type=email],
+input[type=password]{
 	text-align: center;
 }
 
@@ -23,16 +31,29 @@ input[type=text]{
 
 input[type=text]:focus,
 input[type=text]:hover,
+input[type=email]:focus,
+input[type=email]:hover,
+input[type=password]:focus,
+input[type=password]:hover,
 textarea:focus,
 textarea:hover{
-	border: 2px solid $secondaryColor;
+	border: 2px solid $primaryColor;
 	outline: none;
 
 	transition: all 0.3s ease-out;
+
+	color: $primaryColorShade;
 }
 
 input[type=submit]{
 	@extend button;
+
+	background-color: $secondaryColor;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus{
+	background-color: $secondaryColorShade;
 }
 
 // Diese Attribute machen das Input Feld zwar unsichtbar,
@@ -52,8 +73,12 @@ input[type=file] + label{
 }
 
 input[type=file] + label:hover{
-	background-color: $secondaryColor;
+	background-color: $primaryColorShade;
 	transition: all 0.3s ease-out;
+
+	i{
+		color: $backgroundColor !important;
+	}
 }
 
 
@@ -85,14 +110,15 @@ input[type=file] + label:hover{
 
 	i{
 		position: absolute;
-		right: 1em;		
+		right: 1em;
+		color: $backgroundColor !important;		
 	}
 }
 
 .dropdownWrapper.active{
 	border-radius: 5px 5px 0 0;
-	background-color: $secondaryColor;
-	border: 1px solid $secondaryColor;
+	background-color: $primaryColorShade;
+	border: 1px solid $primaryColorShade;
 	border-bottom: none;
 	
 	
@@ -103,8 +129,8 @@ input[type=file] + label:hover{
 }
 
 .dropdownWrapper:hover{
-	background-color: $secondaryColor;
-	border: 1px solid $secondaryColor;
+	background-color: $primaryColorShade;
+	border: 1px solid $primaryColorShade;
 
 	transition: all 0.3s ease-out;
 }
@@ -119,11 +145,12 @@ input[type=file] + label:hover{
 
 	background-color: $backgroundColor;
 	border-radius: 0 0 0.3em 0.3em;
-	border: 1px solid $primaryColor;
+	border: 1px solid $primaryColorShade;
 	border-top: none;
 	border-bottom: none;
 	list-style-type: none;
 	padding-left: 0;
+	border-bottom: 1px solid $primaryColorShade;
 
 	transition: all 0.3s ease-out;
 
@@ -131,7 +158,7 @@ input[type=file] + label:hover{
 	max-height: 0;
 	overflow: hidden;
 
-	border-bottom: 1px solid $primaryColor;
+	color: $textColor;
 
 	li{
 		padding: 0 1.5em;

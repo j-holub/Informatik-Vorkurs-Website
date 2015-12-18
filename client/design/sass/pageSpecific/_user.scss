@@ -16,8 +16,12 @@ div.user{
 }
 
 #userList{
-	a:hover{
-		color: $secondaryColor;
+	a{
+		color: $headingColor;
+	}
+	a:hover,
+	a:focus{
+		color: $secondaryColorShade;
 	}
 }
 
@@ -31,7 +35,7 @@ div#userProfile{
 		display: block;
 	}
 
-	h3, h4{
+	h2, h3, h4{
 		text-align: center;
 	}
 
@@ -54,13 +58,32 @@ div#userProfile{
 
 	i{
 		cursor: pointer;
+		transition: all 0.3s ease-out;
 	}
-	i:hover{
+	i:hover,
+	i:focus{
 		color: $secondaryColor;
+		transition: all 0.3s ease-out;
+	}
+	i[name=deleteRobot]:hover,
+	i[name=deleteRobot]:focus{
+		color: $warningColor;
 	}
 
 	input[type=text], textarea{
 			min-width: 13em;
+	}
+
+	#robotBox{
+		margin-right: auto;
+		margin-left: auto;
+		width: 80%;
+
+		p{
+			// text-align: justify;
+		}
+
+		
 	}
 
 }

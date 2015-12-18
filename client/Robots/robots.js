@@ -97,6 +97,8 @@ Template.uploadRobot.events({
 				});
 				// Uploadform resetten
 				$('#uploadRobot')[0].reset();
+				// Standarttext auf den File Upload Button setzten
+				$('#robotData').next('label').children('span').html('Datei');
 				// Form verschwinden lassen
 				$('#uploadRobot').addClass('invisible');
 				// Button sichtbar machen

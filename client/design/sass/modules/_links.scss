@@ -2,10 +2,12 @@
 a, a:hover, a:active, a:visited, a:hover{
 	text-decoration: none;
 	color: black;
+
+	transition: all 0.3s ease-out;	
 }
 
 a:hover{
-	color: $secondaryColor;
-
+	 
+	color: $headingColor;
 	transition: all 0.3s ease-out;
 }

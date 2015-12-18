@@ -94,6 +94,7 @@ Template.tournamentEntry.events({
 			if(error){
 				console.log(error.reason);
 			}
+			// Das Formular wieder unsichtbar machen
 		});
 		}
 	},

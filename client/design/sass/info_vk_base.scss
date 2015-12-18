@@ -1,9 +1,12 @@
 
 // Farben definieren
-$primaryColor: #1F3641;
-$secondaryColor: #0085A1;
-$highlightColor: #FA522A;
-// $backgroundColor: #F5F4EE;
+$primaryColor: #46AAD9;
+$primaryColorShade: #92CEE9;
+
+$secondaryColor: #1CB890;
+$secondaryColorShade: #78D4BC;
+
+$warningColor: #DD4B39;
 
 $textColor: #7B7C7F;
 $headingColor: #4B4B4C;
@@ -14,10 +17,6 @@ $backgroundColor: #fff;
 @font-face {
 	font-family: 'HelveticaNeue';
 	src: url('../fonts/HelveticaNeue.ttf');
-}
-@font-face {
-	font-family: 'Nevis';
-	src: url('../fonts/nevis.ttf');
 }
 @font-face {
 	font-family: 'Sertig';
@@ -37,6 +36,7 @@ $large-screen-up: 1201px !default;
 
 // Navigation
 $navigationHeight: 70px;
+$navigationColor: $backgroundColor;
 
 // Alle Module importieren
 @import "modules/misc";

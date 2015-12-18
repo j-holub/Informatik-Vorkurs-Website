@@ -9,9 +9,13 @@ div#tournamentList{
 		text-align: center;
 	}
 
+	a:hover,
+	a:focus{
+		color: $secondaryColor !important;
+	}
+
 	form{
 		table{
-
 			width: 30%;
 
 			margin-right: auto;
@@ -24,7 +28,9 @@ div#tournamentList{
 
 			}
 			input[type=text]{
-				width: 100%;
+				width: 80%;
+				margin-right: auto;
+				margin-left: auto;
 			}
 		}
 	}
@@ -47,12 +53,24 @@ div#tournamentDetail{
 
 		font-size: 0.8em;
 	}
+
+	i{
+		color: $headingColor;
+	}
 	
 	.robot i{
 		cursor: pointer;
 	}
 	.robot i:hover{
 		color: $secondaryColor;
+	}
+
+	#signUpButton{
+		background-color: $secondaryColor;
+	}
+	#signUpButton:hover,
+	#signUpButton:focus{
+		background-color: $secondaryColorShade;
 	}
 
 }

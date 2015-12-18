@@ -13,18 +13,24 @@ nav{
 
 	padding: 0;
 
-	background-color: $backgroundColor;
+	background-color: $navigationColor;
 
-	border-bottom: 2px solid #6C7A89;
+	border-bottom: 0.3em solid $primaryColor;
 
-	font-family: 'Nevis';
+	font-family: 'Sertig';
+	color: $textColor;
 
 	i:hover{
-		color: $secondaryColor;
+		color: $primaryColor;
+		transition: all 0.3s ease-out;
+	}
+
+	a:hover{
+		color: $primaryColor;
 	}
 
 	#menuButton.active{
-		color: $secondaryColor;
+		color: $primaryColor;
 	}
 
 	ul#navi{
@@ -42,18 +48,10 @@ nav{
 		}
 
 		a{
-			color: $primaryColor;
-			font-size: 1.4em;
-
+			font-size: 1.6em;
 			letter-spacing: 1px;
-		}
 
-		a:hover{
-			// text-decoration: underline;
-			border-bottom: 1px solid $secondaryColor;
-			color: $secondaryColor;
-
-			transition: all 0.3s ease-out;
+			display: block;
 		}
 	}
 }
@@ -62,7 +60,7 @@ nav{
 // user Information
 ul#userInfo{
 	height: $navigationHeight;
-	line-height: $navigationHeight;
+	line-height: $navigationHeight+3px;
 	position: absolute;
 	right: 1em;
 	top: 0;
@@ -75,7 +73,9 @@ ul#userInfo{
 	i{
 		cursor: pointer;
 	}
-
+	i:hover{
+		color: $warningColor;
+	}	
 
 	li{
 		float: left;
@@ -87,7 +87,10 @@ ul#userInfo{
 
 		font-family: 'Sertig';
 		font-size: 1.3em;
+	}
 
+	a:hover{
+		color: $secondaryColor;
 	}
 
 }
@@ -115,7 +118,7 @@ nav{
 
 		a{
 			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
-			line-height: $navigationHeight;
+			line-height: $navigationHeight + 3px;
 
 			// macht den ganzen Bereich clickbar
 			// display: block;
@@ -191,7 +194,7 @@ ul#navi{
 		height: $navigationHeight * 0.9;
 		line-height: $navigationHeight * 0.9;
 
-		border-top: 1px solid $primaryColor;
+		// border-top: 1px solid $textColor;
 
 		-webkit-transition: height 0.2s ease-in-out;
 		transition: height 0.2s ease-in-out;

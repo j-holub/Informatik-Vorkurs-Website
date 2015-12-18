@@ -1,0 +1,66 @@
+#login,
+#register{
+	margin-right: auto;
+	margin-left: auto;
+
+	text-align: center;
+}
+
+#registerLoginButtons{
+	height: $navigationHeight;
+	line-height: $navigationHeight+3px;
+	position: absolute;
+	right: 1em;
+	top: 0;
+
+	margin-top: 0;
+	margin-bottom: 0;
+
+	font-family: $standartFont;
+
+	li{
+		float: left;
+		display: inline-block;
+		text-align: center;
+
+		margin-left: 10px;
+		margin-right: 10px;
+
+		font-size: 1.3em;
+	}
+
+	a{
+		font-size: 1.3em;
+		letter-spacing: 1px;
+		line-height: $navigationHeight;
+
+		
+		padding: 0.4em 1.5em;
+
+		border-radius: 0.3em;
+
+		border-width: 3px;
+		border-style: solid;
+	}
+
+	
+	a.login{
+		background-color: $secondaryColor;
+		color: $backgroundColor;
+		border-color: $secondaryColor;
+	}
+	a.login:hover{
+		background-color: $secondaryColorShade;
+		border-color: $secondaryColorShade;
+	}
+	
+	a.register{
+		color: $primaryColor;
+		border-color: $primaryColor;
+	}
+	a.register:hover{
+		color: $primaryColor;
+		border-color: $primaryColorShade;
+	}
+
+}

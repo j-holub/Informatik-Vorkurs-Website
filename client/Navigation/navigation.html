@@ -9,14 +9,11 @@
 			<li><a href="{{pathFor route='users'}}">User</a></li>
 			<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
 			<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
-		{{else}}
-			<li><a href="{{pathFor route='login'}}">Login</a></li>
-			<li><a href="{{pathFor route='register'}}">Registrieren</a></li>
 		{{/if}}
 		
 	</ul>
 
-	
+	{{#if currentUser }}
 	{{#with currentUser }}
 	<ul id="userInfo">
 		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }}</a></li>
@@ -24,6 +21,12 @@
 		<li>{{>logout}}</li>
 	</ul>
 	{{/with}}
+	{{else}}
+	<ul id="registerLoginButtons">
+		<li><a class="login" href="{{pathFor route='login'}}">Login</a></li>
+		<li><a class="register" href="{{pathFor route='register'}}">Register</a></li>
+	</ul>
+	{{/if}}	
 
 	</nav>
 

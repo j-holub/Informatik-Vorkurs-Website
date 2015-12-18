@@ -45,14 +45,3 @@ button:focus{
 button:focus{
 	appearance: none;
 }
-
-
-.secondaryBordered{
-	color: $secondaryColor;
-	border: 3px solid $secondaryColor;	
-}
-.secondaryBordered:hover,
-.secondaryBordered:focus{
-	color: $secondaryColorShade;
-	border: 3px solid $secondaryColorShade;
-}

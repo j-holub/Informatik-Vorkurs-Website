@@ -1,14 +1,14 @@
 <template name="register">
 
-	<h3>Registrieren</h3>
+	<h1 class="topHeading">Registrieren</h1>
 
-	<form action="" class="register">
-		<p>Email: <input type="email" name="email"></p>
-		<p>Passwort: <input type="password" name="password"></p>
-		<p>Vorname: <input type="text" name="firstname"></p>
-		<p>Nachname: <input type="text" name="lastname"></p>
-		<p>Skype: <input type="text" name="skype"></p>
-		<p>Line: <input type="text" name="line"></p>
+	<form class="register" id="register">
+		<p><input type="email" name="email" placeholder="Email"></p>
+		<p><input type="password" name="password" placeholder="Passwort"></p>
+		<p><input type="text" name="firstname" placeholder="Vorname"></p>
+		<p><input type="text" name="lastname" placeholder="Nachname"></p>
+		<p><input type="text" name="line" placeholder="Line"></p>
+		<p><input type="text" name="skype" placeholder="Skype"></p>
 		<p><input type="submit" value="Registrieren"></p>
 	</form>
 
@@ -17,11 +17,11 @@
 
 <template name="login">
 
-	<h3>Login</h3>
+	<h1 class="topHeading">Login</h1>
 
-	<form action="" class="login">
-		<p><input type="email" name="email"></p>
-		<p><input type="password" name="password"></p>
+	<form action="" class="login" id="login">
+		<p><input type="email" name="email" placeholder="Email"></p>
+		<p><input type="password" name="password" placeholder="Passwort"></p>
 		<p><input type="submit" value="Login"></p>
 	</form>
 </template>

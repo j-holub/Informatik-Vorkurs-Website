@@ -25,7 +25,7 @@ Template.register.events({
 				console.log(error.reason);
 			}
 			else{
-				Router.go('landingPage');
+				Router.go('profile', {_id: Meteor.userId()});
 			}
 		});
 	}
@@ -45,7 +45,7 @@ Template.login.events({
 			else{
 				var currentRoute = Router.current().route.getName();
 				if(currentRoute == 'login'){
-					Router.go('landingPage');
+					Router.go('profile', {_id: Meteor.userId()});
 				}
 			}
 		});

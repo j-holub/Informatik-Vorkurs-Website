@@ -1,0 +1,62 @@
+Template.uploadRobot.events({
+	// Handelt das Upload Formular um einen Roboter hochzuladen
+	'submit form': function (event, template) {
+		// verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
+		event.preventDefault();
+		// Daten sammeln
+		var name = $('[name=robotName]').val();
+		var description = $('[name=robotDescription]').val();
+		var robotFile = template.find('input:file').files[0];
+		var currentUserId = Meteor.userId();
+		// Robot Data hochladen
+		var uploadedRobot = RobotData.insert(robotFile, function(error, fileObj){
+			// Überprüfung ob es fehler gab
+			if(error){
+				console.log(error.reason);
+			}
+			// wenn nicht den Roboter anlegen
+			else{
+				// Roboter in die Datenbank eintragen
+				Meteor.call('uploadRobot', name, description, uploadedRobot, function(error, resultId){
+					if(error){
+						// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
+						RobotData.remove(uploadedRobot);
+						console.log(error.reason);
+					}
+				});
+				// Uploadform resetten
+				$('#uploadRobot')[0].reset();
+				// Standarttext auf den File Upload Button setzten
+				$('#robotData').next('label').children('span').html('Datei');
+				// Form verschwinden lassen
+				$('#uploadRobot').addClass('invisible');
+				// Button sichtbar machen
+				$('#uploadRobotButton').removeClass('invisible');
+			}
+		});
+	},
+	'click #uploadRobotButton': function(){
+		// Button verschwinden lassen
+		$('#uploadRobotButton').addClass('invisible');
+		// das Form sichtbar machen
+		$('#uploadRobot').removeClass('invisible');
+		// Das erste Eingabefeld fokusieren
+		$('[name=robotName]').focus();
+	},
+	// zeigt den Dateinamen auf dem Button an
+	'change #robotData': function(event){
+		// Datei namen von dem event holen
+		var fileName = event.target.value.split('\\').pop();
+		var label = $('#robotData').next('label');
+		var originalLabelValue = label.val();
+
+		if(fileName){
+			// Label auf den Dateinamen setzten
+			label.find('span').html(fileName);
+		}
+		else{
+			// auf den Originalen Text setzen
+			label.html(originalLabelValue);
+		}
+	}
+});

@@ -27,3 +27,20 @@
 	</div>
 	
 </template> 
+
+
+<!-- Listet die Roboter zu einem User -->
+<template name="userRobots">
+	<h2>Roboter</h2>
+	<!-- Die _id variable sickert von dem profile template durch und komm ursprünglich vom IronRouter -->
+	<div id="robotBox">
+	{{#each listUserRobots _id}}
+		{{>profileRobot}}
+	{{/each}}
+	</div>
+</template>
+
+<template name="profileRobot">
+	<h3>{{name}} {{#if isDownloadableOrBelongsToUser}} <a href="{{data.url download=true}}"><i class="fa fa-download"></i></a> {{/if}} {{#if belongsToUser }} <i class="fa fa-trash" name="deleteRobot"></i> {{/if}}</h3>
+	<p>{{description}}</p>
+</template>

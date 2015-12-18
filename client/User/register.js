@@ -1,5 +1,6 @@
 
 Template.register.events({
+	// Registriert einen neuen Benutzer
 	'submit form': function (event) {
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
@@ -27,6 +28,11 @@ Template.register.events({
 	}
 });
 
+Template.register.rendered = function(){
+	// Direkt das erste Feld fokusieren
+	$('[name=email]').focus();
+}
+
 Template.login.events({
 	'submit form': function (event) {
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
@@ -47,6 +53,11 @@ Template.login.events({
 		});
 	}
 });
+
+Template.login.rendered = function(){
+	// Direkt das erste Feld fokuiseren
+	$('[name=email]').focus();
+}
 
 Template.logout.events({
 	'click [name=logout]': function (event) {

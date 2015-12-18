@@ -8,8 +8,6 @@ Template.register.events({
 		password = $('[name=password]').val();
 		firstname = $('[name=firstname]').val();
 		lastname = $('[name=lastname]').val();
-		skype = $('[name=skype]').val();
-		line = $('[name=line]').val();
 		// Den User anlegen
 		Accounts.createUser({
 			email: email,
@@ -17,8 +15,6 @@ Template.register.events({
 			profile: {
 				firstname: firstname,
 				lastname: lastname,
-				skype: skype,
-				line: line,
 			} 
 		}, function (error) {
 			if (error) {

@@ -5,10 +5,10 @@ Template.register.events({
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		// Die Input Fields abfragen
-		email = $('[name=email]').val();
-		password = $('[name=password]').val();
-		firstname = $('[name=firstname]').val();
-		lastname = $('[name=lastname]').val();
+		email = $('.register [name=email]').val();
+		password = $('.register [name=password]').val();
+		firstname = $('.register [name=firstname]').val();
+		lastname = $('.register [name=lastname]').val();
 		// Den User anlegen
 		Accounts.createUser({
 			email: email,
@@ -28,36 +28,25 @@ Template.register.events({
 	}
 });
 
-Template.register.rendered = function(){
-	// Direkt das erste Feld fokusieren
-	$('[name=email]').focus();
-}
 
 Template.login.events({
 	'submit form': function (event) {
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		//Die Input Fields abfragen
-		email = $('[name=email]').val();
-		password = $('[name=password]').val();
+		email = $('.login [name=email]').val();
+		password = $('.login [name=password]').val();
 		Meteor.loginWithPassword(email, password, function(error){
 			if(error){
 				console.log(error.reason);
 			}
 			else{
-				var currentRoute = Router.current().route.getName();
-				if(currentRoute == 'login'){
-					Router.go('profile', {_id: Meteor.userId()});
-				}
+				Router.go('profile', {_id: Meteor.userId()});
 			}
 		});
 	}
 });
 
-Template.login.rendered = function(){
-	// Direkt das erste Feld fokuiseren
-	$('[name=email]').focus();
-}
 
 Template.logout.events({
 	'click [name=logout]': function (event) {

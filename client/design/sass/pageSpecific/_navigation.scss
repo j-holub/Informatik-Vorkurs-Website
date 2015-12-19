@@ -3,15 +3,14 @@
 // allgemeines
 nav{
 
-	// positioniert die Leiste ganz oben
-	position: absolute;
-	top: 0;
+
 	width: 100%;
 
 	// Sorgt dafür, dass die Leiste immer ganz oben ist
 	z-index: 9999;
 
 	padding: 0;
+	margin-bottom: 3em;
 
 	background-color: $navigationColor;
 
@@ -157,7 +156,7 @@ nav{
 		// display: none;
 		height: 0 !important;
 
-		border-top: none !important;
+		border-bottom: none !important;
 
 		overflow: hidden;
 	}
@@ -181,7 +180,7 @@ ul#navi{
 		// genau unter der Navileiste platzieren
 		margin-top: $navigationHeight !important;
 
-		padding: 0;		
+		padding: 0;
 
 		width: 100%;
 
@@ -194,11 +193,12 @@ ul#navi{
 		height: $navigationHeight * 0.9;
 		line-height: $navigationHeight * 0.9;
 
-		// border-top: 1px solid $textColor;
+		border-bottom: 1px solid $textColor;
 
 		-webkit-transition: height 0.2s ease-in-out;
 		transition: height 0.2s ease-in-out;
 	}
+
 
 
 }

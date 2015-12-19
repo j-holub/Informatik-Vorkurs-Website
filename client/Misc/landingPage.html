@@ -1,3 +1,96 @@
 <template name="landingPage">
-	Landing Page!
+
+	<div id="topBar">
+		{{>registerLoginButtons}}
+	</div>
+
+	<div id="downArrow">
+		<span class="fa-stack fa-1x">
+			<i class="fa fa-square-o fa-stack-2x"></i>
+			<i class="fa fa-chevron-down fa-stack-1x"></i>
+		</span>
+	</div>
+
+	<div id="landingPageImage"></div>
+
+	<div id="landingPage">
+
+	<section id="information">
+	<div class="container">
+
+	<div class="row">
+	
+		<div class="col s12 m12 l10 push-l1">
+
+		<h1>Informatik Vorkurs</h1>
+
+		<p>Beim Informatik Vorkurs geht es darum spielerisch Grundlagen im Programmieren zu erlangen. Dabei geht es weniger darum gut zu sein, als darum mit Spaß bei der Sache zu sein.</p>
+
+		<p>Egal ob als Anfänger oder als Erfahrener Programmierer, der Vorkurs ist auf jeden ausgelegt. Wir fangen komplett bei Null an, können euch aber auch schwierigere Kniffe zeigen.</p>
+
+		<p>Der Kurs ist dabei zweigeteilt. Einmal gibt es einen Kurs für Leute die noch nie in ihrem Leben, oder nur sehr wenig programmiert haben. Für die unter euch, die schon Erfahrung im Programmieren haben bieten wir einen extra Kurs an, in dem wir auf einem höheren Level anfangen.</p>
+
+		</div>	
+
+	</div>
+
+	<!-- container -->
+	</div>
+	</section>
+
+
+
+	<section id="stripe">
+	<div class="container">
+	<div class="row stripe">
+		<div class="col s12 m12 l4">
+			<i class="fa fa-code"></i>
+			<p>Java ist die Programmiersprache die hier an der Uni hauptsächlich gelehrt wird. Wer noch keine Erfahrung mit Java hat wird hier schonmal damit bekannt gemacht.</p>
+		</div>
+		<div class="col s12 m12 l4">
+			<i class="fa fa-users"></i>
+			<p>Hier geht es um Teamwork. Formt ein Team und baut zusammen den besten Roboter, mit dem ihr alle anderen platt macht</p>
+		</div>
+		<div class="col s12 m12 l4">
+			<i class="fa fa-trophy"></i>
+			<p>Am Ende gibt es ein Turnier bei dem ihr eure Roboter gegeneinander antreten lässt. Für die Gewinner winken klasse Preise</p>
+		</div>
+	</div>
+	</div>
+	</section>
+
+	
+
+	<section id="robocode">
+	<div class="container">
+		<div class="row">
+			<div class="col s10 push-s1">
+				<h1>RoboCode</h1>
+				<p>Wir benutzen RoboCode, ein Umgebung in der ihr die KI von virtuellen Robotern programmiert. So habt ihr eunen spaßigen Einstieg ins Programmieren und in die Programmiersprache Java.</p>
+
+				<p>Überlegt euch gemeinsam welche Strategie sinnvoll ist und wie euer Roboter sich verhalten soll.</p>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<!-- landing Page -->
+	</div>
+
+	<section id="loginRegisterArea">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l6">
+					{{>login}}
+				</div>
+				<div class="col s12 m12 l6">
+					{{>register}}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+
+
 </template>

@@ -1,6 +1,6 @@
 <template name="register">
 
-	<h1 class="topHeading">Registrieren</h1>
+	<h1>Registrieren</h1>
 
 	<form class="register" id="register">
 		<p><input type="email" name="email" placeholder="Email"></p>
@@ -15,7 +15,7 @@
 
 <template name="login">
 
-	<h1 class="topHeading">Login</h1>
+	<h1>Login</h1>
 
 	<form action="" class="login" id="login">
 		<p><input type="email" name="email" placeholder="Email"></p>
@@ -28,3 +28,11 @@
 	<i class="fa fa-sign-out" name="logout"></i>
 </template>
 
+<template name="registerLoginButtons">
+	<ul id="registerLoginButtons">
+		<!-- <li><a class="login" href="{{pathFor route='login'}}">Login</a></li> -->
+		<!-- <li><a class="register" href="{{pathFor route='register'}}">Register</a></li> -->
+		<li><button id="loginButton">Login</button></li>
+		<li><button id="registerButton" class="borderButton">Register</button></li>
+	</ul>
+</template>

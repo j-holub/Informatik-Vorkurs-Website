@@ -49,11 +49,13 @@ input[type=submit]{
 	@extend button;
 
 	background-color: $secondaryColor;
+	border-color: $secondaryColor;
 }
 
 input[type=submit]:hover,
 input[type=submit]:focus{
 	background-color: $secondaryColorShade;
+	border-color: $secondaryColorShade;
 }
 
 // Diese Attribute machen das Input Feld zwar unsichtbar,

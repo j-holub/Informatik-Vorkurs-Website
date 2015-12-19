@@ -7,10 +7,11 @@
 }
 
 #registerLoginButtons{
-	height: $navigationHeight;
-	line-height: $navigationHeight+3px;
+
+	height: 8em;
+	line-height: 8em;
 	position: absolute;
-	right: 1em;
+	right: 2em;
 	top: 0;
 
 	margin-top: 0;
@@ -29,38 +30,20 @@
 		font-size: 1.3em;
 	}
 
-	a{
-		font-size: 1.3em;
-		letter-spacing: 1px;
-		line-height: $navigationHeight;
-
-		
-		padding: 0.4em 1.5em;
-
-		border-radius: 0.3em;
-
-		border-width: 3px;
-		border-style: solid;
+	button{
+		border-width: 5px;
 	}
 
-	
-	a.login{
+	#registerButton{
+		background-color: transparent;
+	}
+
+	#loginButton{
 		background-color: $secondaryColor;
-		color: $backgroundColor;
 		border-color: $secondaryColor;
 	}
-	a.login:hover{
+	#loginButton:hover{
 		background-color: $secondaryColorShade;
 		border-color: $secondaryColorShade;
 	}
-	
-	a.register{
-		color: $primaryColor;
-		border-color: $primaryColor;
-	}
-	a.register:hover{
-		color: $primaryColor;
-		border-color: $primaryColorShade;
-	}
-
 }

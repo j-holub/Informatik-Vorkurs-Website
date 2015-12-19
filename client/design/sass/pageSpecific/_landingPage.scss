@@ -1,0 +1,118 @@
+
+#landingPage{
+
+h1{
+	font-size: 5em;
+	font-family: 'Sertig';
+
+	letter-spacing: 0.1em;
+}
+
+p{
+	text-align: justify;
+	font-size: 2em;
+
+	line-height: 1.3em;
+}
+
+section{
+	padding: 5em 0;
+}
+
+#information{
+
+	padding: 2em 0;
+
+	h1{
+		color: $secondaryColor;
+	}
+}
+
+#stripe{
+	background-color: #f6f6f8;
+	width: 100%;
+
+	display: inline-block;
+	height: 100%;
+
+	text-align: center;
+
+
+	i{
+		font-size: 6em;
+		color: $headingColor;
+
+		margin: 0.5em 0;
+	}
+
+	p{
+		text-align: justify;
+		font-size: 1.8em;
+		// padding: 0 0.2em;
+	}
+
+	.container{
+		vertical-align: middle;
+	}
+
+}
+
+#robocode{
+	h1{
+		color: $primaryColor;
+	}
+}
+
+}
+
+div#topBar{
+	position: absolute;
+
+	top: 0;
+	right: 0;
+	left: 0;
+	
+
+	height: 8em;
+
+	background-color: none;
+}
+
+div#downArrow{
+	position: absolute;
+
+	right: 0;
+	left: 0;
+
+	text-align: center;
+	
+	font-size: 3em;
+
+	color: rgba(150, 150, 150, 0.5);
+
+
+	transition: all 0.3s ease-out;
+
+	.fa-stack{
+		cursor: pointer;
+	}
+	
+}
+div#downArrow .fa-stack:hover{
+	color: rgba(150, 150, 150, 0.7);
+
+	transition: all 0.3s ease-out;
+}
+
+
+div#landingPageImage{
+	height: 1000px;
+
+	background-image: url(/images/misc/landingImage.jpg);
+	background-size: cover;
+
+}
+
+#loginRegisterArea{
+	font-size: 1.5em;
+}

@@ -12,6 +12,9 @@ button{
 	min-width: 7em;
 
 	background-color: $primaryColor;
+	border-width: 3px;
+	border-style: solid;
+	border-color: $primaryColor;
 
 	color: $backgroundColor;
 
@@ -22,6 +25,8 @@ button{
 button:hover,
 button:focus{
 	background-color: $primaryColorShade;
+	border-color: $primaryColorShade;
+
 
 	transition: all 0.3s ease-out;
 }

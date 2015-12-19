@@ -67,10 +67,12 @@ div#tournamentDetail{
 
 	#signUpButton{
 		background-color: $secondaryColor;
+		border-color: $secondaryColor;
 	}
 	#signUpButton:hover,
 	#signUpButton:focus{
 		background-color: $secondaryColorShade;
+		border-color: $secondaryColorShade;
 	}
 
 }

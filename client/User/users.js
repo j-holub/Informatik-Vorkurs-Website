@@ -37,13 +37,6 @@ Template.users.helpers({
 	isLoading: function(){
 		return UserSearch.getStatus().loading;
 	},
-	// überprüft den zeilenumbruch
-	rowBegin: function(index){
-		return index % 4 == 0;
-	},
-	rowEnd: function(index){
-		return index % 4 == 3;
-	}
 });
 
 // Sucheingabe feld

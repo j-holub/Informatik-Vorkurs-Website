@@ -41,6 +41,6 @@
 </template>
 
 <template name="profileRobot">
-	<h3>{{name}} {{#if isDownloadableOrBelongsToUser}} <a href="{{data.url download=true}}"><i class="fa fa-download"></i></a> {{/if}} {{#if belongsToUser }} <i class="fa fa-trash" name="deleteRobot"></i> {{/if}}</h3>
+	<h3>{{name}} {{#if isDownloadableOrBelongsToUser}} <a href="{{downloadUrl}}"><i class="fa fa-download"></i></a> {{/if}} {{#if belongsToUser }} <i class="fa fa-trash" name="deleteRobot"></i> {{/if}}</h3>
 	<p>{{description}}</p>
 </template>

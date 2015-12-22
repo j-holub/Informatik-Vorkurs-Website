@@ -8,6 +8,7 @@ Template.profile.helpers({
 Template.userRobots.helpers({
 	// Listet alle Roboter auf die zu dem, mit der Id angegebenen User gehören
 	listUserRobots: function (userId) {
+		console.log("I'm here");
 		return Robots.find({belongsTo: userId}, {sort: {dateUploaded: 1}});
 	}
 });
@@ -18,6 +19,9 @@ Template.profileRobot.helpers({
 		var uploader = Meteor.users.findOne({_id: uploaderId});
 		var name = uploader.profile.firstname + " " + uploader.profile.lastname;
 		return name;
+	},
+	downloadUrl: function(){
+		return RobotData.findOne({_id: this.data}).url({download: true});
 	},
 	belongsToUser: function(){
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
@@ -37,7 +41,7 @@ Template.profileRobot.events({
 		var robot = Robots.findOne({_id: this._id});
 		var robotId = robot._id;
 		// Daten löschen
-		var deletedRobot = RobotData.remove({_id: robot.data._id}, function(error, file){
+		var deletedRobot = RobotData.remove({_id: robot.data}, function(error, file){
 			if(error){
 				console.log(error.reason);
 			}

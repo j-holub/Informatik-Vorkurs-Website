@@ -1,20 +1,18 @@
 Meteor.methods({
 	// fügt ein Roboter in die Datenbank ein
-	'uploadRobot': function(name, description, uploadedRobotFile){
+	'uploadRobot': function(name, description, uploadedRobotFileId){
 		// überprüfen ob aktuell ein User eingeloggt ist
 		if(Meteor.userId()){
 			// Felder validieren
 			// Die check funktion beendet die Funktion bei einem Fehler
-			check(name, String);
-			check(description, String);
+			// check(name, String);
+			// check(description, String);
 			// Datensatz anlegen
 			var data = {
 				name: name,
 				description: description,
-				dateUploaded: new Date(),
 				belongsTo: Meteor.userId(),
-				downloadable: false,
-				data: uploadedRobotFile
+				data: uploadedRobotFileId
 			};
 			// Den Roboter in der Datenbank anlegen
 			return Robots.insert(data);

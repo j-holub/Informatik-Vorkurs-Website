@@ -17,7 +17,7 @@ Template.uploadRobot.events({
 			// wenn nicht den Roboter anlegen
 			else{
 				// Roboter in die Datenbank eintragen
-				Meteor.call('uploadRobot', name, description, uploadedRobot, function(error, resultId){
+				Meteor.call('uploadRobot', name, description, uploadedRobot._id, function(error, resultId){
 					if(error){
 						// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
 						RobotData.remove(uploadedRobot);

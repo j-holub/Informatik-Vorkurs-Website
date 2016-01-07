@@ -9,22 +9,22 @@ Template.register.events({
 		password = $('.register [name=password]').val();
 		firstname = $('.register [name=firstname]').val();
 		lastname = $('.register [name=lastname]').val();
-		// // Den User anlegen
-		// Accounts.createUser({
-		// 	email: email,
-		// 	password: password,
-		// 	profile: {
-		// 		firstname: firstname,
-		// 		lastname: lastname,
-		// 	} 
-		// }, function (error) {
-		// 	if (error) {
-		// 		console.log(error.reason);
-		// 	}
-		// 	else{
-		// 		Router.go('profile', {_id: Meteor.userId()});
-		// 	}
-		// });
+		// Den User anlegen
+		Accounts.createUser({
+			email: email,
+			password: password,
+			profile: {
+				firstname: firstname,
+				lastname: lastname,
+			} 
+		}, function (error) {
+			if (error) {
+				console.log(error.name + ": " + error.reason);
+			}
+			else{
+				Router.go('profile', {_id: Meteor.userId()});
+			}
+		});
 	}
 });
 

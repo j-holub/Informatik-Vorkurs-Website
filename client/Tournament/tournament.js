@@ -38,19 +38,22 @@ Template.createTournament.events({
 		var month = $('[name=month]').val();
 		var year  = $('[name=year]').val();
 		// Date objekt erstellen
-		date = new Date(year, month-1, day);
+		date = new Date(year, month, day);
 		// Turnier erstellen
 		Meteor.call('createTournament', name, date, function (error, result) {
 			if(error){
 				console.log(error.reason);
 			}
+			else{
+				// Input Felder leeren
+				$('#createTournament')[0].reset();
+				// Form verstecken
+				$('#createTournament').addClass('invisible');
+				// Button wieder sichtbar machen
+				$('#createTournamentButton').removeClass('invisible');
+			}
 		});
-		// Input Felder leeren
-		$('#createTournament')[0].reset();
-		// Form verstecken
-		$('#createTournament').addClass('invisible');
-		// Button wieder sichtbar machen
-		$('#createTournamentButton').removeClass('invisible');
+		
 	},
 	'click #createTournamentButton': function(event){
 		// Button unsichtbar machen

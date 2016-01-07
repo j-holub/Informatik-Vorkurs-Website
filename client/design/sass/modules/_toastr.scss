@@ -1,0 +1,31 @@
+
+// Hintergrund mit dem eher hässlichen icons entfernen
+#toast-container > .toast {
+	background-image: none !important;
+}
+
+// Icon einfügen
+#toast-container > .toast:before {
+    position: fixed;
+    font-family: FontAwesome;
+    font-size: 1.5em;
+    line-height: 18px;
+    float: left;
+    color: #FFF;
+    padding: 0 0.2em;
+    margin: auto 0.5em auto -1.5em;
+}  
+
+// verschiedene Icons bzgl. der verschiedenen Nachrichtentypen
+#toast-container > .toast-warning:before {
+    content: "\f071";
+}
+#toast-container > .toast-error:before {
+    content: "\f12a";
+}
+#toast-container > .toast-info:before {
+    content: "\f129";
+}
+#toast-container > .toast-success:before {
+    content: "\f00c";
+}

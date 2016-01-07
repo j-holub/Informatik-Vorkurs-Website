@@ -20,7 +20,7 @@ Template.uploadRobot.events({
 				Meteor.call('uploadRobot', name, description, uploadedRobot._id, function(error, resultId){
 					if(error){
 						// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
-						console.log(error.reason);
+						Meteor.customFunctions.errorToast(error.reason);
 						RobotData.remove(uploadedRobot);
 					}
 				});

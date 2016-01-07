@@ -19,7 +19,7 @@ Template.register.events({
 			} 
 		}, function (error) {
 			if (error) {
-				console.log(error.name + ": " + error.reason);
+				Meteor.customFunctions.errorToast(error.reason);
 			}
 			else{
 				Router.go('profile', {_id: Meteor.userId()});
@@ -38,7 +38,7 @@ Template.login.events({
 		password = $('.login [name=password]').val();
 		Meteor.loginWithPassword(email, password, function(error){
 			if(error){
-				console.log(error.reason);
+				Meteor.customFunctions.errorToast(error.reason);
 			}
 			else{
 				Router.go('profile', {_id: Meteor.userId()});

@@ -42,7 +42,7 @@ Template.createTournament.events({
 		// Turnier erstellen
 		Meteor.call('createTournament', name, date, function (error, result) {
 			if(error){
-				console.log(error.reason);
+				Meteor.customFunctions.errorToast(error.reason);
 			}
 			else{
 				// Input Felder leeren

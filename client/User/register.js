@@ -7,24 +7,32 @@ Template.register.events({
 		// Die Input Fields abfragen
 		email = $('.register [name=email]').val();
 		password = $('.register [name=password]').val();
+		passwordRepeat = $('.register [name=passwordrepeat]').val();
 		firstname = $('.register [name=firstname]').val();
 		lastname = $('.register [name=lastname]').val();
-		// Den User anlegen
-		Accounts.createUser({
-			email: email,
-			password: password,
-			profile: {
-				firstname: firstname,
-				lastname: lastname,
-			} 
-		}, function (error) {
-			if (error) {
-				Meteor.customFunctions.errorToast(error.reason);
-			}
-			else{
-				Router.go('profile', {_id: Meteor.userId()});
-			}
-		});
+		// Passwörter vergleichen
+		if(password === passwordRepeat){
+			// Den User anlegen
+			Accounts.createUser({
+				email: email,
+				password: password,
+				profile: {
+					firstname: firstname,
+					lastname: lastname,
+				} 
+			}, function (error) {
+				if (error) {
+					Meteor.customFunctions.errorToast(error.reason);
+				}
+				else{
+					Router.go('profile', {_id: Meteor.userId()});
+				}
+			});
+		}
+		// Passwörter nicht gleich
+		else{
+			Meteor.customFunctions.errorToast("Passwörter stimmen nicht überein");
+		}
 	}
 });
 

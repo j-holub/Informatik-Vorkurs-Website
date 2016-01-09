@@ -12,7 +12,7 @@ Template.uploadRobot.events({
 		var uploadedRobot = RobotData.insert(robotFile, function(error, fileObj){
 			// Überprüfung ob es fehler gab
 			if(error){
-				console.log(error.reason);
+				Meteor.customFunctions.errorToast(error.message);
 			}
 			// wenn nicht den Roboter anlegen
 			else{
@@ -23,15 +23,18 @@ Template.uploadRobot.events({
 						Meteor.customFunctions.errorToast(error.reason);
 						RobotData.remove(uploadedRobot);
 					}
+					// In diesem Fall ging alles gut und das Form wird resettet
+					else{
+						// Uploadform resetten
+						$('#uploadRobot')[0].reset();
+						// Standarttext auf den File Upload Button setzten
+						$('#robotData').next('label').children('span').html('Datei');
+						// Form verschwinden lassen
+						$('#uploadRobot').addClass('invisible');
+						// Button sichtbar machen
+						$('#uploadRobotButton').removeClass('invisible');
+					}
 				});
-				// Uploadform resetten
-				$('#uploadRobot')[0].reset();
-				// Standarttext auf den File Upload Button setzten
-				$('#robotData').next('label').children('span').html('Datei');
-				// Form verschwinden lassen
-				$('#uploadRobot').addClass('invisible');
-				// Button sichtbar machen
-				$('#uploadRobotButton').removeClass('invisible');
 			}
 		});
 	},

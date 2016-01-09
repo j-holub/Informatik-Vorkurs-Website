@@ -29,3 +29,8 @@
 #toast-container > .toast-success:before {
     content: "\f00c";
 }
+
+// Bewirkt, dass das Toast unter der NavBar angezeigt wird
+.navBarOffset{
+    top: 12px + $navigationHeight;
+}

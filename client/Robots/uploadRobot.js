@@ -7,36 +7,43 @@ Template.uploadRobot.events({
 		var name = $('[name=robotName]').val();
 		var description = $('[name=robotDescription]').val();
 		var robotFile = template.find('input:file').files[0];
-		var currentUserId = Meteor.userId();
-		// Robot Data hochladen
-		var uploadedRobot = RobotData.insert(robotFile, function(error, fileObj){
-			// Überprüfung ob es fehler gab
-			if(error){
-				Meteor.customFunctions.errorToast(error.message);
-			}
-			// wenn nicht den Roboter anlegen
-			else{
-				// Roboter in die Datenbank eintragen
-				Meteor.call('uploadRobot', name, description, uploadedRobot._id, function(error, resultId){
-					if(error){
-						// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
-						Meteor.customFunctions.errorToast(error.reason);
-						RobotData.remove(uploadedRobot);
-					}
-					// In diesem Fall ging alles gut und das Form wird resettet
-					else{
-						// Uploadform resetten
-						$('#uploadRobot')[0].reset();
-						// Standarttext auf den File Upload Button setzten
-						$('#robotData').next('label').children('span').html('Datei');
-						// Form verschwinden lassen
-						$('#uploadRobot').addClass('invisible');
-						// Button sichtbar machen
-						$('#uploadRobotButton').removeClass('invisible');
-					}
-				});
-			}
-		});
+		// schauen ob überhaupt eine Datei angehangen wurden
+		if($('[name=robotData]').val() == ''){
+			Meteor.customFunctions.errorToast("Keine Roboterdatei gefunden");
+		}
+		// Falls eine Datei exisitiert geht es weiter
+		else{
+			var currentUserId = Meteor.userId();
+			// Robot Data hochladen
+			var uploadedRobot = RobotData.insert(robotFile, function(error, fileObj){
+				// Überprüfung ob es fehler gab
+				if(error){
+					Meteor.customFunctions.errorToast(error.message);
+				}
+				// wenn nicht den Roboter anlegen
+				else{
+					// Roboter in die Datenbank eintragen
+					Meteor.call('uploadRobot', name, description, uploadedRobot._id, function(error, resultId){
+						if(error){
+							// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
+							Meteor.customFunctions.errorToast(error.reason);
+							RobotData.remove(uploadedRobot);
+						}
+						// In diesem Fall ging alles gut und das Form wird resettet
+						else{
+							// Uploadform resetten
+							$('#uploadRobot')[0].reset();
+							// Standarttext auf den File Upload Button setzten
+							$('#robotData').next('label').children('span').html('Datei');
+							// Form verschwinden lassen
+							$('#uploadRobot').addClass('invisible');
+							// Button sichtbar machen
+							$('#uploadRobotButton').removeClass('invisible');
+						}
+					});
+				}
+			});
+		}
 	},
 	'click #uploadRobotButton': function(){
 		// Button verschwinden lassen

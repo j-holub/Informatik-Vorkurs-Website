@@ -36,13 +36,13 @@ section{
 	height: 100%;
 
 	text-align: center;
-
+	
 
 	i{
 		font-size: 6em;
 		color: $headingColor;
 
-		margin: 0.5em 0;
+		margin: 1em 0em;
 	}
 
 	p{
@@ -51,8 +51,17 @@ section{
 		// padding: 0 0.2em;
 	}
 
-	.container{
+
+
+	.content{
+		padding: 0 3em;
 		vertical-align: middle;
+		display: inline-block;
+	}
+
+	.rowstripe{
+		display: inline-block;
+		height: 100%;
 	}
 
 }

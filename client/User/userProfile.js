@@ -4,6 +4,32 @@ Template.profile.helpers({
 	}
 });
 
+Template.profile.events({
+	'change #profilePic': function (event) {
+		// Holt die Datei aus dem File Form
+		var file = event.target.files[0];
+		// Das Bild hochladen
+		var profilePic = ProfilePics.insert(file, function(error, fileObj){
+			// wenn es ein Fehler gab diese Ausgeben
+			if(error){
+				// TODO Error message mit Toast
+				console.log(error.message);
+			}
+			// wenn es keine Fehler gibt, muss das Bild noch mit dem User verlinkt werden
+			else{
+				Meteor.call('addProfilePicture', profilePic._id, function(error, resultId){
+					if(error){
+						// TODO error handler toast
+						console.log(error.message);
+						// Bild löschen
+						ProfilePics.remove(profilePic);
+					}
+				});
+			}
+		});
+	}
+});
+
 
 Template.userRobots.helpers({
 	// Listet alle Roboter auf die zu dem, mit der Id angegebenen User gehören

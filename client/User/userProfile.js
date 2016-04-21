@@ -27,6 +27,14 @@ Template.profile.events({
 				});
 			}
 		});
+	},
+	'click #deleteProfilePic': function(event){
+		Meteor.call('deleteProfilePicture', function (error, result) {
+			if(error){
+				// TODO error handler toast
+				console.log(error.message);
+			}
+		});
 	}
 });
 

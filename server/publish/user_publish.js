@@ -21,7 +21,7 @@ Meteor.publish('users', function(specificUserId){
 });
 
 Meteor.publish(null, function(){
-	if(currentUser){
+	if(this.userId){
 		return ProfilePics.find();
 	}
 });

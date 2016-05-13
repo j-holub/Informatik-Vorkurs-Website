@@ -4,14 +4,18 @@ Template.profile.helpers({
 	},
 	// Fügt den Bild löschen Button in die UI ein. War leider nur so unschön möglich
 	// Dadurch, dass es ein Template ist wird es aber automatisch geupdatet.
-	addProfilePicDeleteButton: function(id){
+	// Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
+	addUserSpecificUIStuff: function(id){
 		if(id == Meteor.userId() && Meteor.user().profile.profilePicData != null){
 			var avatarBlock = $('#userProfile .avatar');
 			var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
 			avatarBlock.append(icon);
+			// Hoverklasse hinzufügen
+			$('#userProfile .avatar').addClass('avatar-hover');
 		}
 		else{
 			$('#deleteProfilePic').remove();
+			$('#userProfile .avatar').removeClass('avatar-hover');
 		}
 	}
 });
@@ -54,12 +58,14 @@ Template.profile.events({
 	},
 	// Blurred das Profilbild beim mousehover
 	'mouseenter #userProfile .avatar-image': function(event){
-		// Die AnimationOptions sind im CSS nachgebaut
-		var vague = $('#userProfile .avatar-image').Vague({
-			intensity: 2,
-			forceSVGURl: false,
-		});
-		vague.blur();
+		if(Template.currentData()._id == Meteor.userId()){
+			// Die AnimationOptions sind im CSS nachgebaut
+			var vague = $('#userProfile .avatar-image').Vague({
+				intensity: 2,
+				forceSVGURl: false,
+			});
+			vague.blur();
+		}
 	},
 	// Entfernt den Blureffekt
 	'mouseleave #userProfile .avatar-image': function(event){
@@ -72,11 +78,10 @@ Template.profile.events({
 	}
 });
 
-// fügt den delete Button hinzu
-Template.profile.rendered = function () {
 
-	
-};
+Template.profile.onRendered(function () {
+	// console.log(Template.currentData());
+});
 
 
 Template.userRobots.helpers({

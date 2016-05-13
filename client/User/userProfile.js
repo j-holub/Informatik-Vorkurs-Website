@@ -6,15 +6,19 @@ Template.profile.helpers({
 	// Dadurch, dass es ein Template ist wird es aber automatisch geupdatet.
 	// Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
 	addUserSpecificUIStuff: function(id){
-		if(id == Meteor.userId() && Meteor.user().profile.profilePicData != null){
-			var avatarBlock = $('#userProfile .avatar');
-			var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
-			avatarBlock.append(icon);
+		if(id == Meteor.userId()){
 			// Hoverklasse hinzufügen
 			$('#userProfile .avatar').addClass('avatar-hover');
+			if(Meteor.user().profile.profilePicData != null){
+				var avatarBlock = $('#userProfile .avatar');
+				var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
+				avatarBlock.append(icon);
+			}
+			else{
+				$('#deleteProfilePic').remove();
+			}
 		}
 		else{
-			$('#deleteProfilePic').remove();
 			$('#userProfile .avatar').removeClass('avatar-hover');
 		}
 	}
@@ -30,15 +34,13 @@ Template.profile.events({
 		var profilePic = ProfilePics.insert(file, function(error, fileObj){
 			// wenn es ein Fehler gab diese Ausgeben
 			if(error){
-				// TODO Error message mit Toast
-				console.log(error.message);
+				Meteor.customFunctions.errorToast(error.message);
 			}
 			// wenn es keine Fehler gibt, muss das Bild noch mit dem User verlinkt werden
 			else{
 				Meteor.call('addProfilePicture', profilePic._id, function(error, resultId){
 					if(error){
-						// TODO error handler toast
-						console.log(error.message);
+						Meteor.customFunctions.errorToast(error.message);
 						// Bild löschen
 						ProfilePics.remove(profilePic);
 					}
@@ -49,8 +51,7 @@ Template.profile.events({
 	'click #deleteProfilePic': function(event){
 		Meteor.call('deleteProfilePicture', function (error, result) {
 			if(error){
-				// TODO error handler toast
-				console.log(error.message);
+				Meteor.customFunctions.errorToast(error.message);
 			}
 		});
 		// Verhindert, dass das label des Profilbildes auch geklickt wird

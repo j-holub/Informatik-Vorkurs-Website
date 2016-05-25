@@ -2,12 +2,15 @@
 
 	<div class="container" id="tournamentList">
 
-	{{#each listTournaments}}
+	{{#each listActiveTournaments}}
 		{{>tournament}}
-		<br/>
 	{{/each}}
 
 	{{>createTournament}}
+
+	{{#each listPastTournaments}}
+		{{>tournament}}
+	{{/each}}
 
 	</div>
 

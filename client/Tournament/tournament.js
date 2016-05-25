@@ -2,6 +2,16 @@
 Template.tournaments.helpers({
 	listTournaments: function () {
 		return Tournaments.find();
+	},
+	listActiveTournaments: function() {
+		return  Tournaments.find({
+			date: {$gte: new Date }
+		});
+	},
+	listPastTournaments: function() {
+		return Tournaments.find({
+			date: {$lte: new Date }
+		});
 	}
 });
 

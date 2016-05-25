@@ -1,26 +1,6 @@
 Template.profile.helpers({
 	isActiveUser: function(id){
 		return (id == Meteor.userId());
-	},
-	// Fügt den Bild löschen Button in die UI ein. War leider nur so unschön möglich
-	// Dadurch, dass es ein Template ist wird es aber automatisch geupdatet.
-	// Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
-	addUserSpecificUIStuff: function(id){
-		if(id == Meteor.userId()){
-			// Hoverklasse hinzufügen
-			$('#userProfile .avatar').addClass('avatar-hover');
-			if(Meteor.user().profile.profilePicData != null){
-				var avatarBlock = $('#userProfile .avatar');
-				var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
-				avatarBlock.append(icon);
-			}
-			else{
-				$('#deleteProfilePic').remove();
-			}
-		}
-		else{
-			$('#userProfile .avatar').removeClass('avatar-hover');
-		}
 	}
 });
 
@@ -44,6 +24,12 @@ Template.profile.events({
 						// Bild löschen
 						ProfilePics.remove(profilePic);
 					}
+					// wenn alles okay war muss das delete Icon noch hinzugefügt werden
+					else{
+						var avatarBlock = $('#userProfile .avatar');
+						var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
+						avatarBlock.append(icon);
+					}
 				});
 			}
 		});
@@ -52,6 +38,10 @@ Template.profile.events({
 		Meteor.call('deleteProfilePicture', function (error, result) {
 			if(error){
 				Meteor.customFunctions.errorToast(error.message);
+			}
+			// wenn alles gut ging muss das delete Icon noch entfernt werden
+			else{
+				$('#deleteProfilePic').remove();
 			}
 		});
 		// Verhindert, dass das label des Profilbildes auch geklickt wird
@@ -79,16 +69,32 @@ Template.profile.events({
 	}
 });
 
-
+// Fügt den Bild löschen Button in die UI ein. War leider nur so unschön möglich
+// Dadurch, dass es ein Template ist wird es aber automatisch geupdatet.
+// Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
 Template.profile.onRendered(function () {
-	// console.log(Template.currentData());
+	var id = Template.currentData()._id;
+	if(id == Meteor.userId()){
+		// Hoverklasse hinzufügen
+		$('#userProfile .avatar').addClass('avatar-hover');
+		if(Meteor.user().profile.profilePicData != null){
+			var avatarBlock = $('#userProfile .avatar');
+			var icon = "<i class=\"fa fa-times fa-3x\" id=\"deleteProfilePic\"></i>";
+			avatarBlock.append(icon);
+		}
+		else{
+			$('#deleteProfilePic').remove();
+		}
+	}
+	else{
+		$('#userProfile .avatar').removeClass('avatar-hover');
+	}
 });
 
 
 Template.userRobots.helpers({
 	// Listet alle Roboter auf die zu dem, mit der Id angegebenen User gehören
 	listUserRobots: function (userId) {
-		console.log("I'm here");
 		return Robots.find({belongsTo: userId}, {sort: {dateUploaded: 1}});
 	}
 });

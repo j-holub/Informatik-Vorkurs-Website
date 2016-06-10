@@ -1,13 +1,21 @@
 
 div#tournamentList{
 
-	i{
-		color: $headingColor;
-	}
+	.tournament{
+	
+		h2,p{
+			text-align: center;
+			line-height: 0.05em;
+		}
 
-	h2,p{
-		text-align: center;
-	}
+		p{
+			font-size: 0.85em;
+			color: $headingColor;
+		}
+
+		margin: 1.1em 0;
+
+	}	
 
 	a:hover,
 	a:focus{
@@ -34,6 +42,14 @@ div#tournamentList{
 			}
 		}
 	}
+
+	button#createTournamentButton{
+		// Ist von nöten damit der Button zentriert wird
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 
 }
 

@@ -3,15 +3,70 @@ Template.tournaments.helpers({
 	listTournaments: function () {
 		return Tournaments.find();
 	},
+	// Formatiert das Ergebnis direkt als Matrix zum anzeigen in der Web UI
 	listActiveTournaments: function() {
-		return  Tournaments.find({
-			date: {$gte: new Date }
-		});
+
+		var data = Tournaments.find({
+			date: { $gte: new Date }
+		}).fetch();
+
+		var formattedResultList;
+
+		// Nur wenn es mehr als 2 Einträge gibt, brauchen wir eine Matrix
+		if(data.length > 2){
+
+			// array für die Reihen anlegen
+			formattedResultList = new Array(Math.ceil(data.length / 2));
+
+			// in jedem Eintrag ein eigenes Array (Spalten) erstellen
+			for (var i = 0; i < formattedResultList.length; i++) {
+				formattedResultList[i] = [];
+			}
+
+			// die Turniere entsprechend einsortieren
+			for (var i = 0; i < formattedResultList.length; i++) {
+				formattedResultList[Math.floor(i/2)][i % 2] = data[i];
+			}
+
+		}
+		else{
+			formattedResultList = new Array(1);
+			formattedResultList[0] = data;
+		}
+
+		return formattedResultList;
 	},
+	// Formatiert das Ergebnis direkt als Matrix zum anzeigen in der Web UI
 	listPastTournaments: function() {
-		return Tournaments.find({
-			date: {$lte: new Date }
-		});
+		var data = Tournaments.find({
+			date: { $lte: new Date }
+		}).fetch();
+
+		var formattedResultList;
+
+		// Nur wenn es mehr als 2 Einträge gibt, brauchen wir eine Matrix
+		if(data.length > 2){
+
+			// array für die Reihen anlegen
+			formattedResultList = new Array(Math.ceil(data.length / 2));
+
+			// in jedem Eintrag ein eigenes Array (Spalten) erstellen
+			for (var i = 0; i < formattedResultList.length; i++) {
+				formattedResultList[i] = [];
+			}
+
+			// die Turniere entsprechend einsortieren
+			for (var i = 0; i < formattedResultList.length; i++) {
+				formattedResultList[Math.floor(i/2)][i % 2] = data[i];
+			}
+
+		}
+		else{
+			formattedResultList = new Array(1);
+			formattedResultList[0] = data;
+		}
+
+		return formattedResultList;
 	}
 });
 

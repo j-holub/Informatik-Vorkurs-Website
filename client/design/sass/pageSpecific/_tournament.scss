@@ -51,6 +51,14 @@ div#tournamentList{
 	}
 
 
+	#pastTournaments{
+		max-height: 0;
+		overflow: hidden;
+
+		transition: all 0.5s ease-in-out;
+	}
+
+
 }
 
 div#tournamentDetail{

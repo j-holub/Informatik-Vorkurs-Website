@@ -70,6 +70,13 @@ Template.tournaments.helpers({
 	}
 });
 
+Template.tournaments.events({
+	'click #pastTournamentsButton': function(event){
+		$('#pastTournamentsButton').addClass('invisible');
+		$('#pastTournaments').css('max-height', '10000px');
+	}
+});
+
 Template.tournament.helpers({
 	// Erzeugt einen schöner formatierten Datum String aus dem Date Object des Turniers
 	displayDate: function () {

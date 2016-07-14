@@ -10,6 +10,7 @@ Template.tournaments.helpers({
 			date: { $gte: new Date }
 		}).fetch();
 
+
 		var formattedResultList;
 
 		// Nur wenn es mehr als 2 Einträge gibt, brauchen wir eine Matrix
@@ -24,7 +25,7 @@ Template.tournaments.helpers({
 			}
 
 			// die Turniere entsprechend einsortieren
-			for (var i = 0; i < formattedResultList.length; i++) {
+			for (var i = 0; i < data.length; i++) {
 				formattedResultList[Math.floor(i/2)][i % 2] = data[i];
 			}
 
@@ -56,7 +57,7 @@ Template.tournaments.helpers({
 			}
 
 			// die Turniere entsprechend einsortieren
-			for (var i = 0; i < formattedResultList.length; i++) {
+			for (var i = 0; i < data.length; i++) {
 				formattedResultList[Math.floor(i/2)][i % 2] = data[i];
 			}
 
@@ -110,7 +111,7 @@ Template.createTournament.events({
 		var month = $('[name=month]').val();
 		var year  = $('[name=year]').val();
 		// Date objekt erstellen
-		date = new Date(year, month, day);
+		date = new Date(year, month-1, day);
 		// Turnier erstellen
 		Meteor.call('createTournament', name, date, function (error, result) {
 			if(error){

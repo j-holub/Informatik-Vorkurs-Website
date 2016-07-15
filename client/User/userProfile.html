@@ -6,9 +6,14 @@
 
 	<div class="col s12 m6 l6">
 
+	{{#if isActiveUser _id}}
 	<label for="profilePic" form="profilePicUpload" id="profilePicLabel">
 	{{> avatar user=this shape="circle" size="profile"}}
 	</label>
+	{{else}}
+	{{> avatar user=this shape="circle" size="profile"}}
+	{{/if}}
+
 
 	<p class="username">{{profile.firstname}} {{profile.lastname}}</p>
 

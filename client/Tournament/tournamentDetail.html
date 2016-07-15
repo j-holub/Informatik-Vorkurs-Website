@@ -20,6 +20,10 @@
 		{{/unless}}
 	{{/unless}}
 
+	{{#if hasParticipants}}
+		{{>downloadRobots}}
+	{{/if}}
+
 	</div>
 </template>
 
@@ -55,6 +59,9 @@
 	
 </template>
 
+<template name="downloadRobots">
+	<p><a id="downloadRobots" href="{{this._id}}/download">Download</a></p>
+</template>
 
 
 <template name="tournamentRobot">

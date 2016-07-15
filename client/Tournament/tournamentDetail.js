@@ -120,7 +120,6 @@ Template.tournamentEntry.events({
 });
 
 
-
 Template.tournamentRobot.helpers({
 	// sucht zu einer UserId ddes Uploaders en Vor- und Nachnamen raus
 	uploaderName: function (uploaderId) {

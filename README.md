@@ -49,6 +49,12 @@ curl https://install.meteor.com/ | sh
 
 [Installer](https://install.meteor.com/windows) herunterladen und installieren
 
+### NPM Dependencies installieren
+
+```
+meteor npm install --save
+```
+
 ### Starten
 
 Danach navigiert man mit de Konsole einfach in den Ordner der Informatik Vorkurs Website und startet den Development Server mit

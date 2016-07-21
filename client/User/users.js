@@ -75,3 +75,14 @@ Template.users.rendered = function () {
 	$('[name=userSearch]').focus();
 };
 
+
+
+
+Template.user.helpers({
+	// wird immer mit dem user als this aufgerufen
+	// gibt an ob ein user die Rolle role hat
+	hasRole: function (role) {
+		return ($.inArray(role, this.roles) != -1);
+	}
+});
+

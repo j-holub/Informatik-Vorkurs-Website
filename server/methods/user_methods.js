@@ -20,5 +20,10 @@ Meteor.methods({
 		else{
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
+	},
+	'registerUser': function(userData){
+		var userId = Accounts.createUser(userData);
+		Roles.addUsersToRoles(userId, ['user']);
+		return userId;	
 	}
 })

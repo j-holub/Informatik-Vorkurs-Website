@@ -116,8 +116,9 @@ Template.profileRobot.helpers({
 	isDownloadable: function(){
 		return this.downloadable;
 	},
-	isDownloadableOrBelongsToUser: function(){
-		return (Meteor.userId() == this.belongsTo) || (this.downloadable);
+	checkDownloadableCondition: function(){
+		// Gehört dem User || downloadbar || User ist Admin
+		return (Meteor.userId() == this.belongsTo) || (this.downloadable) || Roles.userIsInRole(Meteor.user(), ["admin"]);
 	}
 });
 

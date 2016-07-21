@@ -10,11 +10,13 @@
 		</div>
 	{{/each}}
 
+	{{#if isInRole "admin"}}
 	<div class="row">
 	<div class="col s12 m12 l12">
 	{{>createTournament}}
 	</div>
 	</div>
+	{{/if}}
 
 	<!-- <div class="row">
 		<button class="borderButton" id="pastTournamentsButton">Vergangene Turniere</button>

@@ -13,21 +13,29 @@ Template.register.events({
 		// Passwörter vergleichen
 		if(password === passwordRepeat){
 			// Den User anlegen
-			Accounts.createUser({
+			Meteor.call('registerUser', {
 				email: email,
 				password: password,
 				profile: {
 					firstname: firstname,
 					lastname: lastname,
-				} 
-			}, function (error) {
-				if (error) {
-					Meteor.customFunctions.errorToast(error.reason);
 				}
-				else{
-					Router.go('profile', {_id: Meteor.userId()});
-				}
+				// wenn kein Fehler vorliegt User einloggen
+				}, function (error, userId){
+					if (error) {
+						Meteor.customFunctions.errorToast(error.reason);
+					}
+					else{
+						// user einlogen
+						Meteor.loginWithPassword(email, password, function(error){
+							if(!error){
+								// auf die Profilseite verlinken
+								Router.go('profile', {_id: userId});
+							}
+						});
+					}
 			});
+	
 		}
 		// Passwörter nicht gleich
 		else{
@@ -44,6 +52,7 @@ Template.login.events({
 		//Die Input Fields abfragen
 		email = $('.login [name=email]').val();
 		password = $('.login [name=password]').val();
+		console.log(email + " - " + password);
 		Meteor.loginWithPassword(email, password, function(error){
 			if(error){
 				Meteor.customFunctions.errorToast(error.reason);

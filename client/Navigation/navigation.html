@@ -13,7 +13,7 @@
 
 	{{#with currentUser }}
 	<ul id="userInfo">
-		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }}</a></li>
+		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }} {{#if isInRole "admin"}}<i class="fa fa-diamond"></i>{{/if}}</a></li>
 		<li class="userImage"><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
 		<li>{{>logout}}</li>
 	</ul>

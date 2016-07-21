@@ -20,8 +20,10 @@
 		{{/unless}}
 	{{/unless}}
 
-	{{#if hasParticipants}}
-		{{>downloadRobots}}
+	{{#if isInRole "admin"}}
+		{{#if hasParticipants}}
+			{{>downloadRobots}}
+		{{/if}}
 	{{/if}}
 
 	</div>

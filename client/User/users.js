@@ -71,8 +71,11 @@ Template.users.events({
 Template.users.rendered = function () {
 	// führt beim rendern des Templates direkt eine leer Suche aus um alle User anzuzeigen
 	UserSearch.search(' ');
-	// fokusiert das Suchfeld (außer im Firefox)
-	$('[name=userSearch]').focus();
+	
+	if(Meteor.Device.isDesktop()){
+		// fokusiert das Suchfeld (außer im Firefox)
+		$('[name=userSearch]').focus();
+	}
 };
 
 

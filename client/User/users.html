@@ -38,11 +38,17 @@
 
 
 <template name="user">
-	<div class="col s6 m6 l3">
+	<div class="col s12 m12 l3">
 		<a href="{{pathFor route='profile'}}">
 		<div class="user">
+		<div class="userimage">
 		{{>avatar user=this shape="circle" size="large"}}
-		{{profile.firstname}} {{profile.lastname}}
+		</div>
+		<div class="username">
+		<div class="verticalAlign">
+		<p>{{profile.firstname}} {{profile.lastname}}</p>
+		</div>
+		</div>
 		</div>
 		</a>
 	</div>

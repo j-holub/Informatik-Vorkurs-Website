@@ -1,17 +1,85 @@
+// #####################
+// # User in der Liste #
+// #####################
 
-div.user{
-	text-align: center;
+// desktop
+@media screen and (min-width: $medium-screen-up){
+	div.userimage{
+		
 
-	padding: 0.5em;
+		padding: 0.5em;
 
-	font-size: 1.3em;
-	line-height: 2.2em;
+		.avatar{
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
 
-	letter-spacing: 0.1em;
+	div.username{
+		text-align: center;
+		font-size: 1.3em;
+		line-height: 2.2em;
+		letter-spacing: 0.2em;
 
-	.avatar{
-		margin-right: auto;
+		padding: 0.5em;
+
+		p{
+			margin: 0;
+		}
+	}
+}
+
+// mobile
+@media screen and (max-width: $medium-screen){
+	div.user{
 		margin-left: auto;
+		margin-right: auto;
+
+		width: 95%;		
+		padding: 0.7em 0;
+	}
+
+	div.userimage{
+		display: inline-block;
+		vertical-align: top;
+		width: 30%;
+
+		.avatar{
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+	div.username{
+		width: 50%;
+		max-width: 50%;
+
+		display: inline-block;
+		vertical-align: top;
+
+		font-size: 1.3em;
+		letter-spacing: 0.1em;
+		text-align: left;
+
+		padding-left: 0.5em;
+	}
+
+	div.verticalAlign{
+		display: table;
+
+		// entspricht der Höhe der Avatar Bilder
+		height: 80px;
+
+		p{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: left;
+		}
+
+	}
+
+	// überschreibt den default 20px bottom margin der row klasse aus dem materializecss framework
+	.row{
+		margin-bottom: 0px !important;
 	}
 }
 
@@ -25,12 +93,17 @@ div.user{
 	}
 }
 
+
+// ##########
+// # Profil #
+// ##########
+
 div#userProfile{
 
 	.avatar{
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 3em;
+		// margin-top: 3em;
 
 		display: block;
 

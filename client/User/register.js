@@ -52,7 +52,6 @@ Template.login.events({
 		//Die Input Fields abfragen
 		email = $('.login [name=email]').val();
 		password = $('.login [name=password]').val();
-		console.log(email + " - " + password);
 		Meteor.loginWithPassword(email, password, function(error){
 			if(error){
 				Meteor.customFunctions.errorToast(error.reason);

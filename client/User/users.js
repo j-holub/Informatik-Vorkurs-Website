@@ -71,7 +71,7 @@ Template.users.events({
 Template.users.rendered = function () {
 	// führt beim rendern des Templates direkt eine leer Suche aus um alle User anzuzeigen
 	UserSearch.search(' ');
-	
+
 	if(Meteor.Device.isDesktop()){
 		// fokusiert das Suchfeld (außer im Firefox)
 		$('[name=userSearch]').focus();
@@ -86,6 +86,31 @@ Template.user.helpers({
 	// gibt an ob ein user die Rolle role hat
 	hasRole: function (role) {
 		return ($.inArray(role, this.roles) != -1);
+	}
+});
+
+Template.user.events({
+	// blurt das userbild beim mouseover
+	'mouseenter .user': function (event) {
+		// das entsprechende Userbild finden
+		var image = $(event.target).find('.avatar-image');
+		// die vague variable festlegen
+		var vague = $(image).Vague({
+			intensity: 2,
+			forceSVGURl: false,
+		});
+		vague.blur();
+	},
+	// entblurt das userbild wenn der mauszeiger dieses verlässt
+	'mouseleave .user': function (event) {
+		// das entsprechende Userbild finden
+		var image = $(event.target).find('.avatar-image');
+		// die vague variable festlegen
+		var vague = $(image).Vague({
+			intensity: 2,
+			forceSVGURl: false,
+		});
+		vague.unblur();
 	}
 });
 

@@ -2,6 +2,26 @@
 // # User in der Liste #
 // #####################
 
+div.user{
+	//  Weil VagueJS es net selbst auf die Reihe bekommt
+	.avatar-image{
+		transition: filter 0.3s ease-in-out;
+	}
+
+	.avatar{
+		border: 0.2em solid $backgroundColor;
+		border-radius: 50%;
+
+		transition: border 0.3s ease-in-out;
+	}
+}
+
+div.user:hover{
+	.avatar{
+		border: 0.2em solid $primaryColor;
+	}
+}
+
 // desktop
 @media screen and (min-width: $medium-screen-up){
 	div.userimage{
@@ -18,8 +38,8 @@
 	div.username{
 		text-align: center;
 		font-size: 1.3em;
-		line-height: 2.2em;
-		letter-spacing: 0.2em;
+		line-height: 1.2em;
+		letter-spacing: 0.1em;
 
 		padding: 0.5em;
 
@@ -84,12 +104,23 @@
 }
 
 #userList{
-	a{
-		color: $headingColor;
+	// desktop
+	@media screen and (min-width: $medium-screen-up){
+		a{
+			color: $textColor;
+		}
 	}
+	// mobile
+	@media screen and (max-width: $medium-screen){
+		a{
+			color: $headingColor;
+		}
+	}
+
+
 	a:hover,
 	a:focus{
-		color: $secondaryColorShade;
+		color: $headingColor;
 	}
 }
 
@@ -183,6 +214,14 @@ div#userProfile{
 		}
 
 		
+	}
+
+	// mobile
+	@media screen and (min-width: $medium-screen-up){
+	// bissel Abstand nach oben
+		div.row{
+			margin-top: 5em;
+		}
 	}
 
 }

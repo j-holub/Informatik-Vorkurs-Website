@@ -1,6 +1,9 @@
 Template.profile.helpers({
 	isActiveUser: function(id){
 		return (id == Meteor.userId());
+	},
+	hasRobots: function(id){
+		return Robots.find({'belongsTo': id}).count() > 0;
 	}
 });
 

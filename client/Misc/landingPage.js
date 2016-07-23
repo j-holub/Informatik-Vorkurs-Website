@@ -19,6 +19,24 @@ Template.landingPage.onRendered(function(){
 		$('#stripe .verticalCenter').css('height', 0.4 * viewportHeight);
 			
 	}
+
+	// set flowtype stuff
+	$('#information').flowtype({
+		minimum: 500,
+		maximum: 1200,
+		maxFont: 30
+	});
+
+	$('#robocode').flowtype({
+		minimum: 500,
+		maximum: 1200,
+		maxFont: 30
+	});
+
+	$('#stripe .content').flowtype({
+		minimum: 400,
+		maximum: 1200,
+	});
 });
 
 Template.landingPage.events({

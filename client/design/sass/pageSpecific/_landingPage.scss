@@ -34,22 +34,6 @@
 @media screen and (max-width: $medium-screen){
 #landingPage{
 
-	h1{
-		font-size: 2.2em;
-		font-family: 'Sertig';
-
-		letter-spacing: 0.05em;
-	}
-
-	p{
-		text-align: justify;
-		font-size: 1.2em;
-
-		line-height: 1.3em;
-
-		min-width: 100%;
-	}
-
 	section{
 		padding: 3em 0.5em;
 	}
@@ -62,7 +46,6 @@
 
 		.content{
 			padding: 1em 1.2em;
-
 		}
 	}
 
@@ -72,20 +55,6 @@
 // desktop
 @media screen and (min-width: $medium-screen-up){
 #landingPage{
-
-	h1{
-		font-size: 5em;
-		font-family: 'Sertig';
-
-		letter-spacing: 0.1em;
-	}
-
-	p{
-		text-align: justify;
-		font-size: 2em;
-
-		line-height: 1.3em;
-	}
 
 	section{
 		padding: 5em 0;
@@ -100,6 +69,9 @@
 
 	.content{
 		padding: 0 2em;
+		// überschreibt ein paar geerbte werte
+		font-size: 1.2em !important;
+		line-height: 1.2em !important;
 	}
 }
 }

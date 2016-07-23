@@ -22,6 +22,14 @@ $backgroundColor: #fff;
 	font-family: 'Sertig';
 	src: url('../fonts/Sertig.otf');
 }
+@font-face {
+	font-family: 'Garamond';
+	src: url('../fonts/Garamond.ttf');
+}
+@font-face {
+	font-family: 'JosefinSans-Bold';
+	src: url('../fonts/JosefinSans-Bold.ttf');
+}
 
 $standartFont: 'HelveticaNeue';
 
@@ -51,5 +59,4 @@ $navigationColor: $backgroundColor;
 @import "pageSpecific/navigation";
 @import "pageSpecific/user";
 @import "pageSpecific/tournament";
-@import "pageSpecific/registerlogin";
 @import "pageSpecific/landingPage";

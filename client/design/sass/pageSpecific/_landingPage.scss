@@ -1,4 +1,8 @@
 
+// ###########
+// # Content #
+// ###########
+
 #landingPage{
 
 h1{
@@ -74,19 +78,125 @@ section{
 
 }
 
-div#topBar{
-	position: absolute;
 
-	top: 0;
-	right: 0;
-	left: 0;
-	
+// ############################
+// # Landing Full Screen Page #
+// ############################
 
-	height: 8em;
 
-	background-color: none;
+// allgemein
+div#landingPageImage{
+	height: 1000px;
+	background-size: cover;
+
+	// Zentriert den Inhalt vertikal
+	div.tableWrapper{
+		display: table;
+		width: 100%;
+		div.verticalCenter{
+			display: table-cell;
+
+			vertical-align: middle;
+			text-align: center;
+
+			
+		}
+	}
+
+
+	#loginButton{
+		background-color: $secondaryColor;
+		border-color: $secondaryColor;
+	}
+
+	#registerButton{
+		background-color: transparent;
+	}
+
+	#loginButton{
+		background-color: $secondaryColor;
+		border-color: $secondaryColor;
+	}
+	#loginButton:hover{
+		background-color: $secondaryColorShade;
+		border-color: $secondaryColorShade;
+	}
+
+	p{
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 }
 
+// mobile
+@media screen and (max-width: $medium-screen){
+div#landingPageImage{
+	
+	// bild für die mobile version
+	background-image: url(/images/landingPageImage-mobile.jpg);
+
+	#headline{
+		font-size: 4em;
+		letter-spacing: 0.02em;		
+		font-family: 'JosefinSans-Bold';
+		color: white;
+	}
+
+	#subline{
+		font-size: 1em;
+		font-family: 'Garamond';
+
+		color: white;
+	}
+
+	#buttons{
+		margin-top: 5em;
+	}
+
+	button{
+		border-width: 0.2em;
+		font-size: 1em;
+	}
+}
+}
+
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
+div#landingPageImage{
+
+	// bild für die desktop version
+	background-image: url(/images/landingPageImage-desktop.jpg);
+
+	#headline{
+		font-size: 8em;
+		font-family: 'JosefinSans-Bold';
+		letter-spacing: 0.05em;
+
+		color: white;		
+	}
+
+	#subline{
+		font-size: 2em;
+		font-family: 'Garamond';
+
+		color: white;
+	}
+
+	#buttons{
+		margin-top: 10em;
+	}
+
+	button{
+		border-width: 0.25em;
+		font-size: 1.5em;
+	}
+}
+}
+
+
+// allgemein
 div#downArrow{
 	position: absolute;
 
@@ -95,7 +205,6 @@ div#downArrow{
 
 	text-align: center;
 	
-	font-size: 3em;
 
 	color: rgba(150, 150, 150, 0.5);
 
@@ -107,21 +216,40 @@ div#downArrow{
 	}
 	
 }
+
 div#downArrow .fa-stack:hover{
 	color: rgba(150, 150, 150, 0.7);
 
 	transition: all 0.3s ease-out;
 }
 
-
-div#landingPageImage{
-	height: 1000px;
-
-	background-image: url(/images/misc/landingImage.jpg);
-	background-size: cover;
-
+// desktop
+@media screen and (min-width: $medium-screen-up){
+	div#downArrow{
+		font-size: 3em;
+	}
 }
+
+// mobile
+@media screen and (max-width: $medium-screen){
+	div#downArrow{
+		font-size: 2em;
+	}
+}
+
+
+// ##########################
+// # Login Register Bereich #
+// ##########################
 
 #loginRegisterArea{
 	font-size: 1.5em;
+}
+
+#login,
+#register{
+	margin-right: auto;
+	margin-left: auto;
+
+	text-align: center;
 }

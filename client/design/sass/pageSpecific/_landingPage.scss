@@ -3,24 +3,105 @@
 // # Content #
 // ###########
 
+// allgemein
+#landingPage{
+	.row{
+		// default von materializecss grid überschreiben
+		margin-bottom: 0;
+	}
+
+	#stripe{
+		// background-color: #f6f6f8;
+		background-color: $headingColor;
+		color: $backgroundColor;
+		width: 100%;
+		
+		text-align: center;
+	
+		.content{
+			display: table;
+
+			.verticalCenter{
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+
+	}
+}
+
+// mobile
+@media screen and (max-width: $medium-screen){
 #landingPage{
 
-h1{
-	font-size: 5em;
-	font-family: 'Sertig';
+	h1{
+		font-size: 2.2em;
+		font-family: 'Sertig';
 
-	letter-spacing: 0.1em;
+		letter-spacing: 0.05em;
+	}
+
+	p{
+		text-align: justify;
+		font-size: 1.2em;
+
+		line-height: 1.3em;
+
+		min-width: 100%;
+	}
+
+	section{
+		padding: 3em 0.5em;
+	}
+
+	#stripe{
+		i{
+			font-size: 4em;
+			margin: 0.2em 0em;
+		}
+
+		.content{
+			padding: 1em 1.2em;
+
+		}
+	}
+
+}
 }
 
-p{
-	text-align: justify;
-	font-size: 2em;
+// desktop
+@media screen and (min-width: $medium-screen-up){
+#landingPage{
 
-	line-height: 1.3em;
+	h1{
+		font-size: 5em;
+		font-family: 'Sertig';
+
+		letter-spacing: 0.1em;
+	}
+
+	p{
+		text-align: justify;
+		font-size: 2em;
+
+		line-height: 1.3em;
+	}
+
+	section{
+		padding: 5em 0;
+	}
+
+	#stripe{
+		i{
+			font-size: 6em;
+			margin: 0.2em 0em;
+		}
+	}
+
+	.content{
+		padding: 0 2em;
+	}
 }
-
-section{
-	padding: 5em 0;
 }
 
 #information{
@@ -32,43 +113,7 @@ section{
 	}
 }
 
-#stripe{
-	background-color: #f6f6f8;
-	width: 100%;
 
-	display: inline-block;
-	height: 100%;
-
-	text-align: center;
-	
-
-	i{
-		font-size: 6em;
-		color: $headingColor;
-
-		margin: 1em 0em;
-	}
-
-	p{
-		text-align: justify;
-		font-size: 1.8em;
-		// padding: 0 0.2em;
-	}
-
-
-
-	.content{
-		padding: 0 3em;
-		vertical-align: middle;
-		display: inline-block;
-	}
-
-	.rowstripe{
-		display: inline-block;
-		height: 100%;
-	}
-
-}
 
 #robocode{
 	h1{
@@ -76,7 +121,7 @@ section{
 	}
 }
 
-}
+
 
 
 // ############################

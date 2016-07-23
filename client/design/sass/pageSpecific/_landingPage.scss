@@ -28,6 +28,12 @@
 		}
 
 	}
+
+	h1{
+		color: $headingColor;
+	}
+
+	text-align: justify;
 }
 
 // mobile
@@ -76,22 +82,8 @@
 }
 }
 
-#information{
-
-	padding: 2em 0;
-
-	h1{
-		color: $secondaryColor;
-	}
-}
 
 
-
-#robocode{
-	h1{
-		color: $primaryColor;
-	}
-}
 
 
 

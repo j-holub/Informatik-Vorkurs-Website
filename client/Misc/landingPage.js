@@ -20,7 +20,7 @@ Template.landingPage.onRendered(function(){
 			
 	}
 
-	// set flowtype stuff
+	// FlowTypeJS 
 	$('#information').flowtype({
 		minimum: 500,
 		maximum: 1200,
@@ -37,6 +37,9 @@ Template.landingPage.onRendered(function(){
 		minimum: 400,
 		maximum: 1200,
 	});
+
+	// FitTextJS
+	$('h1').fitText();
 });
 
 Template.landingPage.events({

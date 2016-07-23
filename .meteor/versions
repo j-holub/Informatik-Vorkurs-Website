@@ -92,6 +92,7 @@ modules-runtime@0.6.5
 mongo@1.1.9_1
 mongo-id@1.0.5
 mongo-livedata@1.0.12
+mrt:fittext@1.2.0
 mrt:jq-flowtype@0.0.1
 mystor:device-detection@0.2.0
 natestrauser:jquery-scrollto@1.4.7

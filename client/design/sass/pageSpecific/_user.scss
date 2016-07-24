@@ -216,11 +216,21 @@ div#userProfile{
 		
 	}
 
-	// mobile
+	// desktop
 	@media screen and (min-width: $medium-screen-up){
-	// bissel Abstand nach oben
+		// bissel Abstand nach oben
 		div.row{
 			margin-top: 5em;
+		}
+
+
+		// form etwas verkleinern
+		form{
+			width: 60%;
+
+			margin-right: auto;
+			margin-left: auto;
+		
 		}
 	}
 

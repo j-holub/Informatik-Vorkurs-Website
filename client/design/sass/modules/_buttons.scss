@@ -9,7 +9,7 @@ button{
 	font-size: 1.2em;
 	letter-spacing: 1px;
 
-	min-width: 7em;
+	// min-width: 7em;
 
 	background-color: $primaryColor;
 	border-width: 3px;
@@ -26,7 +26,6 @@ button:hover,
 button:focus{
 	background-color: $primaryColorShade;
 	border-color: $primaryColorShade;
-
 
 	transition: all 0.3s ease-out;
 }

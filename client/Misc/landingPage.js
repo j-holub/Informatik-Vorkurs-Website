@@ -40,6 +40,8 @@ Template.landingPage.onRendered(function(){
 
 	// FitTextJS
 	$('h1').fitText();
+
+	
 });
 
 Template.landingPage.events({

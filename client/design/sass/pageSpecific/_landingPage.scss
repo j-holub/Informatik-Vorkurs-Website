@@ -14,16 +14,18 @@
 		// background-color: #f6f6f8;
 		background-color: $headingColor;
 		color: $backgroundColor;
+
 		width: 100%;
+		box-sizing: border-box;
 		
 		text-align: center;
-	
+
 		.content{
 			display: table;
 
 			.verticalCenter{
 				display: table-cell;
-				vertical-align: middle;
+				vertical-align: top;
 			}
 		}
 
@@ -251,14 +253,20 @@ div#downArrow .fa-stack:hover{
 // # Login Register Bereich #
 // ##########################
 
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
 #loginRegisterArea{
 	font-size: 1.5em;
+}
 }
 
 #login,
 #register{
-	margin-right: auto;
-	margin-left: auto;
-
 	text-align: center;
+
+	input{
+		width: 80%;
+	}
+
 }

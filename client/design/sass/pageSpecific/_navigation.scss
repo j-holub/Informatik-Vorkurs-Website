@@ -214,6 +214,9 @@ ul#navi{
 
 	line-height: $navigationHeight;
 
+	// lößt das Problem, dass jQuery click events auf iOS nicht erkannt werden
+	cursor: pointer;
+
 }
 
 }

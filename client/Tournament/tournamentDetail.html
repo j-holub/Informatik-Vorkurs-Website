@@ -3,7 +3,7 @@
 	<div class="container" id="tournamentDetail">
 
 	<h1 data-id="{{_id}}">{{name}}</h1>
-	<p><i class="fa fa-calendar"></i> {{displayDate}} <i class="fa fa-users"></i> {{paticipantCount}} </p>
+	<p><i class="mdi mdi-calendar-blank"></i> {{displayDate}} <i class="mdi mdi-account"></i> {{paticipantCount}} </p>
 
 	<br/>
 
@@ -68,7 +68,7 @@
 
 <template name="tournamentRobot">
 		<div class="col s12 m4 l4 robot">
-		<h3>{{name}} {{#if belongsToUser}}{{#unless ended}} <i class="fa fa-close" name="signOutRobot"></i> {{/unless}}{{/if}}</h3>
+		<h3>{{name}} {{#if belongsToUser}}{{#unless ended}} <i class="mdi mdi-close" name="signOutRobot"></i> {{/unless}}{{/if}}</h3>
 		<p class="owner"><a href="{{pathFor route='profile' _id=belongsTo }}">{{uploaderName belongsTo}}</a></p>
 		</div>
 </template>

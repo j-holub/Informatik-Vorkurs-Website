@@ -92,9 +92,9 @@
 <template name="profileRobot">
 	<h3>{{name}} 
 	{{#if checkDownloadableCondition}} 
-	<a href="{{downloadUrl}}"><i class="fa fa-download"></i></a>
+	<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
 	{{/if}} 
-	{{#if belongsToUser }} <i class="fa fa-trash" name="deleteRobot"></i>
+	{{#if belongsToUser }} <i class="mdi mdi-delete" name="deleteRobot"></i>
 	{{/if}}
 	</h3>
 	<p>{{description}}</p>

@@ -49,3 +49,12 @@ button:focus{
 button:focus{
 	appearance: none;
 }
+
+.secondary{
+	background-color: $secondaryColor !important;
+	border: 3px solid $secondaryColor !important;
+}
+.secondary:hover{
+	background-color: $secondaryColorShade !important;
+	border: 3px solid $secondaryColorShade !important;
+}

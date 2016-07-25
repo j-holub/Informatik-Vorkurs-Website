@@ -48,16 +48,30 @@
 	
 	<p><button id="tournamentEntryButton" class="borderButton">Teilnehmen</button></p>
 
-	<div id="robotDropdown" class="dropdownWrapper invisible" tabindex="1" data-id="">
+	<!-- <div id="robotDropdown" class="dropdownWrapper invisible" tabindex="1" data-id="">
 		<span>Roboter</span> <i class="fa fa-chevron-down"></i>
 		<ul class="dropdown">
 			{{#each listUserRobots}}
 			<li><a data-id="{{_id}}">{{name}}</a></li>
 			{{/each}}
 		</ul>
+	</div> -->
+
+	<div class="modalBackground" id="robotEntryModal">
+		<div class="modal">
+			<div class="modalHeader">Roboter eintragen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+			<div class="modalContent">
+				<ul class="robotList">
+				{{#each listUserRobots}}
+					<li class="robot" data-id="{{_id}}">{{name}}</li>
+				{{/each}}
+				</ul>
+			</div>
+			<div class="modalFooter"><button class="secondary" id="signUpButton">Eintragen</button></div>
+		</div>
 	</div>
 
-	<p><button class="invisible" id="signUpButton">Eintragen</button></p>
+	
 	
 </template>
 

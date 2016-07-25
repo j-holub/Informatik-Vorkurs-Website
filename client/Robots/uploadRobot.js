@@ -60,7 +60,7 @@ Template.uploadRobot.events({
 		}
 	},
 	'click #uploadRobotButton': function(){
-		$('#testModal').css('display', 'table');
+		$('#testModal').css('display', 'block');
 		// wenn Desktop sofort die eingabe fokusieren
 		if(Meteor.Device.isDesktop()){
 			$('[name=robotName]').focus();

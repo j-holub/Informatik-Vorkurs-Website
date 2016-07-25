@@ -236,3 +236,22 @@ div#userProfile{
 
 }
 
+
+// Fileupload im Modal
+.modal{
+
+	input[type=file] + label{
+		margin-top: 0.8em !important;
+		padding: 1em 0.6em;
+		
+		
+		font-size: 0.9em !important;
+	}
+
+	// desktop
+	@media screen and (min-width: $medium-screen-up){
+		input[type=file] + label{
+			width: 40%;
+		}
+	}
+}

@@ -35,23 +35,13 @@ Template.uploadRobot.events({
 							$('#uploadRobot')[0].reset();
 							// Standarttext auf den File Upload Button setzten
 							$('#robotData').next('label').children('span').html('Datei');
-							// Form verschwinden lassen
-							$('#uploadRobot').addClass('invisible');
-							// Button sichtbar machen
-							$('#uploadRobotButton').removeClass('invisible');
+							// Modal schließen
+							$('.modalBackground').css('display', 'none');
 						}
 					});
 				}
 			});
 		}
-	},
-	'click #uploadRobotButton': function(){
-		// Button verschwinden lassen
-		$('#uploadRobotButton').addClass('invisible');
-		// das Form sichtbar machen
-		$('#uploadRobot').removeClass('invisible');
-		// Das erste Eingabefeld fokusieren
-		$('[name=robotName]').focus();
 	},
 	// zeigt den Dateinamen auf dem Button an
 	'change #robotData': function(event){
@@ -67,6 +57,29 @@ Template.uploadRobot.events({
 		else{
 			// auf den Originalen Text setzen
 			label.html(originalLabelValue);
+		}
+	},
+	'click #uploadRobotButton': function(){
+		$('#testModal').css('display', 'table');
+		// wenn Desktop sofort die eingabe fokusieren
+		if(Meteor.Device.isDesktop()){
+			$('[name=robotName]').focus();
+		}
+	},
+	'click .modalClose': function(){
+		$('#testModal').css('display', 'none');
+		// Uploadform resetten
+		$('#uploadRobot')[0].reset();
+		// Standarttext auf den File Upload Button setzten
+		$('#robotData').next('label').children('span').html('Datei');
+	},
+	'click .modalBackground': function(event) {
+		if(!(event.target != $('.modalBackground')[0])){
+			$('#testModal').css('display', 'none');	
+			// Uploadform resetten
+			$('#uploadRobot')[0].reset();
+			// Standarttext auf den File Upload Button setzten
+			$('#robotData').next('label').children('span').html('Datei');
 		}
 	}
 });

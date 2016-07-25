@@ -80,6 +80,7 @@ input[type=file] + label:hover{
 	background-color: $primaryColorShade;
 	transition: all 0.3s ease-out;
 
+	// überschreibt das standartmäßige grün / rot bei icons
 	i{
 		color: $backgroundColor !important;
 	}

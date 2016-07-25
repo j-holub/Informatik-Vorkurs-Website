@@ -2,13 +2,31 @@
 
 	<p><button id="uploadRobotButton" class="borderButton">Roboter hochladen</button></p>
 
-	<form id="uploadRobot" class="invisible">
+	<!-- <form id="uploadRobot" class="invisible">
 		<div class="formContainer">
 		<p><input type="text" name="robotName" placeholder="Name"></p>
 		<p><textarea name="robotDescription" cols="10" rows="3" placeholder="Beschreibung"></textarea></p>
 		<p><input type="file" name="robotData" id="robotData"><label for="robotData"><i class="mdi mdi-file"></i> <span>Datei</span></label></p>
 		<p><input type="submit" value="Upload"></p>
 		</div>
-	</form>
+	</form> -->
+
+
+	<div class="modalBackground" id="testModal">
+		<div class="modal">
+		<div class="modalHeader">Roboter hochladen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+		<div class="modalContent">
+		<form id="uploadRobot">
+		<input type="text" name="robotName" placeholder="Name">
+		<textarea name="robotDescription" cols="10" rows="2" placeholder="Beschreibung"></textarea>
+		<input type="file" name="robotData" id="robotData"><label for="robotData"><i class="mdi mdi-file"></i> <span>Datei</span></label>
+		
+		</form>
+		</div>
+		
+		<div class="modalFooter"><input type="submit" value="Upload" form="uploadRobot"></div>
+		</div>
+	</div>
 
 </template>

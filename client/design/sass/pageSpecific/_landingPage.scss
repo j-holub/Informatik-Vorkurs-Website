@@ -12,7 +12,8 @@
 
 	#stripe{
 		// background-color: #f6f6f8;
-		background-color: $headingColor;
+		// background-color: $headingColor;
+		background-color: $primaryColor;
 		color: $backgroundColor;
 
 		width: 100%;
@@ -36,6 +37,16 @@
 	}
 
 	text-align: justify;
+
+	hr{
+		width: 70%;
+		height: 0.1em;
+		border: none;
+
+		background-color: $secondaryColor;
+
+		margin-bottom: 3em;
+	}
 }
 
 // mobile

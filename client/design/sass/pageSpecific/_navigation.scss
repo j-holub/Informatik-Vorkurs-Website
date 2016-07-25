@@ -19,6 +19,8 @@ nav{
 	font-family: 'Sertig';
 	color: $textColor;
 
+	box-sizing: border-box;
+
 	i:hover{
 		color: $primaryColor;
 		transition: all 0.3s ease-out;
@@ -59,7 +61,7 @@ nav{
 // user Information
 ul#userInfo{
 	height: $navigationHeight;
-	line-height: $navigationHeight+3px;
+	line-height: $navigationHeight;
 	position: absolute;
 	right: 1em;
 	top: 0;

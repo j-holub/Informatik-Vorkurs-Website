@@ -12,7 +12,7 @@ Template.landingPage.onRendered(function(){
 
 	if(Meteor.Device.isDesktop()){
 		// größe der bereiche setzen
-		$('section').css('min-height', 0.8 * viewportHeight);
+		// $('section').css('min-height', 0.8 * viewportHeight);
 
 		// stripe bereich gesondert anpassen
 		$('#stripe').css('min-height', 0.4 * viewportHeight);

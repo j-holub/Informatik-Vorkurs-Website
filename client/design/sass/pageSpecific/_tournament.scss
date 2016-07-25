@@ -58,6 +58,11 @@ div#tournamentList{
 		transition: all 0.5s ease-in-out;
 	}
 
+	// Default Abstand vom MaterializeCSS Grid überschreiben
+	.row{
+		margin-bottom: 0;
+	}
+
 
 }
 
@@ -97,6 +102,11 @@ div#tournamentDetail{
 	#signUpButton:focus{
 		background-color: $secondaryColorShade;
 		border-color: $secondaryColorShade;
+	}
+
+	// Default Abstand vom MaterializeCSS Grid überschreiben
+	.row{
+		margin-bottom: 0;
 	}
 
 }

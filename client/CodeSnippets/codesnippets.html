@@ -1,3 +1,35 @@
 <template name="codesnippets">
 	<h1>Code Snippets</h1>
+
+	{{#each listSnippets}}
+		<h2>{{name}}</h2>
+
+		<!-- <p>{{snippet}}</p> -->
+
+	{{/each}}
+
+	{{>addSnippetModal}}
+
+</template>
+
+
+<template name="addSnippetModal">
+
+	<button id="openSnippetModalButton" class="borderButton">CodeSnippet hinzufügen</button>
+	
+	<div id="snippetModal" class="modalBackground">
+		<div class="modal">
+			<div class="modalHeader">Code Snippet erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+			<div class="modalContent">
+			<form action="" id="addSnippetForm">
+			<input type="text" name="snippetName" placeholder="Titel">
+			<textarea name="snippetContent" id="snippetText" cols="30" rows="10"></textarea>
+			</form>
+			</div>
+
+			<div class="modalFooter"><input type="submit" value="Hinzufügen" form="addSnippetForm"></div>
+		</div>
+	</div>
+
 </template>

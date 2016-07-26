@@ -51,7 +51,26 @@
 
 	<button id="createTournamentButton" class="borderButton">Turnier Erstellen</button>
 
-	<form action="" id="createTournament" class="invisible">
+	<div class="modalBackground" id="createTournamentModal">
+			<div class="modal">
+			<div class="modalHeader">Turnier erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+			<div class="modalContent">
+				<form action="" id="createTournament">
+				<input type="text" name="tournamentName" placeholder="Name">
+				<div id="dateDivider">
+					<div class="wrapper"><input type="text" name="day" placeholder="01"></div>
+					<div class="wrapper"><input type="text" name="month" placeholder="01"></div>
+					<div class="wrapper"><input type="text" name="year" placeholder="2015"></div>
+				</div>
+				
+			
+			</form>
+			</div>
+			<div class="modalFooter"><input type="submit" value="Erstellen" form="createTournament"></div>
+		</div>
+	</div>
+
+	<!-- <form action="" id="createTournament" class="invisible">
 		<table>
 			<tr><td colspan="3"><input type="text" name="tournamentName" placeholder="Name"></td></tr>
 			<tr>
@@ -61,7 +80,7 @@
 			</tr>
 			<tr><td colspan="3"><input type="submit" value="Erstellen"></td></tr>
 		</table>
-	</form>
+	</form> -->
 </template>
 
 

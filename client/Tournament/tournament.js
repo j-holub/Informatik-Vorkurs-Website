@@ -120,20 +120,28 @@ Template.createTournament.events({
 			else{
 				// Input Felder leeren
 				$('#createTournament')[0].reset();
-				// Form verstecken
-				$('#createTournament').addClass('invisible');
-				// Button wieder sichtbar machen
-				$('#createTournamentButton').removeClass('invisible');
+				// Modal unsichtbar machen
+				$('#createTournamentModal').css('display', 'none');
 			}
 		});
 		
 	},
 	'click #createTournamentButton': function(event){
-		// Button unsichtbar machen
-		$('#createTournamentButton').addClass('invisible');
-		// Formular sichtbar machen
-		$('#createTournament').removeClass('invisible');
-		// Erstes Feld fokusieren
-		$('[name=tournamentName]').focus();
+		$('#createTournamentModal').css('display', 'block');
+	},
+	'click .modalClose': function(){
+		// Form resetten
+		$('#createTournament')[0].reset();
+		// Modal unsichtbar machen
+		$('#createTournamentModal').css('display', 'none');
+	},
+	'click .modalBackground': function(event){
+		// verhindert das schließen durch das klicken auf das Modal selbst
+		if(!(event.target != $('.modalBackground')[0])){
+			// Form resetten
+			$('#createTournament')[0].reset();
+			// Modal unsichtbar machen
+			$('#createTournamentModal').css('display', 'none');
+		}
 	}
 });

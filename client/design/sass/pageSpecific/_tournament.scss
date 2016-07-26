@@ -22,27 +22,6 @@ div#tournamentList{
 		color: $secondaryColor !important;
 	}
 
-	form{
-		table{
-			width: 30%;
-
-			margin-right: auto;
-			margin-left: auto;
-
-			td{
-				text-align: center;
-
-				padding: 0.2em;
-
-			}
-			input[type=text]{
-				width: 80%;
-				margin-right: auto;
-				margin-left: auto;
-			}
-		}
-	}
-
 	button#createTournamentButton{
 		// Ist von nöten damit der Button zentriert wird
 		display: block;
@@ -111,6 +90,29 @@ div#tournamentDetail{
 
 }
 
+div#dateDivider{
+
+	vertical-align: top;
+
+	box-sizing: border-box;
+
+	margin-left: auto;
+	margin-right: auto;
+	
+	div.wrapper{
+		display: inline-block;
+
+		width: 32%;
+
+		box-sizing: border-box;
+
+		input{
+			width: 50%;
+		}
+	}
+
+
+}
 
 // Robot eintragen Modal
 div#robotEntryModal{

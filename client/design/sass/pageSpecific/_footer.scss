@@ -79,7 +79,7 @@ section#footer{
 	@media screen and (min-width: $medium-screen){
 	h3{
 		color: $backgroundColor;
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 
 	hr{
@@ -101,6 +101,7 @@ section#footer{
 			font-size: 1.1em;
 			letter-spacing: 0.1em;
 			color: $backgroundColor;
+			font-family: 'Sertig';
 		}
 
 	}

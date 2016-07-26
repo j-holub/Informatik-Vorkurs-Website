@@ -16,19 +16,19 @@ $backgroundColor: #fff;
 // Typographie
 @font-face {
 	font-family: 'HelveticaNeue';
-	src: url('../fonts/HelveticaNeue.ttf');
+	src: url('/fonts/HelveticaNeue.ttf');
 }
 @font-face {
 	font-family: 'Sertig';
-	src: url('../fonts/Sertig.otf');
+	src: url('/fonts/Sertig.otf');
 }
 @font-face {
 	font-family: 'Garamond';
-	src: url('../fonts/Garamond.ttf');
+	src: url('/fonts/Garamond.ttf');		
 }
 @font-face {
 	font-family: 'JosefinSans-Bold';
-	src: url('../fonts/JosefinSans-Bold.ttf');
+	src: url('/fonts/JosefinSans-Bold.ttf');
 }
 
 $standartFont: 'HelveticaNeue';

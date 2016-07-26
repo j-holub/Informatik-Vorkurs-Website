@@ -1,0 +1,49 @@
+
+section#impressum{
+
+// mobile
+@media screen and (max-width: $medium-screen){
+p{
+	text-align: justify;
+}
+}
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
+p{
+	text-align: center;
+}
+}
+
+
+.ulWrapper{
+	text-align: center;
+}
+
+
+ul{
+	list-style: none;
+	padding: 0;
+
+	display: inline-block;
+
+	li{
+		padding: 0.4em 0;
+		font-size: 1.1em;
+	}
+}
+
+i{
+	color: $headingColor;
+}
+
+a{
+	// default überschreiben
+	color: $textColor;
+}
+
+span{
+	color: $headingColor;
+}
+
+}

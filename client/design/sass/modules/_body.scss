@@ -1,11 +1,17 @@
 body{
+	background-color: $backgroundColor;
+
 	font-family: $standartFont;
 	color: $textColor;
 
 	margin: 0;
-	
-	// padding-top: $navigationHeight * 1.5;
 
-	background-color: $backgroundColor;
+	// Macht Probleme unter alten Browsern / iPhones
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
 
+div#content{
+	flex: 1;
 }

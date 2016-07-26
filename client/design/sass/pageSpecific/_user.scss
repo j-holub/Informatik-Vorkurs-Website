@@ -132,11 +132,8 @@ div.user:hover{
 div#userProfile{
 
 	.avatar{
-		margin-left: auto;
-		margin-right: auto;
-		// margin-top: 3em;
-
-		display: block;
+		// zentriert den Avatar durch das text-align center im wrapper
+		display: inline-block;
 
 		border: 0.3em solid $backgroundColor;
 		border-radius: 50%;
@@ -169,6 +166,10 @@ div#userProfile{
 		color: $warningColor;
 	}
 
+	#avatarCenter{
+		text-align: center;		
+	}
+
 	p.username{
 		text-align: center;
 		
@@ -198,10 +199,6 @@ div#userProfile{
 	i[name=deleteRobot]:hover,
 	i[name=deleteRobot]:focus{
 		color: $warningColor;
-	}
-
-	input[type=text], textarea{
-			min-width: 13em;
 	}
 
 	#robotBox{

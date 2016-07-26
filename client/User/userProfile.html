@@ -8,6 +8,7 @@
 		<div class="col s12 m12 l6">
 
 		<!-- Das Label aktiviert den Bildupload -->
+		<div id="avatarCenter">
 		{{#if isActiveUser _id}}
 		<label for="profilePic" form="profilePicUpload" id="profilePicLabel">
 		{{> avatar user=this shape="circle" size="profile"}}
@@ -15,6 +16,7 @@
 		{{else}}
 		{{> avatar user=this shape="circle" size="profile"}}
 		{{/if}}
+		</div>
 
 
 		<p class="username">{{profile.firstname}} {{profile.lastname}}</p>
@@ -44,6 +46,7 @@
 
 		<div class="col s12 m12 l12">
 
+		<div id="avatarCenter">
 		{{#if isActiveUser _id}}
 		<label for="profilePic" form="profilePicUpload" id="profilePicLabel">
 		{{> avatar user=this shape="circle" size="profile"}}
@@ -51,7 +54,7 @@
 		{{else}}
 		{{> avatar user=this shape="circle" size="profile"}}
 		{{/if}}
-
+		</div>
 
 		<p class="username">{{profile.firstname}} {{profile.lastname}}</p>
 

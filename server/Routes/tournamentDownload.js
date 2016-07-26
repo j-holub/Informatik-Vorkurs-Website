@@ -13,8 +13,8 @@ Router.route('/tournaments/:_id/download', {
 
 		// sollte der Ordner für die zips aus irgend einem Grund nicht existieren
 		// einfach erstellen
-		if(!fs.existsSync(`${process.env.PWD}/.meteor/local/zips`)){
-			fs.mkdirSync(`${process.env.PWD}/.meteor/local/zips`);
+		if(!fs.existsSync(`${process.env.PWD}/public/zips`)){
+			fs.mkdirSync(`${process.env.PWD}/public/zips`);
 		}
 
 		// das zip archiv
@@ -31,10 +31,21 @@ Router.route('/tournaments/:_id/download', {
 			var data  = RobotData.findOne({_id: robot.data});
 			
 			var filePath = `${process.env.PWD}/.meteor/local/cfs/files/robotData/${data.copies.robotData.key}`;
-			var newFilePath = `${process.env.PWD}/.meteor/local/zips/${data.name()}`;
 
-			// dieser lange Befehl kopiert und benennt die jar Datei um
-			fs.createReadStream(filePath).pipe(fs.createWriteStream(newFilePath));
+
+			var newFilePath = "";
+			// überprüfuen ob ein Roboter mit dem selben Namen bereits vorhande ist
+			if(fs.existsSync(`${process.env.PWD}/public/zips/${robot.name}.jar`)){
+				// Uploader name heraussuchen
+				var uploader = Meteor.users.findOne(robot.belongsTo);
+				newFilePath = `${process.env.PWD}/public/zips/${robot.name}_${uploader.profile.firstname}-${uploader.profile.lastname}.jar`
+			}
+			else{
+				newFilePath = `${process.env.PWD}/public/zips/${robot.name}.jar`;
+			}
+
+			// Datei in den public Ordner kopieren und umbennen
+			fs.linkSync(filePath, newFilePath);
 			archive.addLocalFile(newFilePath);
 
 			// datei in der Liste speichern um sie wieder zu löschen
@@ -43,7 +54,7 @@ Router.route('/tournaments/:_id/download', {
 		});
 
 		// das zip archiv auf die Platte schreiben
-		archive.writeZip(`${process.env.PWD}/.meteor/local/zips/${archiveName}`);
+		archive.writeZip(`${process.env.PWD}/public/zips/${archiveName}`);
 
 		// alle kopierten Dateien löschen
 		fileList.forEach(function (robot) {
@@ -51,7 +62,7 @@ Router.route('/tournaments/:_id/download', {
 		});
 
 		// die Datei der HTTP response anhängen
-		var zipData = fs.readFileSync(`${process.env.PWD}/.meteor/local/zips/${archiveName}`);
+		var zipData = fs.readFileSync(`${process.env.PWD}/public/zips/${archiveName}`);
 
 		var headers = {
 			'Content-type': 'application/octet-stream',
@@ -64,8 +75,8 @@ Router.route('/tournaments/:_id/download', {
 	// löscht die zip am Ende wieder
 	onAfterAction: function(){
 		var tournament = Tournaments.findOne({_id: this.params._id});
-		if(fs.existsSync(`${process.env.PWD}/.meteor/local/zips/${tournament.name}.zip`)){
-			fs.unlinkSync(`${process.env.PWD}/.meteor/local/zips/${tournament.name}.zip`);
+		if(fs.existsSync(`${process.env.PWD}/public/zips/${tournament.name}.zip`)){
+			fs.unlinkSync(`${process.env.PWD}/public/zips/${tournament.name}.zip`);
 		}
 	}
 });

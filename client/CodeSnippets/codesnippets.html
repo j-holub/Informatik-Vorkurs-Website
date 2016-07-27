@@ -8,6 +8,9 @@
 	<tr>
 		<td><a href="{{pathFor route='snippet'}}">{{name}}</a></td>
 		<td>{{{linesOfCode}}}</td>
+		{{#if isInRole "admin"}}
+		<td><i class="deleteSnippet mdi mdi-delete"></i></td>
+		{{/if}}
 	</tr>
 	{{/each}}
 	</table>

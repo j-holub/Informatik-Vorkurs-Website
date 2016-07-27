@@ -39,6 +39,18 @@ Template.codesnippets.helpers({
 	}
 });
 
+Template.codesnippets.events({
+	'click .deleteSnippet': function () {
+		// this referenziert die ID mit der das Template gerendert wurde
+		Meteor.call('deleteSnippet', this._id, function(error){
+			if(error){
+				Meteor.customFunctions.errorToast(error.message);
+			}
+		});
+
+	}
+});
+
 Template.codesnippets.onRendered(function(){
 	$('h1').fitText(1.5, {
 		maxFontSize: '50em'

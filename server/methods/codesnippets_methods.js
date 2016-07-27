@@ -14,5 +14,15 @@ Meteor.methods({
 		else{
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
+	},
+	'deleteSnippet': function(id){
+		// check ob User eingeloggt
+		if(Meteor.userId()){
+			return CodeSnippets.remove(id);
+		}
+		// Fehler werfen
+		else{
+			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
+		}
 	}
 });

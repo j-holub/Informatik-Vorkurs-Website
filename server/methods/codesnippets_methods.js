@@ -1,13 +1,13 @@
 Meteor.methods({
-	'addSnippet': function(name, content){
+	'addSnippet': function(name, content, comment){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
 			// Snippet hinzufügen
 			var data = {
 				'name': name,
-				'snippet': content
+				'snippet': content,
+				'comment': comment
 			}
-			console.log(data);
 			return CodeSnippets.insert(data);
 		}
 		// Fehler werfen

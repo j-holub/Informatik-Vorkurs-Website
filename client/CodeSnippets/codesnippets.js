@@ -1,6 +1,31 @@
 Template.codesnippets.helpers({
 	listSnippets: function () {
-		return CodeSnippets.find();
+		return CodeSnippets.find({}, {sort: {'name': 1}});
+	}
+});
+
+Template.snippet.onRendered(function(){
+	// Code highlighten
+	Prism.highlightAll();
+
+	// FlowTypeJs
+	$('.comment').flowtype({
+		min: 500,
+		max: 1200,
+		maxFont: 20,
+		minFont: 14
+	});
+
+	// FitTextJS
+	$('h1').fitText(1.5, {
+		maxFontSize: '50em'
+	});
+});
+
+Template.snippet.helpers({
+	restoreLinebreaks: function (text) {
+		var linebreakText = text.replace(/(\r\n|\n|\r)/gm, '<br>')
+		return linebreakText;
 	}
 });
 
@@ -34,8 +59,10 @@ Template.addSnippetModal.events({
 		var name = $('[name="snippetName"]').val();
 		// snippet Inhalt
 		var content = $('[name="snippetContent"]').val();
+		// commentar holen
+		var comment = $('[name="comment"]').val();
 
-		Meteor.call('addSnippet', name, content, function(error){
+		Meteor.call('addSnippet', name, content, comment, function(error){
 			if(error){
 				Meteor.customFunctions.errorToast(error.message);
 			}

@@ -1,16 +1,36 @@
 <template name="codesnippets">
+	<section id="codesnippets">
+	<div class="container">
 	<h1>Code Snippets</h1>
 
 	{{#each listSnippets}}
-		<h2>{{name}}</h2>
-
-		<!-- <p>{{snippet}}</p> -->
-
+		<p><a href="{{pathFor route='snippet'}}">{{name}}</a></p>
 	{{/each}}
 
 	{{>addSnippetModal}}
 
+	</div>
+	</section>
 </template>
+
+
+
+<template name="snippet">
+	<section id="snippet">
+	<div class="container">
+
+	<h1>{{name}}</h1>
+
+	<div id="code" class="java">
+	<pre class="line-numbers"><code class="language-java">{{snippet}}</code></pre>
+	</div>
+
+	<p class="comment">{{{restoreLinebreaks comment}}}</p>
+
+	</div>
+	</section>
+</template>
+
 
 
 <template name="addSnippetModal">
@@ -24,7 +44,8 @@
 			<div class="modalContent">
 			<form action="" id="addSnippetForm">
 			<input type="text" name="snippetName" placeholder="Titel">
-			<textarea name="snippetContent" id="snippetText" cols="30" rows="10"></textarea>
+			<textarea name="snippetContent" id="snippetText" cols="30" rows="10" placeholder="Code"></textarea>
+			<textarea name="comment" id="comment" cols="30" rows="5" placeholder="Kommentar"></textarea>
 			</form>
 			</div>
 

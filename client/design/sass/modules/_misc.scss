@@ -63,3 +63,10 @@ h1,h2,h3,h4,h5,h6{
 	text-align: center;
 	color: $headingColor;
 }
+
+.delete{
+	transition: color 0.3s ease-in-out;
+}
+.delete:hover{
+	color: $warningColor !important;
+}

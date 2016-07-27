@@ -196,10 +196,6 @@ div#userProfile{
 		color: $secondaryColor;
 		transition: all 0.3s ease-out;
 	}
-	i[name=deleteRobot]:hover,
-	i[name=deleteRobot]:focus{
-		color: $warningColor;
-	}
 
 	#robotBox{
 		margin-right: auto;

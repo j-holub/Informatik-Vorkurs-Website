@@ -75,6 +75,13 @@ Template.tournaments.events({
 	'click #pastTournamentsButton': function(event){
 		$('#pastTournamentsButton').addClass('invisible');
 		$('#pastTournaments').css('max-height', '10000px');
+	},
+	'click .deleteTournament': function(){
+		Meteor.call('deleteTournament', this._id, function (error, result) {
+			if(error){
+				Meteor.customFunctions.errorToast(error.reason);
+			}
+		});
 	}
 });
 

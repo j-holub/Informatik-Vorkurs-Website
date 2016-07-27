@@ -26,6 +26,10 @@ Meteor.methods({
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
 	},
+	// löscht ein Turnier
+	'deleteTournament': function(id){
+		return Tournaments.remove(id);
+	},
 	// trägt einen Roboter in das angegebene Turnier ein
 	'signUpRobot': function(tournamentId, robotId){
 		// Turnier suchen

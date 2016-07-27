@@ -1,0 +1,66 @@
+<template name="codesnippets">
+	<section id="codesnippets">
+	<div class="container">
+	<h1>Code Snippets</h1>
+
+	<table>
+	{{#each listSnippets}}
+	<tr>
+		<td><a href="{{pathFor route='snippet'}}">{{name}}</a></td>
+		<td>{{{linesOfCode}}}</td>
+		{{#if isInRole "admin"}}
+		<td><i class="deleteSnippet mdi mdi-delete"></i></td>
+		{{/if}}
+	</tr>
+	{{/each}}
+	</table>
+
+
+	{{>addSnippetModal}}
+	
+
+	</div>
+	</section>
+</template>
+
+
+
+<template name="snippet">
+	<section id="snippet">
+	<div class="container">
+
+	<h1>{{name}}</h1>
+
+	<div id="code" class="java">
+	<pre class="line-numbers"><code class="language-java">{{snippet}}</code></pre>
+	</div>
+
+	<p class="comment">{{{restoreLinebreaks comment}}}</p>
+
+	</div>
+	</section>
+</template>
+
+
+
+<template name="addSnippetModal">
+
+	<button id="openSnippetModalButton" class="borderButton">CodeSnippet hinzufügen</button>
+	
+	<div id="snippetModal" class="modalBackground">
+		<div class="modal">
+			<div class="modalHeader">Code Snippet erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+			<div class="modalContent">
+			<form action="" id="addSnippetForm">
+			<input type="text" name="snippetName" placeholder="Titel">
+			<textarea name="snippetContent" id="snippetText" cols="30" rows="10" placeholder="Code"></textarea>
+			<textarea name="comment" id="comment" cols="30" rows="5" placeholder="Kommentar"></textarea>
+			</form>
+			</div>
+
+			<div class="modalFooter"><input type="submit" value="Hinzufügen" form="addSnippetForm"></div>
+		</div>
+	</div>
+
+</template>

@@ -90,7 +90,8 @@ Template.tournament.helpers({
 	displayDate: function () {
 		var date = this.date;
 		var days = (date.getDate() <= 9 ? '0' : '') + date.getDate();
-		var month = (date.getMonth() <= 9 ? '0' : '') + date.getMonth();
+		var monthNumber = date.getMonth() + 1;
+		var month = (monthNumber <= 9 ? '0' : '') + monthNumber;
 		var dateString = days+ "." + month + "." + date.getFullYear();
 		return dateString;
 	},

@@ -2,16 +2,14 @@
 // Loading Page
 #loading{
 	width: 100%;
-	min-height: 500px;
-
 	text-align: center;
-
-	background-color: #FFF
-
+	
 	i{
 
-		line-height: 500px;
-		font-size: 5em;
+		line-height: 5em;
+		font-size: 10em;
+
+		color: $headingColor;
 	}
 
 }

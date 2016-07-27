@@ -3,11 +3,18 @@
 	<div class="container">
 	<h1>Code Snippets</h1>
 
+	<table>
 	{{#each listSnippets}}
-		<p><a href="{{pathFor route='snippet'}}">{{name}}</a></p>
+	<tr>
+		<td><a href="{{pathFor route='snippet'}}">{{name}}</a></td>
+		<td>{{{linesOfCode}}}</td>
+	</tr>
 	{{/each}}
+	</table>
+
 
 	{{>addSnippetModal}}
+	
 
 	</div>
 	</section>

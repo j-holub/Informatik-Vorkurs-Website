@@ -42,12 +42,46 @@ section#codesnippets{
 			margin-top: 8em;
 
 		}
+
+		textarea{
+			text-align: left;
+		}
 		
 		
 	}
 
-	p{
-		text-align: center;		
+	table{
+		margin: 0 auto;
+
+		a{
+			color: $textColor;
+		}
+		a:hover{
+			color: $headingColor;
+		}
+
+		td{
+			padding: 0.5em 1.3em;
+		}
+
+
+		td:nth-child(2){
+			text-align: right;
+			color: $headingColor;
+		}
+
+		i{
+			color: $headingColor;
+		}
+
+		// desktop
+		@media screen and (min-width: $medium-screen-up){
+			td{
+				font-size: 1.5em;
+			}
+			
+		}
 	}
+	
 
 }

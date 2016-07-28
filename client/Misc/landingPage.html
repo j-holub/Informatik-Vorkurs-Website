@@ -1,9 +1,5 @@
 <template name="landingPage">
 
-	<!-- <div id="topBar"> -->
-		<!-- {{>registerLoginButtons}} -->
-	<!-- </div> -->
-
 	<div id="downArrow">
 		<span class="fa-stack fa-1x">
 			<i class="fa fa-square-o fa-stack-2x"></i>
@@ -41,6 +37,7 @@
 	
 		<div class="col s12 m12 l10 push-l1">
 
+		<div id="logo"></div>
 
 		<h1>Informatik Vorkurs</h1>
 
@@ -114,17 +111,15 @@
 	<section id="loginRegisterArea">
 		<div class="container">
 			<div class="row">
-				<div class="col s12 m12 l6">
-					{{>login}}
-				</div>
-				<div class="col s12 m12 l6">
+				<div class="col s12 m12 l12">
 					{{>register}}
 				</div>
 			</div>
 		</div>
 	</section>
 
-	
+	<!-- Login Modal -->
+	{{>login}}
 
 
 </template>

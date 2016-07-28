@@ -1,4 +1,3 @@
-
 // ###########
 // # Content #
 // ###########
@@ -39,11 +38,10 @@
 	text-align: justify;
 
 	hr{
-		width: 50%;
 		height: 0.1em;
 		border: none;
 
-		background-color: $secondaryColor;
+		background-color: $primaryColor;
 
 		margin: 4em auto;
 	}
@@ -66,6 +64,10 @@
 		.content{
 			padding: 1em 1.2em;
 		}
+	}
+
+	hr{
+		width: 80%;
 	}
 
 }
@@ -91,6 +93,10 @@
 		// überschreibt ein paar geerbte werte
 		font-size: 1.2em !important;
 		line-height: 1.2em !important;
+	}
+
+	hr{
+		width: 50%;
 	}
 }
 }
@@ -272,12 +278,22 @@ div#downArrow .fa-stack:hover{
 }
 }
 
-#login,
+
 #register{
 	text-align: center;
 
+	// desktop
+	@media screen and (min-width: $medium-screen-up){
+	input{
+		width: 60%;
+	}
+	}
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
 	input{
 		width: 80%;
+	}
 	}
 
 }

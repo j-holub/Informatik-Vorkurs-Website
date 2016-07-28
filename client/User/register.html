@@ -16,13 +16,23 @@
 
 <template name="login">
 
-	<h1>Login</h1>
+	<div class="modalBackground" id="LoginModal">
+		<div class="modal">
+			<div class="modalHeader">Login <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+			<div class="modalContent">
+			<form action="" class="login" id="login">
+				<input type="email" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Passwort">
+				
+			</form>
+			</div>
+
+			<div class="modalFooter"><input type="submit" value="Login" form="login"></div>
+		</div>
+	</div>
 	
-	<form action="" class="login" id="login">
-		<input type="email" name="email" placeholder="Email">
-		<input type="password" name="password" placeholder="Passwort">
-		<input type="submit" value="Login">
-	</form>
+	
 </template>
 
 <template name="logout">

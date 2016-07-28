@@ -42,6 +42,7 @@ nav{
 
 		li{
 			float: left;
+			transition: all 0.2s ease-in-out;
 		}
 
 		a{
@@ -50,7 +51,7 @@ nav{
 
 			display: block;
 
-			transition: all 0.3s ease-in-out;
+			transition: all 0.2s ease-in-out;
 		}
 
 	}
@@ -91,7 +92,17 @@ ul#userInfo{
 	}
 
 	a:hover{
-		color: $headingColor;
+		letter-spacing: 0.1em;
+	}
+
+	.avatar{
+		border: 2px solid $backgroundColor;
+		border-radius: 50%;
+
+		transition: all 0.3s ease-in-out;
+	}
+	.avatar:hover{
+		border: 2px solid $primaryColorShade;
 	}
 
 }
@@ -104,29 +115,29 @@ nav{
 	
 	height: $navigationHeight;
 
-	ul#navi{
-		
-		position: absolute;
+	ul#navi{	
 
-		top: 0;
-		left: 0;
-		
 
 		li{
-			width: 10em;
-			min-width: 10em;
-
 			text-align: center;
+			
+			padding: 0 2em;
+
+			height: $navigationHeight;
+			box-sizing: border-box;
+		}
+		li:hover{
+			// background-color: $headingColor;
+			border-bottom: 0.3em solid $primaryColorShade;
 		}
 
 		a{
 			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
-			line-height: $navigationHeight + 3px;
-			
+			line-height: $navigationHeight;			
 		}
 
 		a:hover{
-			color: $primaryColor;
+			color: $primaryColorShade;
 		}
 
 	}

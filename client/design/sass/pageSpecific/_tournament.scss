@@ -126,10 +126,6 @@ div#robotEntryModal{
 			color: $backgroundColor;
 		}
 	}
-
-	// div.modalFooter{
-	// 	 box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.3);	
-	// }
 }
 
 ul.robotList{
@@ -159,9 +155,9 @@ ul.robotList{
 	}
 
 	li.active{
-		// background-color: $primaryColor;
-		// color: $backgroundColor;
-		color: $primaryColor;
 		letter-spacing: 0.1em;
+		background-color: $headingColor;
+		color: $backgroundColor;
+		font-size: 1.6em;
 	}
 }

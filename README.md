@@ -51,13 +51,33 @@ curl https://install.meteor.com/ | sh
 
 ### NPM Dependencies installieren
 
+Im Projektordner
+
 ```
 meteor npm install --save
 ```
 
+### Graphicsmagick installieren
+
+#### Linux
+
+```
+sudo apt-get install graphicsmagick
+```
+
+##### OS X
+
+```
+brew install graphicsmagick
+```
+
+##### Windows
+
+Keine Ahnung. Wer's weiß solls bitte hinzufügen
+
 ### Starten
 
-Danach navigiert man mit de Konsole einfach in den Ordner der Informatik Vorkurs Website und startet den Development Server mit
+Zum starten einfach im Projektordner folgendes eingeben
 
 ```
 meteor

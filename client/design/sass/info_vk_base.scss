@@ -52,8 +52,8 @@ $medium-screen-up: 993px !default;
 $large-screen-up: 1201px !default;
 
 // Navigation
-$navigationHeight: 70px;
-$navigationColor: $backgroundColor;
+$navigationHeight: 80px;
+$navigationColor: #FAFAFA;
 
 // Alle Module importieren
 @import "modules/misc";

@@ -124,6 +124,59 @@ div.user:hover{
 	}
 }
 
+// #############
+// # SearchBar #
+// #############
+
+div#userSearch{
+
+
+	display: flex;
+
+	margin: 0.5em auto;
+
+	input{
+		flex: 1;
+
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+
+		margin: 0;
+
+		font-size: 1.3em;
+		
+	}
+
+	button{
+		margin-left: 0;
+
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+
+		margin: 0;
+
+		transition: all 0.3s ease-out;
+	}
+
+}
+
+div#userSearch:hover{
+	input,
+	button{
+		border-color: $primaryColorShade;
+	}
+
+	button{
+		background-color: $primaryColorShade;
+	}
+}
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
+	div#userSearch{
+		width: 60%;
+	}
+}
 
 // ##########
 // # Profil #

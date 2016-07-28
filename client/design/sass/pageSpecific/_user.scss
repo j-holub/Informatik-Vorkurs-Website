@@ -20,7 +20,17 @@ div.user:hover{
 	.avatar{
 		border: 0.2em solid $primaryColor;
 	}
+
+	div.username{
+		font-family: 'Montserrat-Regular';
+	}
 }
+
+div.username{
+	font-family: 'Montserrat-UltraLight';
+	transition: all 0.3s ease-in-out;
+}
+
 
 // desktop
 @media screen and (min-width: $medium-screen-up){
@@ -201,6 +211,9 @@ div#userProfile{
 	h2, h3, h4{
 		text-align: center;
 	}
+	h2{
+		margin-top: 0;
+	}
 
 	//  Weil VagueJS es net selbst auf die Reihe bekommt
 	.avatar-image{
@@ -227,10 +240,16 @@ div#userProfile{
 		text-align: center;
 		
 		font-size: 2em;
-		font-weight: bold;
 
 		color: $headingColor;
-		font-family: 'Sertig';
+		// font-family: 'Sertig';
+
+		span#firstname{
+			font-family: 'Montserrat-Hairline';
+		}
+		span#lastname{
+			font-family: 'Montserrat-Regular';
+		}
 	}
 
 	p{

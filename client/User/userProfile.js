@@ -82,6 +82,9 @@ Template.profile.events({
 // Dadurch, dass es ein Template ist wird es aber automatisch geupdatet.
 // Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
 Template.profile.onRendered(function () {
+	// FitTextJs
+	$('h2').fitText(1.2);
+
 	var id = Template.currentData()._id;
 	if(id == Meteor.userId()){
 		// Hoverklasse hinzufügen

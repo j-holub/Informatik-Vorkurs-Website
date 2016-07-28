@@ -27,12 +27,20 @@ $backgroundColor: #fff;
 	src: url('/fonts/Garamond.ttf');		
 }
 @font-face {
-	font-family: 'JosefinSans-Bold';
-	src: url('/fonts/JosefinSans-Bold.ttf');
+	font-family: 'Montserrat-Hairline';
+	src: url('/fonts/Montserrat-Hairline.otf');
+}
+@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('/fonts/Montserrat-Regular.otf');
+}
+@font-face {
+	font-family: 'Montserrat-UltraLight';
+	src: url('/fonts/Montserrat-UltraLight.otf');
 }
 
 $standartFont: 'HelveticaNeue';
-$headingFont: 'JosefinSans-Bold';
+$headingFont: 'Montserrat-UltraLight';
 
 
 // Breakpoints

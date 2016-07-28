@@ -39,7 +39,7 @@ Template.landingPage.onRendered(function(){
 	});
 
 	// FitTextJS
-	$('h1').fitText();
+	$('h1').fitText(1.2);
 
 	
 });

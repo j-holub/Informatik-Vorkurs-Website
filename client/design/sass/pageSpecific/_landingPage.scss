@@ -131,6 +131,10 @@ div#landingPageImage{
 		}
 	}
 
+	#headline{
+		font-family: 'Montserrat-Regular';
+	}
+
 
 	#loginButton{
 		background-color: $secondaryColor;
@@ -165,9 +169,8 @@ div#landingPageImage{
 	background-image: url(/images/landingPageImage-mobile.jpg);
 
 	#headline{
-		font-size: 4em;
+		font-size: 3.5em;
 		letter-spacing: 0.02em;		
-		font-family: 'JosefinSans-Bold';
 		color: white;
 	}
 
@@ -199,7 +202,6 @@ div#landingPageImage{
 
 	#headline{
 		font-size: 8em;
-		font-family: 'JosefinSans-Bold';
 		letter-spacing: 0.05em;
 
 		color: white;		

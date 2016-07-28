@@ -16,7 +16,7 @@
 
 	{{#with currentUser }}
 	<ul id="userInfo">
-		<li><a href="{{pathFor route='profile'}}">{{ profile.firstname }} {{ profile.lastname }} {{#if isInRole "admin"}}<i class="mdi mdi-diamond"></i>{{/if}}</a></li>
+		<li><a href="{{pathFor route='profile'}}"><span class="firstname">{{ profile.firstname }}</span> <span class="lastname">{{ profile.lastname }}</span> {{#if isInRole "admin"}}<i class="mdi mdi-diamond"></i>{{/if}}</a></li>
 		<li class="userImage"><a href="{{pathFor route='profile'}}">{{>avatar user=this shape="circle" size="medium"}}</a></li>
 		<li>{{>logout}}</li>
 	</ul>

@@ -60,32 +60,30 @@ section#footer{
 		color: $backgroundColor;
 	}
 
-	// mobile
-	@media screen and (max-width: $medium-screen){
-	
-
 	h3{
 		color: $backgroundColor;
-		font-size: 1.3em;
+		font-family: 'Montserrat-UltraLight';
 	}
-
 	hr{
 		color: $backgroundColor;
 		width: 80%;
 	}
+
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
+
+		h3{
+			font-size: 1.3em;
+		}	
 	}
 
 	// desktop
 	@media screen and (min-width: $medium-screen){
-	h3{
-		color: $backgroundColor;
-		font-size: 1.2em;
-	}
+		h3{
+			font-size: 1.2em;
+		}
 
-	hr{
-		color: $backgroundColor;
-		width: 80%;
-	}
 	}
 	
 	.links{

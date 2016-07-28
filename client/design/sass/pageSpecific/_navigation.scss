@@ -17,7 +17,7 @@ nav{
 
 	border-bottom: 0.3em solid $primaryColor;
 
-	font-family: 'Sertig';
+	font-family: 'Montserrat-UltraLight';
 	color: $textColor;
 
 	box-sizing: border-box;
@@ -86,9 +86,15 @@ ul#userInfo{
 		margin-left: 10px;
 		margin-right: 10px;
 
-		font-family: 'Sertig';
 		color: $headingColor;
 		font-size: 1.3em;
+
+		.firstname{
+			font-family: 'Montserrat-Hairline';
+		}
+		.lastname{
+			font-family: 'Montserrat-Regular';
+		}
 	}
 
 	a:hover{
@@ -195,8 +201,6 @@ ul#navi{
 
 		height: $navigationHeight * 1.2;
 		line-height: $navigationHeight * 1.2;
-
-		font-family: 'Sertig';
 
 		transition: all 0.3s ease-in-out;
 

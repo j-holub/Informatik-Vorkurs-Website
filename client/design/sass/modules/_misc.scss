@@ -67,4 +67,9 @@ h1,h2,h3,h4,h5,h6{
 }
 .delete:hover{
 	color: $warningColor !important;
+	cursor: pointer;
+}
+
+.avatar{
+	z-index: 0;
 }

@@ -1,16 +1,18 @@
 <template name="navigation">
 
 	{{#if currentUser}}
-	<nav>
+	<nav id="navBar">
 
 	<i id="menuButton" class="mdi mdi-menu"></i>
 	
-	<ul id="navi" class="collapsed">
+	<div id="naviWrapper">
+	<ul id="navi">
 		<li><a href="{{pathFor route='users'}}">User</a></li>
 		<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
 		<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
 		<li><a href="{{pathFor route='codesnippets'}}">Code Snippets</a></li>
 	</ul>
+	</div>
 
 	{{#with currentUser }}
 	<ul id="userInfo">
@@ -21,6 +23,9 @@
 	{{/with}}
 	
 	</nav>
+
+
+	<div id="backgroundDarken"></div>
 	{{/if}}
 
 </template>

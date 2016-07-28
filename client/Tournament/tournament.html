@@ -40,7 +40,7 @@
 
 <template name="tournament">
 	<div class="tournament col s12 m12 l6">
-		<h2><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a> <i class="mdi mdi-delete delete deleteTournament"></i></h2>
+		<h2><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a> {{#if isInRole "admin"}}<i class="mdi mdi-delete delete deleteTournament">{{/if}}</i></h2>
 		<p><i class="mdi mdi-calendar-blank"></i> {{displayDate}} <i class="mdi mdi-account"></i> {{paticipantCount}} </p>
 	</div>
 </template>

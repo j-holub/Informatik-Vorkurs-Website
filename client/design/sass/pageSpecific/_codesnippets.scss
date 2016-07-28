@@ -41,12 +41,7 @@ section#codesnippets{
 			// TODO bessere Lösung finden
 			margin-top: 8em;
 
-		}
-
-		textarea{
-			text-align: left;
-		}
-		
+		}		
 		
 	}
 
@@ -57,7 +52,14 @@ section#codesnippets{
 		max-width: 70%;
 
 		td{
+			vertical-align: middle;
+			font-size: 1.2em;
+		}
+
+		td:nth-child(2),
+		td:nth-child(3){
 			font-size: 1.5em;
+			color: $headingColor;
 		}
 	}
 	}
@@ -73,13 +75,7 @@ section#codesnippets{
 		}
 
 		td{
-			padding: 0.5em 1.3em;
-		}
-
-
-		td:nth-child(2){
-			text-align: right;
-			color: $headingColor;
+			padding: 0.5em 1.2em;
 		}
 
 		i{

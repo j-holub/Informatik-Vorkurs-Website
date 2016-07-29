@@ -78,6 +78,13 @@ Template.tournamentDetail.helpers({
 	}
 });
 
+Template.tournamentDetail.onRendered(function(){
+	// FitTextJS
+	$('h1').fitText(1.5, {
+		maxFontSize: '50em'
+	});
+});
+
 
 Template.tournamentEntry.helpers({
 	listUserRobots: function () {

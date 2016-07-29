@@ -85,6 +85,13 @@ Template.tournaments.events({
 	}
 });
 
+Template.tournaments.onRendered(function(){
+	// FitTextJS
+	$('h1').fitText(1.5, {
+		maxFontSize: '50em'
+	});
+});
+
 Template.tournament.helpers({
 	// Erzeugt einen schöner formatierten Datum String aus dem Date Object des Turniers
 	displayDate: function () {

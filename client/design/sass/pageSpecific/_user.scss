@@ -22,13 +22,20 @@ div.user:hover{
 	}
 
 	div.username{
-		font-family: 'Montserrat-Regular';
+		color: #000;
+		letter-spacing: 0.15em;
 	}
 }
 
 div.username{
-	font-family: 'Montserrat-UltraLight';
 	transition: all 0.3s ease-in-out;
+
+	.firstname{
+		font-family: 'Montserrat-Regular';
+	}
+	.lastname{
+		font-family: 'Montserrat-Hairline';
+	}
 }
 
 
@@ -245,10 +252,10 @@ div#userProfile{
 		// font-family: 'Sertig';
 
 		span#firstname{
-			font-family: 'Montserrat-Hairline';
+			font-family: 'Montserrat-Regular';
 		}
 		span#lastname{
-			font-family: 'Montserrat-Regular';
+			font-family: 'Montserrat-Hairline';
 		}
 	}
 
@@ -269,10 +276,13 @@ div#userProfile{
 		transition: all 0.3s ease-out;
 	}
 
+	.profileBot{
+		margin: 3em auto;
+	}
+
 	#robotBox{
 		margin-right: auto;
 		margin-left: auto;
-		width: 80%;
 
 		p{
 			text-align: justify;
@@ -297,6 +307,17 @@ div#userProfile{
 			margin-right: auto;
 			margin-left: auto;
 		
+		}
+
+		#robotBox{
+			width: 80%;
+		}
+	}
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
+		h2{
+			margin-top: 0.5em;
 		}
 	}
 

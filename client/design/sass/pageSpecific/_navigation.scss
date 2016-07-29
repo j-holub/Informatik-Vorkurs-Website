@@ -98,15 +98,8 @@ ul#userInfo{
 	}
 
 	.avatar{
-		border: 2px solid $navigationColor;
 		border-radius: 50%;
-
-		transition: all 0.3s ease-in-out;
 	}
-	.avatar:hover{
-		border: 2px solid $primaryColorShade;
-	}
-
 }
 
 

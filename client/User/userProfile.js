@@ -12,7 +12,7 @@ Template.profile.helpers({
 	addDeleteProfilePicButton: function(){
 
 		// FitTextJs
-		$('h2').fitText(1.2);
+		$('h2').fitText(1.5);
 
 		// ID des aktiven Nutzer
 		// durch diesen Aufruf wird der Helper reaktiv
@@ -114,7 +114,7 @@ Template.profile.events({
 // Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
 Template.profile.onRendered(function () {
 	// FitTextJs
-	$('h2').fitText(1.2);
+	$('h2').fitText(1.5);
 
 	var id = Template.currentData()._id;
 	if(id == Meteor.userId()){

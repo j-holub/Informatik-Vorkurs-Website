@@ -15,8 +15,9 @@
 	{{/each}}
 	</table>
 
-
+	{{#if isInRole "admin"}}
 	{{>addSnippetModal}}
+	{{/if}}
 	
 
 	</div>

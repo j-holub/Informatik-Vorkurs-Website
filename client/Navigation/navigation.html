@@ -7,10 +7,10 @@
 	
 	<div id="naviWrapper">
 	<ul id="navi">
-		<li><a href="{{pathFor route='users'}}">User</a></li>
-		<li><a href="{{pathFor route='robots'}}">Roboter</a></li>
-		<li><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
-		<li><a href="{{pathFor route='codesnippets'}}">Code Snippets</a></li>
+		<li class="{{isActiveRoute regex='users|profile'}}"><a href="{{pathFor route='users'}}">User</a></li>
+		<li class="{{isActiveRoute 'robots'}}"><a href="{{pathFor route='robots'}}">Roboter</a></li>
+		<li class="{{isActiveRoute regex='tournament'}}"><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
+		<li class="{{isActiveRoute regex='snippet'}}"><a href="{{pathFor route='codesnippets'}}">Code Snippets</a></li>
 	</ul>
 	</div>
 

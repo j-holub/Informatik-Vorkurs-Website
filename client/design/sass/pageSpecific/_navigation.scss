@@ -123,6 +123,17 @@ nav{
 
 			transition: all 0.3s ease-in-out;
 		}
+
+
+		li.active{
+			background-color:$primaryColor;
+			border-bottom: 0.3em solid $primaryColorShade;
+			a{
+				color: #FFF;
+			}
+		}
+
+		// Vererbung will hier leider nich
 		li:hover{
 			background-color:$primaryColor;
 			border-bottom: 0.3em solid $primaryColorShade;
@@ -130,6 +141,7 @@ nav{
 				color: #FFF;
 			}
 		}
+
 		a{
 			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
 			line-height: $navigationHeight - 3px;			
@@ -205,6 +217,9 @@ ul#navi{
 			letter-spacing: 0.2em;
 		}
 
+	}
+	li.active{
+		border-left: 0.8em solid $primaryColorShade;
 	}
 
 }

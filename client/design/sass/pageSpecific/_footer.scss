@@ -70,9 +70,9 @@ section#footer{
 	}
 
 
+	
 	// mobile
 	@media screen and (max-width: $medium-screen){
-
 		h3{
 			font-size: 1.3em;
 		}	
@@ -104,17 +104,14 @@ section#footer{
 
 	}
 
-	.social-links{
+	#social-links{
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		ul{
-			list-style: none;
-			padding: 0;
-		}
-
-		li{
-			float: left;
+		div{
+			flex: 0 0 33.33333%;
 			font-size: 4em;
-			padding: 0 0.5em;
 		}
 
 	}

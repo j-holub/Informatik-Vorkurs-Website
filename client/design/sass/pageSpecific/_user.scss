@@ -22,8 +22,7 @@ div.user:hover{
 	}
 
 	div.username{
-		color: #000;
-		letter-spacing: 0.15em;
+		color: $primaryColor;
 	}
 }
 
@@ -121,20 +120,11 @@ div.username{
 }
 
 #userList{
-	// desktop
-	@media screen and (min-width: $medium-screen-up){
-		a{
-			color: $textColor;
-		}
+	
+	a{
+		color: $headingColor;
 	}
-	// mobile
-	@media screen and (max-width: $medium-screen){
-		a{
-			color: $headingColor;
-		}
-	}
-
-
+	
 	a:hover,
 	a:focus{
 		color: $headingColor;

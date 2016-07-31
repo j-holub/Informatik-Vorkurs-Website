@@ -3,16 +3,22 @@ section#impressum{
 
 // mobile
 @media screen and (max-width: $medium-screen){
-p{
-	text-align: justify;
-}
+	p{
+		text-align: justify;
+	}
+	h1{
+		font-size: 1.8em;
+	}
 }
 
 // desktop
 @media screen and (min-width: $medium-screen-up){
-p{
-	text-align: center;
-}
+	p{
+		text-align: center;
+	}
+	h1{
+		font-size: 3em;
+	}
 }
 
 
@@ -45,6 +51,13 @@ a{
 
 span{
 	color: $headingColor;
+}
+
+p#Backbutton{
+	text-align: center;
+	a{
+		transition: none !important;
+	}
 }
 
 }

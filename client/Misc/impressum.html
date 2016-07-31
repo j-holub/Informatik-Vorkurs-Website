@@ -22,6 +22,10 @@
 
 	<p><span>Haftungshinweis:</span> Wir übernehmen keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
+	{{#unless currentUser}}
+		<p id="Backbutton"><a href="{{pathFor route='landingPage'}}"><button class="borderButton">Zurück</button></a></p>
+	{{/unless}}
+
 	</div>
 	</section>
 </template>

@@ -1,3 +1,16 @@
+var closeMenu = function() {
+	if($('#naviWrapper').hasClass('active')){
+		$('#naviWrapper').removeClass('active');
+	}
+	if($('#menuButton').hasClass('active')){
+		$('#menuButton').removeClass('active');
+	}
+	if($('#backgroundDarken').hasClass('active')){
+		$('#backgroundDarken').removeClass('active');
+	}
+	$('body').css('overflow', 'auto');
+}
+
 Template.navigation.events({
 	// Öffnet das Menü
 	'click #menuButton': function (event) {
@@ -17,28 +30,14 @@ Template.navigation.events({
 	},
 	// Schließt das Menü bei drücken eines Links
 	'click #navi li a': function(event){
-		if($('#naviWrapper').hasClass('active')){
-			$('#naviWrapper').removeClass('active');
-		}
-		if($('#menuButton').hasClass('active')){
-			$('#menuButton').removeClass('active');
-		}
-		if($('#backgroundDarken').hasClass('active')){
-			$('#backgroundDarken').removeClass('active');
-		}
-		$('body').css('overflow', 'auto');
+		closeMenu();
 	},
 	// Schließt das Menü bei drücken des ausgergrauten Hintergrunds
 	'click #backgroundDarken': function(event){
-		if($('#naviWrapper').hasClass('active')){
-			$('#naviWrapper').removeClass('active');
-		}
-		if($('#menuButton').hasClass('active')){
-			$('#menuButton').removeClass('active');
-		}
-		if($('#backgroundDarken').hasClass('active')){
-			$('#backgroundDarken').removeClass('active');
-		}
-		$('body').css('overflow', 'auto');
+		closeMenu();
+	},
+	// Schließt das Menü beim klicken der Info Links oben rechts in der Navileiste
+	'click #userInfo a': function(event) {
+		closeMenu();
 	}
 });

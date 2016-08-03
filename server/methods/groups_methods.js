@@ -72,7 +72,7 @@ Meteor.methods({
 			// checken ob der aktuelle User Gruppenersteller ist
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
 				// checken ob der zu löschende Nutzer der Gruppenersteller ist
-				if(!Groups.findOne(groupId).creator === userId){
+				if(!(Groups.findOne(groupId).creator === userId)){
 					// User aus der Gruppe entfernen
 					return Groups.update({_id: groupId}, {$pull: {'members': userId}});
 				}

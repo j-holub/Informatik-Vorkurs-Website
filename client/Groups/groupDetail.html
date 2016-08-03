@@ -1,0 +1,26 @@
+<template name="groupdetail">
+	
+	<h1>{{name}}</h1>
+
+	<p>{{#if isCreator}}Ersteller{{/if}}</p>
+
+	<ul>
+	{{#each listMembers}}
+		<li>{{profile.firstname}} {{profile.lastname}}</li>
+	{{/each}}
+	</ul>
+
+	{{#if mainbot}}
+		{{#with getMainbot}}
+			<p>{{name}}</p>
+		{{/with}}
+	{{/if}}
+
+	<ul>
+	{{#each memberBots}}
+		<li>{{name}}</li>
+	{{/each}}
+	</ul>
+
+
+</template>

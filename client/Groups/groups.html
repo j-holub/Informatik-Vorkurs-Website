@@ -1,0 +1,16 @@
+<template name="groups">
+	<section id="groups">
+	<div class="container">
+	
+	<table>
+	{{#each listGroups}}
+	<tr>
+		<td><a href="{{pathFor route='group'}}">{{name}}</a></td>
+		<td>{{memberCount}} <i class="mdi mdi-account"></i></td>
+	</tr>
+	{{/each}}
+	</table>
+
+	</div>
+	</section>
+</template>

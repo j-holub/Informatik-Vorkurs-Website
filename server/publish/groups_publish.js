@@ -6,7 +6,12 @@ Meteor.publish('groups', function(groupId){
 			var group = Groups.find(groupId);
 			var members = Meteor.users.find({_id: {$in: group.fetch()[0].members}});
 			var bots = Robots.find({'belongsTo': {$in: group.fetch()[0].members}})
-			return [group, members, bots];
+			var dataIds = [];
+			bots.forEach(function (bot) {
+				dataIds.push(bot.data);
+			});
+			var botData = RobotData.find({_id: {$in: dataIds}});
+			return [group, members, bots, botData];
 		}
 		// alle Gruppen
 		else{

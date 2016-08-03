@@ -1,26 +1,50 @@
 <template name="groupdetail">
+	<section id="groupdetail">
+		<div class="container">
+		<div class="row">
+			<div class="col l6 m12 s12">
+				<h3 id="groupname">{{name}}</h3>
+				
+				<!-- <ul id="memberlist"> -->
+				<div id="memberlist">
+				{{#each listMembers}}
+					{{>groupmember}}
+				{{/each}}
+				</div>
+				<!-- </ul> -->
+
+				<h3 class="subheading">Hauptroboter</h3>
+				{{#if mainbot}}
+				
+				{{#with getMainbot}}
+					<div id="mainbot">
+					<h3>{{name}} {{#if mainBotDownloadable}}<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>{{/if}}</h3>
+					<p class="botdescription">{{description}}</p>
+					</div>
+				{{/with}}
+				{{else}}
+					<p><i>Kein Roboter ausgewählt</i></p>
+				{{/if}}
+
+			</div>
+			<div class="col l6 m12 s12">
+				<h3 class="subheading">Roboter</h3>
+				{{#each memberBots}}
+					{{>profileRobot}}
+				{{/each}}
+			</div>
+		</div>
+		</div>
+	</section>
+</template>
+
+
+<template name="groupmember">
 	
-	<h1>{{name}}</h1>
-
-	<p>{{#if isCreator}}Ersteller{{/if}}</p>
-
-	<ul>
-	{{#each listMembers}}
-		<li>{{profile.firstname}} {{profile.lastname}}</li>
-	{{/each}}
-	</ul>
-
-	{{#if mainbot}}
-		{{#with getMainbot}}
-			<p>{{name}}</p>
-		{{/with}}
-	{{/if}}
-
-	<ul>
-	{{#each memberBots}}
-		<li>{{name}}</li>
-	{{/each}}
-	</ul>
-
-
+	<div class="member username">
+	<a href="{{pathFor route='profile'}}">
+		{{>avatar user=this shape="circle" size="medium"}}
+		<span class="firstname">{{profile.firstname}}</span> <span class="lastname">{{profile.lastname}}</span>
+	</a>
+	</div> 
 </template>

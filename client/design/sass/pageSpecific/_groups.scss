@@ -5,3 +5,99 @@
 		text-align: right;
 	}
 }
+
+// ################
+// # Group Detail #
+// ################
+
+#groupdetail{
+
+	h3#groupname{
+		font-size: 1.5em;
+		font-family: 'Montserrat-Regular';
+	}
+
+	h3{
+		margin-top: 0;
+	}
+
+	div.row{
+		margin-top: 5em;
+	}
+
+	div#memberlist{
+		display: flex;
+		align-items: top;
+		justify-content: distribute-space;
+
+		flex-flow: row;
+		flex-wrap: wrap;
+
+		width: 100%;
+
+		margin: 3em 0;
+
+		.member{
+
+			flex: 0 0 33.333%;
+			
+			font-size: 0.8em;
+			text-align: center;
+			// line-height: 2.5em;
+
+			box-sizing: border-box;
+			padding: 0.5em;
+
+			.avatar{
+				display: block;
+				margin: 0.5em auto;
+			}
+		}
+
+	}
+
+	ul#memberlist{
+		display: inline-block;
+		// width: 100%;
+
+		margin: 0 auto;
+
+		list-style: none;
+		padding-left: 0;
+
+		li{
+			
+		}
+
+	}
+
+
+	div#mainbot{
+
+		h3{
+			font-size: 1.3em;
+			font-family: 'Montserrat-UltraLight';
+			letter-spacing: 0.1em;
+			color: #000;
+		}
+
+		p{
+			text-align: justify;
+		}
+
+	}
+
+	// desktop
+	@media screen and (min-width: $medium-screen-up){
+		p.botdescription{
+			width: 80%;
+			margin: 0 auto;
+			text-align: justify;
+		}
+	}
+
+	.profileBot{
+		margin: 2em auto;
+	}
+
+}

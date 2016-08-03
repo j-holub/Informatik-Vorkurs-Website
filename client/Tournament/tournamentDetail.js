@@ -142,7 +142,7 @@ Template.tournamentEntry.events({
 		}
 	},
 	// wählt ein Roboter im Modal aus
-	'click li.robot': function(){
+	'click li.robot': function(event){
 		console.log(event.target);
 		$('li.robot').each(function (robot){
 			if($(this).data('id') == $(event.target).data('id')){

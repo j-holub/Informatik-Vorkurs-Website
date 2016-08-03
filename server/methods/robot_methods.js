@@ -32,6 +32,8 @@ Meteor.methods({
 				Tournaments.find({participants: {$in: [robotId]}}).forEach(function (tournament) {
 					Meteor.call('signOutRobot', tournament._id, robotId);
 				});
+				// Wenn der Roboter Hauptbot einer Gruppe ist, diesen austragen
+				Groups.update({'mainbot': robotId}, {$unset: {'mainbot': ""}});
 				return Robots.remove({_id: robotId});
 			}
 			// ansonsten Fehler werfen

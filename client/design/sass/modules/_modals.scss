@@ -18,16 +18,19 @@ div.modalBackground{
 
 	display: none;
 
+	align-items: center;
+	justify-content: center;
+
 	transition: background 1s easi-in-out;
 
 	div.modal{
-
-		position: relative;
 
 		margin-left: auto;
 		margin-right: auto;		
 
 		background-color: $backgroundColor;
+
+		height: auto !important;
 
 		// über dem hintergrund
 		z-index: 15;
@@ -37,8 +40,6 @@ div.modalBackground{
 		// desktop
 		@media screen and (min-width: $medium-screen-up){
 			border-radius: $modalBorderRadius;
-
-			margin-top: 16em;
 
 			width: 40%;
 
@@ -70,6 +71,8 @@ div.modalBackground{
 			color: $backgroundColor;
 
 			text-align: center;
+
+			position: relative;
 		
 			// schließen button
 			i{
@@ -110,6 +113,7 @@ div.modalBackground{
 			text-align: center;
 
 		}
+
 
 		span.modalClose{
 			position: absolute;
@@ -163,6 +167,18 @@ div.modalBackground{
 		border-top: none;
 
 		border-radius: none;
+	}
+}
+
+div.active{
+	// desktop
+	@media screen and (min-width: $medium-screen-up){
+		display: flex;
+	}
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
+		display: block;
 	}
 }
 

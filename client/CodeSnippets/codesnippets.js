@@ -86,7 +86,7 @@ Template.snippet.helpers({
 
 Template.addSnippetModal.events({
 	'click #openSnippetModalButton': function(){
-		$('#snippetModal').css('display', 'block');
+		$('#snippetModal').addClass('active');
 		if(Meteor.Device.isDesktop()){
 			$('[name="snippetName"]').focus();
 		}
@@ -94,7 +94,7 @@ Template.addSnippetModal.events({
 	'click .modalBackground': function (event){
 		if(!(event.target != $('.modalBackground')[0])){
 			// Modal verstecken
-			$('#snippetModal').css('display', 'none');	
+			$('#snippetModal').removeClass('active');
 			// Form resetten
 			$('#addSnippetForm')[0].reset();
 			
@@ -102,7 +102,7 @@ Template.addSnippetModal.events({
 	},
 	'click .modalClose': function(){
 		// Modal verstecken
-		$('#snippetModal').css('display', 'none');
+		$('#snippetModal').removeClass('active');
 		// Form resetten
 		$('#addSnippetForm')[0].reset();
 	},
@@ -123,7 +123,7 @@ Template.addSnippetModal.events({
 			}
 			else{
 				// Modal verstecken
-				$('#snippetModal').css('display', 'none');
+				$('#snippetModal').removeClass('active');
 				// form resetten
 				$('#addSnippetForm')[0].reset();
 			}

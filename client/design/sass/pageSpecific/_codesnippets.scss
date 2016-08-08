@@ -34,13 +34,7 @@ section#codesnippets{
 	div.modal{
 		// desktop
 		@media screen and (min-width: $medium-screen-up){
-
-			margin-top: 16em;
 			width: 60%;
-				
-			// TODO bessere Lösung finden
-			margin-top: 8em;
-
 		}		
 		
 	}

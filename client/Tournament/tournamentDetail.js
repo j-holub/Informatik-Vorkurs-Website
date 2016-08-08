@@ -121,11 +121,11 @@ Template.tournamentEntry.events({
 		}
 	},
 	'click #tournamentEntryButton': function(event){
-		$('#robotEntryModal').css('display', 'block');
+		$('#robotEntryModal').addClass('active');
 	},
 	// Modal schließen
 	'click .modalClose': function(){
-		$('#robotEntryModal').css('display', 'none');
+		$('#robotEntryModal').removeClass('active');
 		// alle Roboter unmarkieren
 		$('li.robot').each(function (robot){
 			$(this).removeClass('active');
@@ -134,7 +134,7 @@ Template.tournamentEntry.events({
 	// Modal schließen
 	'click .modalBackground': function(event){
 		if(!(event.target != $('.modalBackground')[0])){
-			$('#robotEntryModal').css('display', 'none');
+			$('#robotEntryModal').removeClass('active');
 			// alle Roboter unmarkieren
 			$('li.robot').each(function (robot){
 				$(this).removeClass('active');

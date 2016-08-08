@@ -136,19 +136,19 @@ Template.createTournament.events({
 				// Input Felder leeren
 				$('#createTournament')[0].reset();
 				// Modal unsichtbar machen
-				$('#createTournamentModal').css('display', 'none');
+				$('#createTournamentModal').removeClass('active');
 			}
 		});
 		
 	},
 	'click #createTournamentButton': function(event){
-		$('#createTournamentModal').css('display', 'block');
+		$('#createTournamentModal').addClass('active');
 	},
 	'click .modalClose': function(){
 		// Form resetten
 		$('#createTournament')[0].reset();
 		// Modal unsichtbar machen
-		$('#createTournamentModal').css('display', 'none');
+		$('#createTournamentModal').removeClass('active');
 	},
 	'click .modalBackground': function(event){
 		// verhindert das schließen durch das klicken auf das Modal selbst
@@ -156,7 +156,7 @@ Template.createTournament.events({
 			// Form resetten
 			$('#createTournament')[0].reset();
 			// Modal unsichtbar machen
-			$('#createTournamentModal').css('display', 'none');
+			$('#createTournamentModal').removeClass('active');
 		}
 	}
 });

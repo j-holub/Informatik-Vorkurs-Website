@@ -50,18 +50,18 @@ Template.landingPage.events({
 	},
 	'click #loginButton': function(event) {
 		// $(window).scrollTo('#loginRegisterArea', 800);
-		$('#LoginModal').css('display', 'block');
+		$('#LoginModal').addClass('active');
 		if(Meteor.Device.isDesktop()){
 			$('.login [name=email]').focus();		
 		}
 	},
 	'click #LoginModal .modalClose': function() {
-		$('#LoginModal').css('display', 'none');
+		$('#LoginModal').removeClass('active');
 		$('#login')[0].reset();
 	},
 	'click .modalBackground': function(event) {
 		if(!(event.target != $('.modalBackground')[0])){
-			$('#LoginModal').css('display', 'none');
+			$('#LoginModal').removeClass('active');
 			$('#login')[0].reset();
 		}
 	},

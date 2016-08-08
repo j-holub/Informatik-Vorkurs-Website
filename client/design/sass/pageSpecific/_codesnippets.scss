@@ -43,7 +43,7 @@ section#codesnippets{
 	@media screen and (min-width: $medium-screen-up){
 	table{
 
-		max-width: 70%;
+		width: 70%;
 
 		td{
 			vertical-align: middle;
@@ -55,6 +55,13 @@ section#codesnippets{
 			font-size: 1.5em;
 			color: $headingColor;
 		}
+	}
+	}
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
+	table{
+		width: 100%;
 	}
 	}
 

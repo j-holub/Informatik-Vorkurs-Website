@@ -1,0 +1,35 @@
+<template name="groups">
+	<section id="groups">
+	<div class="container">
+	
+	<table>
+	{{#each listGroups}}
+	<tr>
+		<td><a href="{{pathFor route='group'}}">{{name}}</a></td>
+		<td>{{memberCount}} <i class="mdi mdi-account"></i></td>
+	</tr>
+	{{/each}}
+	</table>
+
+	{{>createGroupModal}}
+
+	</div>
+	</section>
+</template>
+
+
+<template name="createGroupModal">
+	<button id="createGroupButton" class="borderButton">Gruppe erstellen</button>
+
+	<div class="modalBackground" id="createGroupModal">
+			<div class="modal">
+			<div class="modalHeader">Gruppe erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+			<div class="modalContent">
+				<form action="" id="createGroup">
+				<input type="text" name="groupName" placeholder="Gruppenname">
+				</form>
+			</div>
+			<div class="modalFooter"><input type="submit" value="Erstellen" form="createGroup"></div>
+		</div>
+	</div>
+</template>

@@ -184,8 +184,8 @@ div.active{
 
 
 @keyframes modalFadeInDesktop {
-    from {top: -200px; opacity: 0}
-    to {top: 0; opacity: 1}
+    from {margin-top: -20em; opacity: 0}
+    to {margin-top: 0; opacity: 1}
 }
 
 @keyframes modalFadeInMobile {

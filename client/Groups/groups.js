@@ -22,18 +22,18 @@ Template.createGroupModal.events({
 				// Input Felder leeren
 				$('#createGroup')[0].reset();
 				// Modal unsichtbar machen
-				$('#createGroupModal').css('display', 'none');
+				$('#createGroupModal').removeClass('active');
 			}
 		});
 	},
 	'click #createGroupButton': function(event){
-		$('#createGroupModal').css('display', 'block');
+		$('#createGroupModal').addClass('active');
 	},
 	'click .modalClose': function(){
 		// Form resetten
 		$('#createGroup')[0].reset();
 		// Modal unsichtbar machen
-		$('#createGroupModal').css('display', 'none');
+		$('#createGroupModal').removeClass('active');
 	},
 	'click .modalBackground': function(event){
 		// verhindert das schließen durch das klicken auf das Modal selbst
@@ -41,7 +41,7 @@ Template.createGroupModal.events({
 			// Form resetten
 			$('#createGroup')[0].reset();
 			// Modal unsichtbar machen
-			$('#createGroupModal').css('display', 'none');
+			$('#createGroupModal').removeClass('active');
 		}
 	}
 });

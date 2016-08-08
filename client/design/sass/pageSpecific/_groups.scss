@@ -61,6 +61,19 @@
 			}
 		}
 
+		#addUserToGroupIcon{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3em;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+		#addUserToGroupIcon:hover{
+			color: $primaryColor;
+		}
+
+
 	}
 
 	ul#memberlist{
@@ -109,6 +122,41 @@
 
 	p.nobot{
 		text-align: center;
+	}
+
+}
+
+// ########################
+// # addUserToGroup Modal #
+// ########################
+
+#addUserToGroupModal{
+
+	div#Result{
+		text-align: left;
+
+		div.username{
+			background-color: #DDDDDD;
+
+			padding: 0.2em;
+			margin: 0.1em 0;
+
+			font-size: 1em;
+
+			display: inline-block;
+
+			cursor: pointer;
+
+		}
+		div.username:hover{
+			background-color: $primaryColorShade;
+			color: $backgroundColor;
+		}
+
+		div.member{
+			background-color: $primaryColor;
+			color: $backgroundColor;
+		}
 	}
 
 }

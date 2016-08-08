@@ -10,6 +10,11 @@
 				{{#each listMembers}}
 					{{>groupmember}}
 				{{/each}}
+				{{#if isCreator}}
+				<div id="addUserToGroupIcon" class="member">
+					<i class="mdi mdi-plus"></i>
+				</div>
+				{{/if}}
 				</div>
 				<!-- </ul> -->
 
@@ -35,6 +40,10 @@
 			</div>
 		</div>
 		</div>
+
+		{{#if isCreator}}
+			{{>addUserToGroupModal}}
+		{{/if}}
 	</section>
 </template>
 
@@ -47,4 +56,30 @@
 		<span class="firstname">{{profile.firstname}}</span> <span class="lastname">{{profile.lastname}}</span>
 	</a>
 	</div> 
+</template>
+
+
+<template name="addUserToGroupModal">
+	<div class="modalBackground" id="addUserToGroupModal">
+		<div class="modal">
+		<div class="modalHeader">User hinzufügen<span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+		<div class="modalContent">
+			<input type="text" name="searchUsers" placeholder="Username">
+			<div id="Result" data-group-id="{{_id}}" autocomplete="off">
+				{{#each searchResult}}
+					{{#if isMember}}
+					<div class="username member">{{profile.firstname}} {{profile.lastname}}</div>
+					{{else}}
+					<div class="username">{{profile.firstname}} {{profile.lastname}}</div>
+					{{/if}}
+				{{/each}}
+			</div>
+		</div>
+		
+		<div class="modalFooter">
+			<button class="secondary" id="Done">Fertig</button>
+		</div>
+		</div>
+	</div>
 </template>

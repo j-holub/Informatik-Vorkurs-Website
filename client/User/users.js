@@ -45,7 +45,7 @@ Template.users.events({
 	'keyup [name=userSearch]': _.throttle(function (event) {
 		event.preventDefault();
 		var searchText = $('[name=userSearch]').val();
-		UserSearch.search(searchText);
+		UserSearch.search(searchText, {blankSearch: true});
 	}, 200),
 	// Tastenevents für die Suchleiste
 	'keypress [name=userSearch]': function(event){
@@ -62,7 +62,7 @@ Template.users.events({
 			$('[name=userSearch]').val(' ');
 			$('[name=userSearch]').blur();
 			// leere Suche
-			UserSearch.search(' ');
+			UserSearch.search('', {blankSearch: true});
 		}
 	}
 });

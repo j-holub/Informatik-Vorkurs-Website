@@ -28,6 +28,8 @@ Template.groupdetail.helpers({
 
 Template.groupdetail.events({
 	'click #addUserToGroupIcon': function () {
+		// Leere suche um den Output zu bestimmen
+		UserSearch.search('');
 		$('#addUserToGroupModal').addClass('active');
 		if(Meteor.Device.isDesktop()){
 			$('[name=searchUsers]').focus();
@@ -96,6 +98,39 @@ Template.addUserToGroupModal.events({
 		var searchText = $('[name=searchUsers]').val();
 		UserSearch.search(searchText);
 	}, 200),
+	'keypress [name=searchUsers]': function(event) {
+		// Enter
+		if(event.charCode == 13){
+			console.log("hallo");
+			var user = $('#Result .username')[0].data('user-id');;
+			console.log(user);
+			if(user){
+				// var userId = user
+				var groupId = $('#Result').data('group-id');
+				// User in die Gruppe hinzufügen
+				Meteor.call('addUserToGroup', groupId, user, function(error, result) {
+					if(error){
+						Meteor.customFunctions.errorToast(error.reason);
+					}
+					else{
+						// Input leeren
+						$('[name=searchUsers]').val('');
+						// Results resetten
+						UserSearch.search('');
+					}
+				});	
+			}
+		}
+		// Escape Key abfragen
+		else if(event.charCode == 27){
+			// Input leeren
+			$('[name=searchUsers]').val('');
+			// Results resetten
+			UserSearch.search('');
+			// Focus los werden
+			$('[name=searchUsers]').blur();
+		}
+	},
 	// wird immer im Kontext eines Users aufgerufen (this referenziert den User)
 	'click .username': function(event) {
 		// GruppenID holen

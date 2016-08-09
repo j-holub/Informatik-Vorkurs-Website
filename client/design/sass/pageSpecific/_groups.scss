@@ -63,7 +63,7 @@
 
 		#addUserToGroupIcon{
 			display: flex;
-			align-items: center;
+			align-items: top;
 			justify-content: center;
 			font-size: 3em;
 			cursor: pointer;
@@ -71,6 +71,20 @@
 		}
 		#addUserToGroupIcon:hover{
 			color: $primaryColor;
+		}
+
+		div.username{
+			font-size: 1em;
+			letter-spacing: 0.1em;
+
+			transition: all 0.3s ease-in-out;
+
+			.firstname{
+				font-family: 'Montserrat-Regular';
+			}
+			.lastname{
+				font-family: 'Montserrat-Hairline';
+			}
 		}
 
 

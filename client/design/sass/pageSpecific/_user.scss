@@ -2,6 +2,9 @@
 // # User in der Liste #
 // #####################
 
+
+div#userList{
+
 div.user{
 	//  Weil VagueJS es net selbst auf die Reihe bekommt
 	.avatar-image{
@@ -119,7 +122,7 @@ div.username{
 	}
 }
 
-#userList{
+
 	
 	a{
 		color: $headingColor;

@@ -69,9 +69,9 @@
 			<div id="Result" data-group-id="{{_id}}" autocomplete="off">
 				{{#each searchResult}}
 					{{#if isMember}}
-					<div class="username member">{{profile.firstname}} {{profile.lastname}}</div>
+					<div class="username member" data-user-id="{{this._id}}">{{profile.firstname}} {{profile.lastname}}</div>
 					{{else}}
-					<div class="username">{{profile.firstname}} {{profile.lastname}}</div>
+					<div class="username" data-user-id="{{this._id}}">{{profile.firstname}} {{profile.lastname}}</div>
 					{{/if}}
 				{{/each}}
 			</div>

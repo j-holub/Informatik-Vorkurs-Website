@@ -1,0 +1,42 @@
+#robotBox{
+	margin-right: auto;
+	margin-left: auto;
+
+	p{
+		text-align: justify !important;
+		line-height: 1.3em;
+	}
+
+	div.robottop{
+		width: 100%;
+		height: 1em;
+		position: relative;
+
+		font-size: 1.3em;
+		color: $headingColor;
+
+
+		span.robotname{
+			position: absolute;
+			left: 0;
+
+			font-family: 'Montserrat-Regular';
+		}
+		span.robotactions{
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	.profileBot{
+		margin: 2em auto;
+	}
+
+}
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
+	#robotBox{
+		width: 80%;
+	}
+}

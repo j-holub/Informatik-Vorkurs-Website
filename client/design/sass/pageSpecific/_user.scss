@@ -271,21 +271,6 @@ div#userProfile{
 		transition: all 0.3s ease-out;
 	}
 
-	.profileBot{
-		margin: 2em auto;
-	}
-
-	#robotBox{
-		margin-right: auto;
-		margin-left: auto;
-
-		p{
-			text-align: justify;
-			line-height: 1.3em;
-		}
-
-		
-	}
 
 	// desktop
 	@media screen and (min-width: $medium-screen-up){
@@ -302,10 +287,6 @@ div#userProfile{
 			margin-right: auto;
 			margin-left: auto;
 		
-		}
-
-		#robotBox{
-			width: 80%;
 		}
 	}
 

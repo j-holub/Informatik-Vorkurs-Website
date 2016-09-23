@@ -1,0 +1,22 @@
+
+<template name="groupRobot">
+	<div class="profileBot">
+
+	<div class="robottop">
+
+		<span class="robotname">{{name}}</span>
+
+		<span class="robotactions">
+		{{#if checkDownloadableCondition}} 
+		<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
+		{{/if}} 
+		{{#if belongsToUser }} <i class="mdi mdi-delete delete" name="deleteRobot"></i>
+		{{/if}}
+		</span>
+	
+	</div>
+
+	<p class="botdescription">{{description}}</p>
+	</div>
+</template>
+

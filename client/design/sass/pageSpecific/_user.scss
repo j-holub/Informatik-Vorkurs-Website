@@ -261,17 +261,6 @@ div#userProfile{
 		margin-right: auto;
 	}
 
-	i{
-		cursor: pointer;
-		transition: all 0.3s ease-out;
-	}
-	i:hover,
-	i:focus{
-		color: $secondaryColor;
-		transition: all 0.3s ease-out;
-	}
-
-
 	// desktop
 	@media screen and (min-width: $medium-screen-up){
 		// bissel Abstand nach oben

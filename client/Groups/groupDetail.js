@@ -23,6 +23,11 @@ Template.groupdetail.helpers({
 	// daher referenziert this einen Roboter
 	downloadUrl: function () {
 		return RobotData.findOne(this.data).url({'download': true});
+	},
+	// schaut ob der User Mitglied er Gruppe is
+	isMember: function () {
+		// wird in einem #with block aufgerufen. Deswegen Template.parentData()
+		return $.inArray(Meteor.userId(), Template.parentData().members) == 0;
 	}
 });
 
@@ -34,6 +39,14 @@ Template.groupdetail.events({
 		if(Meteor.Device.isDesktop()){
 			$('[name=searchUsers]').focus();
 		}
+	},
+	'click [name=clearGroupRobot]': function () {
+		// wird in einem #with block aufgerufen. Deswegen Template.parentData()
+		Meteor.call('clearGroupRobot', Template.parentData()._id, this._id, function (error, result) {
+			if(error){
+				console.log(error.reason);
+			}
+		});
 	}
 });
 

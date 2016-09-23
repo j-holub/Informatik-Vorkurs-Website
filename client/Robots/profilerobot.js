@@ -23,7 +23,6 @@ Template.profileRobot.helpers({
 		return this.downloadable;
 	},
 	checkDownloadableCondition: function(){
-		console.log("here");
 		// Gehört dem User || downloadbar || User ist Admin
 		return (Meteor.userId() == this.belongsTo) || (this.downloadable) || Roles.userIsInRole(Meteor.user(), ["admin"]);
 	}

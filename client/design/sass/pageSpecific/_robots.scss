@@ -26,6 +26,16 @@
 			position: absolute;
 			right: 0;
 		}
+
+		i{
+		cursor: pointer;
+		transition: all 0.3s ease-out;
+		}
+		i:hover,
+		i:focus{
+			color: $secondaryColor;
+			transition: all 0.3s ease-out;
+		}
 	}
 
 	.profileBot{

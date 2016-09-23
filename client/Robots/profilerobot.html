@@ -1,0 +1,32 @@
+<!-- Listet die Roboter zu einem User -->
+<template name="userRobots">
+	<h2>Roboter</h2>
+	<!-- Die _id variable sickert von dem profile template durch und komm ursprünglich vom IronRouter -->
+	<div id="robotBox">
+	{{#each listUserRobots _id}}
+		{{>profileRobot}}
+	{{/each}}
+	</div>
+</template>
+
+<template name="profileRobot">
+	<div class="profileBot">
+
+	<div class="robottop">
+
+		<span class="robotname">{{name}}</span>
+
+		<span class="robotactions">
+		{{#if checkDownloadableCondition}} 
+		<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
+		{{/if}} 
+		{{#if belongsToUser }} <i class="mdi mdi-delete delete" name="deleteRobot"></i>
+		{{/if}}
+		</span>
+	
+	</div>
+
+	<p class="botdescription">{{description}}</p>
+	</div>
+</template>
+

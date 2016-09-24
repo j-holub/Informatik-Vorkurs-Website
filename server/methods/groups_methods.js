@@ -115,11 +115,20 @@ Meteor.methods({
 		}
 
 	},
-	'clearGroupRobot': function(groupId, robotId){
+	'clearGroupRobot': function(groupId){
 		// checkt ob der User eingeloggt is
 		if(Meteor.userId()){
 			// checken ob der User auch Gruppenmitglied ist
 			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
+				// die Gruppe aus allen Turnieren austragen in denen sie eingetragen ist
+				var tournaments = Tournaments.find({participants: groupId});
+				tournaments.forEach(function (tournament) {
+					Meteor.call('signOutFromTournament', tournament._id, groupId, function(result, error) {
+						if(error){
+							console.log(error.reason);
+						}
+					})
+				});
 				return Groups.update({_id: groupId}, {$unset: {'mainbot': ""}});
 			}
 			// wenn nicht, Fehler werfen

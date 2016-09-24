@@ -28,12 +28,16 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// überprüfen ob der Roboter überhaupt dem User gehört
 			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
-				// In allen Turnieren austragen
-				Tournaments.find({participants: {$in: [robotId]}}).forEach(function (tournament) {
-					Meteor.call('signOutRobot', tournament._id, robotId);
-				});
 				// Wenn der Roboter Hauptbot einer Gruppe ist, diesen austragen
-				Groups.update({'mainbot': robotId}, {$unset: {'mainbot': ""}});
+				var group = Groups.findOne({'mainbot': robotId}); // ein Roboter kann immer nur in einer Gruppe mainbot sein
+				if(group){
+					// Ist der Roboter ein Manbot muss er ausgetragen werden
+					Meteor.call('clearGroupRobot', group._id, function (error, result) {
+						if(error){
+							console.log(error.message);
+						}
+					});
+				}
 				return Robots.remove({_id: robotId});
 			}
 			// ansonsten Fehler werfen

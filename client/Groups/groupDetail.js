@@ -41,8 +41,10 @@ Template.groupdetail.events({
 		}
 	},
 	'click [name=clearGroupRobot]': function () {
+		// Das HTML befindet sich in einem {{#with getMainbot}} im groupDetail Template
+		var groupId = Template.parentData()._id;
 		// wird in einem #with block aufgerufen. Deswegen Template.parentData()
-		Meteor.call('clearGroupRobot', Template.parentData()._id, this._id, function (error, result) {
+		Meteor.call('clearGroupRobot', Template.parentData()._id, function (error, result) {
 			if(error){
 				console.log(error.reason);
 			}

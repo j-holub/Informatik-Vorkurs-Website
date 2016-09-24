@@ -2,7 +2,7 @@
 	
 	<div class="container" id="tournamentDetail">
 
-	<h1 data-id="{{_id}}">{{name}}</h1>
+	<h1>{{name}}</h1>
 	<p><i class="mdi mdi-calendar-blank"></i> {{displayDate}} <i class="mdi mdi-account"></i> {{paticipantCount}} </p>
 
 	<br/>
@@ -11,7 +11,7 @@
 	{{>tournamentParticipants}}
 	{{/if}}
 	
-	{{#unless userHasRobotInTournament}}
+	{{#unless userGroupIsInTournament}}
 		{{#unless ended}}
 			{{#if userHasRobots}}
 				<br/>
@@ -32,11 +32,10 @@
 
 
 <template name="tournamentParticipants">
-	<!-- <h2>Teilnehmer</h2> -->
-		{{#each particpatingRobots}}
+		{{#each particpatingGroups}}
 			<div class="row">
 			{{#each this}}
-			{{>tournamentRobot}}
+			{{>tournamentGroup}}
 			{{/each}}
 			</div>
 		{{/each}}
@@ -60,11 +59,6 @@
 	<p>Du brauchst eine Gruppe um einem Turnier beitreten zu können</p>
 	{{/if}}
 
-	<!-- <p><button id="tournamentEntryButton" class="borderButton">Teilnehmen</button></p> -->
-
-
-	
-	
 </template>
 
 <template name="downloadRobots">
@@ -72,10 +66,16 @@
 	<p><a id="downloadRobots" href="{{this._id}}/download"><button class="borderButton">Roboter downloaden</button></a></p>
 </template>
 
+<template name="tournamentParticipant">
+	<div class="col s12 m4 l4">
+		
+	</div>
+</template>
 
-<template name="tournamentRobot">
-		<div class="col s12 m4 l4 robot">
-		<h3>{{name}} {{#if belongsToUser}}{{#unless ended}} <i class="mdi mdi-close" name="signOutRobot"></i> {{/unless}}{{/if}}</h3>
-		<p class="owner"><a href="{{pathFor route='profile' _id=belongsTo }}">{{uploaderName belongsTo}}</a></p>
+
+<template name="tournamentGroup">
+		<div class="col s12 m4 l4 group">
+		<h4><a href="{{pathFor route='group' _id=_id}}">{{name}}</a> {{#if userIsMember}}{{#unless ended}}<i class="mdi mdi-close-circle" name="signOutFromTournament"></i>{{/unless}}{{/if}}</h4>
+		<p class="mainbot">{{mainbotName}}</p>
 		</div>
 </template>

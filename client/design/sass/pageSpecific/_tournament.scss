@@ -54,11 +54,11 @@ div#tournamentDetail{
 		margin-bottom: 0;
 	}
 
-	h3{
+	h4{
 		margin-bottom: 0.2em;
 	}
 
-	.owner{
+	.mainbot{
 		text-align: center;
 		margin-top: 0.05em;
 
@@ -68,12 +68,20 @@ div#tournamentDetail{
 	i{
 		color: $headingColor;
 	}
-	
-	.robot i{
-		cursor: pointer;
+
+	.group{
+		a:hover,
+		a:focus{
+			color: $secondaryColor;
+		}
 	}
-	.robot i:hover{
-		color: $secondaryColor;
+	
+	.group i{
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+	.group i:hover{
+		color: $warningColor;
 	}
 
 	#signUpButton{

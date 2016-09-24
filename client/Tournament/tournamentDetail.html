@@ -46,30 +46,22 @@
 
 <template name="tournamentEntry">
 	
-	<p><button id="tournamentEntryButton" class="borderButton">Teilnehmen</button></p>
+	<h3>Teilnehmen</h3>
+	{{#if userHasGroup}}
+	
+		{{#if userGroupHasMainbot}}
+		<p>{{mainbotName}}</p>
+		<p><i class="mdi mdi-checkbox-marked-circle"></i> </p>
+		{{else}}
+		<p>Kein Gruppenroboter ausgewählt</p>
+		{{/if}}
 
-	<!-- <div id="robotDropdown" class="dropdownWrapper invisible" tabindex="1" data-id="">
-		<span>Roboter</span> <i class="fa fa-chevron-down"></i>
-		<ul class="dropdown">
-			{{#each listUserRobots}}
-			<li><a data-id="{{_id}}">{{name}}</a></li>
-			{{/each}}
-		</ul>
-	</div> -->
+	{{else}}
+	<p>Du brauchst eine Gruppe um einem Turnier beitreten zu können</p>
+	{{/if}}
 
-	<div class="modalBackground" id="robotEntryModal">
-		<div class="modal">
-			<div class="modalHeader">Roboter eintragen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
-			<div class="modalContent">
-				<ul class="robotList">
-				{{#each listUserRobots}}
-					<li class="robot" data-id="{{_id}}">{{name}}</li>
-				{{/each}}
-				</ul>
-			</div>
-			<div class="modalFooter"><button class="secondary" id="signUpButton">Eintragen</button></div>
-		</div>
-	</div>
+	<!-- <p><button id="tournamentEntryButton" class="borderButton">Teilnehmen</button></p> -->
+
 
 	
 	

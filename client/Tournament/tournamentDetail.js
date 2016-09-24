@@ -90,6 +90,25 @@ Template.tournamentEntry.helpers({
 	listUserRobots: function () {
 		var currentUserId = Meteor.userId();
 		return Robots.find({belongsTo: currentUserId}, {sort: {name: 1}});
+	},
+	userHasGroup: function () {		
+		return Groups.find({members: Meteor.userId()}).count() > 0;
+
+	},
+	userGroupHasMainbot: function () {
+		var usergroup = Groups.findOne({members: Meteor.userId()});
+		if(usergroup && usergroup.mainbot){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	mainbotName: function() {
+		var group = Groups.findOne({members: Meteor.userId()});
+		if(group && group.mainbot){
+			return Robots.findOne(group.mainbot).name;
+		}
 	}
 });
 

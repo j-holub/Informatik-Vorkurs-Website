@@ -113,79 +113,15 @@ Template.tournamentEntry.helpers({
 });
 
 Template.tournamentEntry.events({
-	'click #signUpButton': function(event){
-		var robotId;
-		// durch alle Roboter iterieren
-		$('li.robot').each(function(robot){
-			// Schauen ob ein Roboter ausgewählt ist
-			if($(this).hasClass('active')){
-				robotId = $(this).data('id');
+	'click [name=signUpForTournament]': function(event){
+		var groupId = Groups.findOne({members: Meteor.userId()})._id;
+		var tournamentId = this._id;
+		Meteor.call('signUpForTournament', tournamentId, groupId, function (error, result) {
+			if(error){
+				console.log(error.reason);
 			}
 		});
-		// schauen ob wer ausgewählt wurde
-		if(robotId){
-			Meteor.call('signUpRobot', this._id, robotId, function (error, result) {
-				if(error){
-					console.log(error.reason);
-				}
-				else{
-					// Modal schließen
-					$('#robotEntryModal').css('display', 'none');
-					// alle Roboter unmarkieren
-					$('li.robot').each(function (robot){
-						$(this).removeClass('active');
-					});
-				}
-			});
-		}
-	},
-	'click #tournamentEntryButton': function(event){
-		$('#robotEntryModal').addClass('active');
-	},
-	// Modal schließen
-	'click .modalClose': function(){
-		$('#robotEntryModal').removeClass('active');
-		// alle Roboter unmarkieren
-		$('li.robot').each(function (robot){
-			$(this).removeClass('active');
-		});
-	},
-	// Modal schließen
-	'click .modalBackground': function(event){
-		if(!(event.target != $('.modalBackground')[0])){
-			$('#robotEntryModal').removeClass('active');
-			// alle Roboter unmarkieren
-			$('li.robot').each(function (robot){
-				$(this).removeClass('active');
-			});
-		}
-	},
-	// wählt ein Roboter im Modal aus
-	'click li.robot': function(event){
-		console.log(event.target);
-		$('li.robot').each(function (robot){
-			if($(this).data('id') == $(event.target).data('id')){
-				$(event.target).addClass('active');
-			}
-			else{	
-				$(this).removeClass('active');
-			}
-		});
-	},
-	// 'click #robotDropdown': function(event){
-	// 	// Menü toggeln
-	// 	$('#robotDropdown').toggleClass('active');
-	// },
-	// // Setzt den Text in das Feld des Dropdown Menüs
-	// 'click #robotDropdown a': function(event){
-	// 	// Auswahl abfragen
-	// 	var newText = event.target.text;
-	// 	$('#robotDropdown').find('span').text(newText);
-	// 	// id aus der Auswahl abfragen
-	// 	var robotId = $(event.target).data('id');
-	// 	// Set the id into the robotDropdown div as a data attribute
-	// 	$('#robotDropdown').data('id', robotId);
-	// }
+	}
 });
 
 

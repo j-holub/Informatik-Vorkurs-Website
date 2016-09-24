@@ -31,19 +31,20 @@ Meteor.methods({
 		return Tournaments.remove(id);
 	},
 	// trägt einen Roboter in das angegebene Turnier ein
-	'signUpRobot': function(tournamentId, robotId){
+	'signUpForTournament': function(tournamentId, groupId){
 		// Turnier suchen
 		var tournament = Tournaments.findOne({_id: tournamentId})
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// überprüfen ob der Roboter überhaupt dem User gehört
-			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
+			// überprüfen ob der User Mitglied dieser Gruppe ist
+			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
+			// if($.inArray(Meteor.userId(), Groups.findOne(groupId).members) == 0){
 				// checken ob das turnier noch läuft
 				if(tournament.date >= new Date()){
-					// checken ob der user bereits ein Roboter im Turnier hat
-					if(tournament.participants.indexOf(robotId) == -1){
+					// checken ob die Gruppe bereits zum Turnier angemeldet ist
+					if(tournament.participants.indexOf(groupId) == -1){
 						// eintragen
-						return Tournaments.update({_id: tournamentId}, {$push: {participants: robotId}});
+						return Tournaments.update({_id: tournamentId}, {$push: {participants: groupId}});
 					}
 					// Fehler werfen
 					else{
@@ -66,15 +67,16 @@ Meteor.methods({
 		}
 	},
 	// trägt einen Roboter aus einem angegebenen Turnier aus
-	'signOutRobot': function(tournamentId, robotId){
+	'signOutFromTournament': function(tournamentId, groupId){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
 			// überprüfen ob der Roboter überhaupt dem User gehört
-			if(Meteor.userId() == Robots.findOne({_id: robotId}).belongsTo){
+			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
+			// if(($.inArray(Meteor.userId(), Groups.findOne(groupId).members) == 0)){
 				// checken ob das turnier noch läuft
 				if(Tournaments.findOne({_id: tournamentId}).date >= new Date()){
 					// austragen
-					return Tournaments.update({_id: tournamentId}, {$pull: {participants: robotId}});
+					return Tournaments.update({_id: tournamentId}, {$pull: {participants: groupId}});
 				}
 				// fehler werfen
 				else{

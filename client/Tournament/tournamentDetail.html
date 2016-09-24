@@ -49,14 +49,16 @@
 	{{#if userHasGroup}}
 	
 		{{#if userGroupHasMainbot}}
-		<p>{{mainbotName}}</p>
-		<p><i class="mdi mdi-checkbox-marked-circle" name="signUpForTournament"></i> </p>
+		<div id="participateSelect">
+				<span id="mainbotName">{{mainbotName}}<i class="mdi mdi-checkbox-marked-circle" name="signUpForTournament"></i></span>
+		</div>
+		
 		{{else}}
-		<p>Kein Gruppenroboter ausgewählt</p>
+		<p class="infomessage">Kein Gruppenroboter ausgewählt</p>
 		{{/if}}
 
 	{{else}}
-	<p>Du brauchst eine Gruppe um einem Turnier beitreten zu können</p>
+	<p class="infomessage">Du brauchst eine Gruppe um einem Turnier beitreten zu können</p>
 	{{/if}}
 
 </template>

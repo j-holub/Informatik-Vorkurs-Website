@@ -94,6 +94,30 @@ div#tournamentDetail{
 		border-color: $secondaryColorShade;
 	}
 
+	.infomessage{
+		text-align: center;
+		font-style: italic;
+	}
+
+	#participateSelect{		
+		text-align: center;
+		font-size: 1.1em;
+
+		i{
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+
+			margin: 0 0.3em;
+		}
+		i:hover,
+		i:focus{
+			color: $secondaryColor;
+		}
+	}
+	#participateSelect:hover{
+		border-color: $primaryColorShade;
+	}
+
 	// Default Abstand vom MaterializeCSS Grid überschreiben
 	.row{
 		margin-bottom: 0;

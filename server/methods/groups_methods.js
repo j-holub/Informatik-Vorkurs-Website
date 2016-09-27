@@ -83,6 +83,17 @@ Meteor.methods({
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
 				// checken ob der zu löschende Nutzer der Gruppenersteller ist
 				if(!(Groups.findOne(groupId).creator === userId)){
+
+					// war der aktuelle Mainbot der des Users, diesen clearen
+					var mainbotId = Groups.findOne(groupId).mainbot;
+					if(Robots.findOne(mainbotId).belongsTo === Meteor.userId()){
+						Meteor.call('clearGroupRobot', groupId, function (error, result) {
+							if(error){
+								console.log(error.reason);
+							}
+						});
+					}
+
 					// User aus der Gruppe entfernen
 					return Groups.update({_id: groupId}, {$pull: {'members': userId}});
 				}
@@ -106,6 +117,17 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// checken ob der User auch Gruppenmitglied ist
 			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
+
+				// war der aktuelle Mainbot der des Users, diesen clearen
+				var mainbotId = Groups.findOne(groupId).mainbot;
+				if(Robots.findOne(mainbotId).belongsTo === Meteor.userId()){
+					Meteor.call('clearGroupRobot', groupId, function (error, result) {
+						if(error){
+							console.log(error.reason);
+						}
+					});
+				}
+
 				Groups.update({_id: groupId}, {$pull: {'members': Meteor.userId()}});
 				// sollte dies der letzte User in der Gruppe gewesen sein muss die Gruppe gelöscht werden
 				if(Groups.findOne(groupId).members.length == 0) {
@@ -113,17 +135,16 @@ Meteor.methods({
 						if(error){
 							console.log(error.message);
 						}
-						else{
-							return true;
-						}
 					});
 				}
 				// wenn nicht, einen neuen Gruppenleiter aussuchen
 				else{
 					var newCreatorId = Groups.findOne(groupId).members[0];
 					Groups.update({_id: groupId}, {$set: {'creator': newCreatorId}});
-					return true;
 				}
+
+
+
 			}
 			// wenn nicht, Fehler werfen
 			else{

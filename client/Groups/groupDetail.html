@@ -68,8 +68,8 @@
 		<div class="modalHeader">User hinzufügen<span class="modalClose"><i class="mdi mdi-close"></i></span></div>
 
 		<div class="modalContent">
-			<input type="text" name="searchUsers" placeholder="Username">
-			<div id="Result" data-group-id="{{_id}}" autocomplete="off">
+			<input type="text" name="searchUsers" placeholder="Username" autocomplete="off" />
+			<div id="Result" data-group-id="{{_id}}">
 				{{#each searchResult}}
 					{{#if isMember}}
 					<div class="username member" data-user-id="{{this._id}}">{{profile.firstname}} {{profile.lastname}}</div>

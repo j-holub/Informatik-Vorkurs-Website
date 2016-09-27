@@ -26,7 +26,7 @@ Template.groupdetail.helpers({
 	},
 	// schaut ob der User Mitglied er Gruppe is
 	isMember: function () {
-		return $.inArray(Meteor.userId(), this.members) == 0;
+		return $.inArray(Meteor.userId(), this.members) != -1;
 	}
 });
 

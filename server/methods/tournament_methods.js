@@ -71,7 +71,6 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// überprüfen ob der User zur Gruppe gehört
 			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
-			// if(($.inArray(Meteor.userId(), Groups.findOne(groupId).members) == 0)){
 				// checken ob das turnier noch läuft
 				if(Tournaments.findOne({_id: tournamentId}).date >= new Date()){
 					// austragen

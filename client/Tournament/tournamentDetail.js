@@ -38,7 +38,7 @@ Template.tournamentDetail.helpers({
 		var tournamentParticipants = Tournaments.findOne(this._id).participants;
 
 		if(usergroup){
-			return ($.inArray(usergroup._id, tournamentParticipants) == 0);
+			return ($.inArray(usergroup._id, tournamentParticipants) != -1);
 		}
 		else{
 			return false;
@@ -122,7 +122,7 @@ Template.tournamentEntry.events({
 Template.tournamentGroup.helpers({
 	userIsMember: function (){
 		// this._id referenziert die ID des Objeckts (Group) mit dem das Template gerendert wurde
-		return $.inArray(Meteor.userId(), this.members) == 0; 
+		return $.inArray(Meteor.userId(), this.members) != -1; 
 	},
 	// schaut ob das Turnier schon beendet wurde
 	ended: function () {

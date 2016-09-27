@@ -22,6 +22,23 @@
 	h3#groupname{
 		font-size: 1.5em;
 		font-family: 'Montserrat-Regular';
+
+		margin-bottom: 0.2em;
+	}
+
+	p#leave{
+		font-size: 0.9em;
+		font-style: italic;
+
+		text-align: center;
+		margin: 0;
+
+		cursor: pointer;
+
+		transition: all 0.3s ease-in-out;
+	}
+	p#leave:hover{
+		color: $warningColor;
 	}
 
 	h3{
@@ -104,7 +121,6 @@
 		}
 
 	}
-
 
 	div#mainbot{
 

@@ -91,6 +91,36 @@ Meteor.methods({
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
 	},
+	'leaveGroup': function(groupId){
+		// checkt ob der User eingeloggt is
+		if(Meteor.userId()){
+			// checken ob der User auch Gruppenmitglied ist
+			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
+				Groups.update({_id: groupId}, {$pull: {'members': Meteor.userId()}});
+				// sollte dies der letzte User in der Gruppe gewesen sein muss die Gruppe gelöscht werden
+				if(Groups.findOne(groupId).members.length == 0) {
+					Meteor.call('deleteGroup', groupId, function(result, error){
+						if(error){
+							console.log(error.message);
+						}
+						else{
+							return true;
+						}
+					});
+				}
+				// wenn nicht, einen neuen Gruppenleiter aussuchen
+				else{
+					var newCreatorId = Groups.findOne(groupId).members[0];
+					Groups.update({_id: groupId}, {$set: {'creator': newCreatorId}});
+					return true;
+				}
+			}
+			// wenn nicht, Fehler werfen
+			else{
+				throw new Meteor.Error("Kein Gruppenmitglied", "Du bist kein Mitglied dieser Gruppe");
+			}
+		}
+	},
 	'selectGroupRobot': function(groupId, robotId){
 		// checkt ob der User eingeloggt is
 		if(Meteor.userId()){

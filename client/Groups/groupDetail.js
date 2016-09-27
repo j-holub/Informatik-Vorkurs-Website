@@ -49,6 +49,16 @@ Template.groupdetail.events({
 				console.log(error.reason);
 			}
 		});
+	},
+	'click #leave': function () {
+		Meteor.call('leaveGroup', this._id, function (error, result) {
+			if(error){
+				Meteor.customFunctions.errorToast(error.reason);
+			}
+			else{
+				Router.go('/groups');
+			}
+		});
 	}
 });
 

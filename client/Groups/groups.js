@@ -23,6 +23,8 @@ Template.createGroupModal.events({
 				$('#createGroup')[0].reset();
 				// Modal unsichtbar machen
 				$('#createGroupModal').removeClass('active');
+				// Gruppenseite öffnen
+				Router.go('group', {_id: result});
 			}
 		});
 	},

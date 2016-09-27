@@ -56,7 +56,7 @@ Template.groupdetail.events({
 				Meteor.customFunctions.errorToast(error.reason);
 			}
 			else{
-				Router.go('/groups');
+				Router.go('groups');
 			}
 		});
 	}

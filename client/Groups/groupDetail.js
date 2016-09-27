@@ -26,8 +26,7 @@ Template.groupdetail.helpers({
 	},
 	// schaut ob der User Mitglied er Gruppe is
 	isMember: function () {
-		// wird in einem #with block aufgerufen. Deswegen Template.parentData()
-		return $.inArray(Meteor.userId(), Template.parentData().members) == 0;
+		return $.inArray(Meteor.userId(), this.members) == 0;
 	}
 });
 

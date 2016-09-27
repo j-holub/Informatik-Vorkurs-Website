@@ -8,7 +8,6 @@
 					<p id="leave">Gruppe Verlassen</p>
 				{{/if}}
 				
-				<!-- <ul id="memberlist"> -->
 				<div id="memberlist">
 				{{#each listMembers}}
 					{{>groupmember}}
@@ -19,14 +18,13 @@
 				</div>
 				{{/if}}
 				</div>
-				<!-- </ul> -->
 
 				<h3 class="subheading">Hauptroboter</h3>
 				{{#if mainbot}}
 				{{#with getMainbot}}
 					<div id="mainbot">
 
-					<h3>{{name}} {{#if isMember}} <i class="mdi mdi-close-circle" name="clearGroupRobot"></i> {{/if}}</h3>
+					<h3>{{name}} {{#with ..}}{{#if isMember }} <i class="mdi mdi-close-circle" name="clearGroupRobot"></i> {{/if}}{{/with}}</h3>
 					<p class="botdescription">{{description}}</p>
 					</div>
 				{{/with}}

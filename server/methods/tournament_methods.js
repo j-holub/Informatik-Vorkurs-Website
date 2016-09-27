@@ -38,7 +38,6 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// überprüfen ob der User Mitglied dieser Gruppe ist
 			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
-			// if($.inArray(Meteor.userId(), Groups.findOne(groupId).members) == 0){
 				// checken ob das turnier noch läuft
 				if(tournament.date >= new Date()){
 					// checken ob die Gruppe bereits zum Turnier angemeldet ist
@@ -70,7 +69,7 @@ Meteor.methods({
 	'signOutFromTournament': function(tournamentId, groupId){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// überprüfen ob der Roboter überhaupt dem User gehört
+			// überprüfen ob der User zur Gruppe gehört
 			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
 			// if(($.inArray(Meteor.userId(), Groups.findOne(groupId).members) == 0)){
 				// checken ob das turnier noch läuft

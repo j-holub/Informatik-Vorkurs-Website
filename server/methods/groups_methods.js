@@ -28,6 +28,16 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// checken ob der User auch der Gruppenersteller ist
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
+				// wenn die Gruppe zu irgendwelchen Turnieren angemeldet war, muss sie abgemeldet werden
+				Tournaments.update({
+					'participants': groupId
+				},
+				{
+				 	$pull: {'participants': groupId}
+				},
+                {
+                    'multi': true
+                });
 				// Gruppe löschen
 				return Groups.remove(groupId);
 			}

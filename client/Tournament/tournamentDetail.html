@@ -13,10 +13,8 @@
 	
 	{{#unless userGroupIsInTournament}}
 		{{#unless ended}}
-			{{#if userHasRobots}}
-				<br/>
-				{{>tournamentEntry}}
-			{{/if}}
+			<br/>
+			{{>tournamentEntry}}
 		{{/unless}}
 	{{/unless}}
 
@@ -48,30 +46,36 @@
 	<h3>Teilnehmen</h3>
 	{{#if userHasGroup}}
 	
-		{{#if userGroupHasMainbot}}
-		<div id="participateSelect">
-				<span id="mainbotName">{{mainbotName}}<i class="mdi mdi-checkbox-marked-circle" name="signUpForTournament"></i></span>
-		</div>
+		{{#if userGroupHasRobots}}
+		<p><button id="openEntryModal" class="borderButton">Eintragen</button></p>
 		
 		{{else}}
-		<p class="infomessage">Kein Gruppenroboter ausgewählt</p>
+		<p class="infomessage">Deine Gruppe hat keine Roboter</p>
 		{{/if}}
 
 	{{else}}
 	<p class="infomessage">Du brauchst eine Gruppe um einem Turnier beitreten zu können</p>
 	{{/if}}
 
+	
+
+	<div class="modalBackground" id="enterRobotModal">
+		<div class="modal">
+			<div class="modalHeader">Roboter Eintragen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+			<div class="modalContent">
+				{{#each listGroupRobots}}
+					<div class="robot">{{name}}</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+
 </template>
 
 <template name="downloadRobots">
 	<!-- Der Download Code befindet sich in der action Methode der entsprechenden Route auf dem Server -->
 	<p><a id="downloadRobots" href="{{this._id}}/download"><button class="borderButton">Roboter downloaden</button></a></p>
-</template>
-
-<template name="tournamentParticipant">
-	<div class="col s12 m4 l4">
-		
-	</div>
 </template>
 
 
@@ -81,3 +85,6 @@
 		<p class="mainbot">{{mainbotName}}</p>
 		</div>
 </template>
+
+
+

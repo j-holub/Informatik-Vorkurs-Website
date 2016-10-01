@@ -98,10 +98,26 @@ Template.tournamentEntry.helpers({
 			return false;
 		}
 	},
+	userGroupHasRobots: function () {
+		if(Groups.findOne({members: Meteor.userId()})){
+			// die members liste is eh nur eine Liste von IDs, genau so wie das belongsTo Feld der Roboer
+			var groupMembers = Groups.findOne({members: Meteor.userId()}).members;
+			return Robots.find({belongsTo: {$in: groupMembers}}).count() > 0;
+		}
+		else{
+			return false;
+		}
+	},
 	mainbotName: function() {
 		var group = Groups.findOne({members: Meteor.userId()});
 		if(group && group.mainbot){
 			return Robots.findOne(group.mainbot).name;
+		}
+	},
+	listGroupRobots: function() {
+		var usergroup = Groups.findOne({members: Meteor.userId()});
+		if(usergroup){
+			return Robots.find({belongsTo: {$in: usergroup.members}});
 		}
 	}
 });
@@ -111,6 +127,30 @@ Template.tournamentEntry.events({
 		var groupId = Groups.findOne({members: Meteor.userId()})._id;
 		var tournamentId = this._id;
 		Meteor.call('signUpForTournament', tournamentId, groupId, function (error, result) {
+			if(error){
+				console.log(error.reason);
+			}
+		});
+	},
+	'click #openEntryModal': function(event){
+		$('#enterRobotModal').addClass('active');
+	},
+	'click .modalClose': function(event){
+		// Modal schließen
+		$('#enterRobotModal').removeClass('active');
+	},
+	'click .modalBackground': function(event) {
+		if(!(event.target != $('.modalBackground')[0])){
+			// Modal schließen
+			$('#enterRobotModal').removeClass('active');
+		}
+	},
+	'click .robot': function(event) {
+		// das Turnier aus dem parent template holen
+		var tournament = Template.parentData();
+		var robot      = this;
+
+		Meteor.call('signUpForTournament', tournament._id, robot._id, function (error, result) {
 			if(error){
 				console.log(error.reason);
 			}

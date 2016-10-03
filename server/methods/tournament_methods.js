@@ -31,23 +31,31 @@ Meteor.methods({
 		return Tournaments.remove(id);
 	},
 	// trägt einen Roboter in das angegebene Turnier ein
-	'signUpForTournament': function(tournamentId, groupId){
+	'signUpForTournament': function(tournamentId, robotId){
 		// Turnier suchen
 		var tournament = Tournaments.findOne({_id: tournamentId})
 		// check ob User eingeloggt
 		if(Meteor.userId()){
+			// get the users Group
+			var usergroup = Groups.findOne({'members': Meteor.userId()});
 			// überprüfen ob der User Mitglied dieser Gruppe ist
-			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
+			if(usergroup){
 				// checken ob das turnier noch läuft
 				if(tournament.date >= new Date()){
-					// checken ob die Gruppe bereits zum Turnier angemeldet ist
-					if(tournament.participants.indexOf(groupId) == -1){
-						// eintragen
-						return Tournaments.update({_id: tournamentId}, {$push: {participants: groupId}});
+					// checken ob die Gruppe noch nicht zu diesem Turnier angemeldet ist
+					if(Tournaments.find({_id: tournamentId, 'participants.group': usergroup._id}).count() == 0){
+						return Tournaments.update({
+							_id: tournamentId
+						}, {
+							// JSON object mit GroupId und RobotId
+							$push: {participants: {
+								group: usergroup._id,
+								robot: robotId
+							}}
+						});
 					}
-					// Fehler werfen
 					else{
-						throw new Meteor.Error("Overflow", "Du hast bereits einen Roboter im Turnier");
+						throw new Meteor.Error("Overflow", "Deine Gruppe hat bereits einen Roboter in diesem Turnier");
 					}
 				}
 				// fehler werfen
@@ -57,7 +65,7 @@ Meteor.methods({
 			}
 			// ansonsten Fehler werfen
 			else{
-				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter an zu melden");
+				throw new Meteor.Error("Keine Berechtigung", "Du hast leider keine Gruppe");
 			}
 		}
 		// Fehler werfen

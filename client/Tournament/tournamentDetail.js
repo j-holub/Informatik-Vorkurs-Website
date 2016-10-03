@@ -34,11 +34,20 @@ Template.tournamentDetail.helpers({
 	userGroupIsInTournament: function () {
 		// Gruppe des Users
 		var usergroup = Groups.findOne({members: Meteor.userId()});
-		// Teilnehmerlist
-		var tournamentParticipants = Tournaments.findOne(this._id).participants;
-
 		if(usergroup){
-			return ($.inArray(usergroup._id, tournamentParticipants) != -1);
+			// Sucht nach dem Turnier mit der richtigen ID und der eingetragenen Gruppe
+			var tournament = Tournaments.findOne({
+				_id: this._id,
+				'participants.group': usergroup._id
+			});
+			// es gibt ein solches Turnier
+			if(tournament){
+				return true;
+			}
+			// es gibt kein solches Turnier
+			else{
+				return false;
+			}
 		}
 		else{
 			return false;
@@ -47,16 +56,18 @@ Template.tournamentDetail.helpers({
 	// Erzeugt einen schöner formatierten Datum String aus dem Date Object des Turniers
 	displayDate: function () {
 		var date = this.date;
-		var days = (date.getDate() <= 9 ? '0' : '') + date.getDate();
-		var month = (date.getMonth() <= 9 ? '0' : '') + date.getMonth();
-		var dateString = days+ "." + month + "." + date.getFullYear();
-		return dateString;
+		if(date){
+			var days = (date.getDate() <= 9 ? '0' : '') + date.getDate();
+			var month = (date.getMonth() <= 9 ? '0' : '') + date.getMonth();
+			var dateString = days+ "." + month + "." + date.getFullYear();
+			return dateString;
+		}
 	},
 	// Gibt die anzahl der Teilnehmer aus
 	paticipantCount: function(){
-		var participantlist = Tournaments.findOne({_id: this._id}).participants;
-		if(participantlist){
-			return participantlist.length;
+		var tournament = Tournaments.findOne({_id: this._id});
+		if(tournament){
+			return tournament.participants.length;
 		}
 		else{
 			return 0;
@@ -64,7 +75,10 @@ Template.tournamentDetail.helpers({
 	},
 	// Gibt an ob es überhaupt teilnehmer gibt
 	hasParticipants: function(){
-		return Tournaments.findOne({_id: this._id}).participants;
+		var tournament = Tournaments.findOne({_id: this._id});
+		if(tournament){
+			return (Tournaments.findOne({_id: this._id}).participants.length > 0);			
+		}
 	},
 	// checkt ob ein Turnier schon vorbei ist
 	ended: function() {

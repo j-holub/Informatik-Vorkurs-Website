@@ -36,7 +36,7 @@ Meteor.methods({
 		var tournament = Tournaments.findOne({_id: tournamentId})
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// get the users Group
+			// Die Gruppe des Users
 			var usergroup = Groups.findOne({'members': Meteor.userId()});
 			// überprüfen ob der User Mitglied dieser Gruppe ist
 			if(usergroup){
@@ -74,24 +74,31 @@ Meteor.methods({
 		}
 	},
 	// trägt einen Roboter aus einem angegebenen Turnier aus
-	'signOutFromTournament': function(tournamentId, groupId){
+	'signOutFromTournament': function(tournamentId){
 		// check ob User eingeloggt
 		if(Meteor.userId()){
-			// überprüfen ob der User zur Gruppe gehört
-			if(_.contains(Groups.findOne(groupId).members, Meteor.userId())){
+			// überprüfen ob der user eine Gruppe hat
+			var usergroup = Groups.findOne({'members': Meteor.userId()});
+			if(usergroup){
 				// checken ob das turnier noch läuft
 				if(Tournaments.findOne({_id: tournamentId}).date >= new Date()){
 					// austragen
-					return Tournaments.update({_id: tournamentId}, {$pull: {participants: groupId}});
+					return Tournaments.update({
+						_id: tournamentId
+					}, {
+						$pull: {participants: {
+							group: usergroup._id,
+						}}
+					});
 				}
-				// fehler werfen
+				// Fehler werfen
 				else{
 					throw new Meteor.Error("Zeitreise", "Das Turnier ist bereits beendet");
 				}
 			}
 			else{
-				throw new Meteor.Error("Keine Berechtigung", "Du hast keine Berechtigung diesen Roboter ab zu melden");
-			}
+				throw new Meteor.Errror("Keine Gruppe", "Du hast leider keine Gruppe");
+			}	
 		}
 		// Fehler werfen
 		else{

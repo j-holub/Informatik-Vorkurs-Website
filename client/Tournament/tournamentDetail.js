@@ -1,7 +1,13 @@
 Template.tournamentParticipants.helpers({
 	particpatingGroups: function () {
-		var participantIds = Tournaments.findOne({_id: this._id}).participants;
-		var groups = Groups.find({_id: {$in: participantIds}}, {sort: {name: 1}}).fetch();
+		var participants = Tournaments.findOne({_id: this._id}).participants;
+		// die liste der GruppenIds, der Gruppen die am Turnier teilnehmen, auflisten
+		var participantsIdList = [];
+		participants.forEach(function (participant) {
+			participantsIdList.push(participant.group);
+		});
+		// alle Gruppen raussuchen
+		var groups = Groups.find({_id: {$in: participantsIdList}}, {sort: {name: 1}}).fetch();
 
 		var formattedResultList;
 		if(groups.length > 3){
@@ -187,6 +193,18 @@ Template.tournamentGroup.helpers({
 	},
 	mainbotName: function () {
 		return Robots.findOne(this.mainbot).name;
+	},
+	botName: function () {
+		// Das Turnier aus dem Parent Kontext holen
+		// Wird die Template Stuktur im HTML verändert, muss auch hier etwas geändert werden
+		var tournament = Template.parentData(2);
+		var robotName;
+		tournament.participants.forEach(function (participant) {
+			if(participant.group === this._id){
+				robotName = Robots.findOne(participant.robot).name;
+			}
+		}.bind(this));
+		return robotName;
 	}
 });
 
@@ -196,7 +214,7 @@ Template.tournamentGroup.events({
 		// sollte beachtet werden, wenn an dieser Seite rumgebastelt wird
 		var tournamentId = Template.parentData(2)._id;
 		// this._id referenziert die Gruppe des Templates
-		Meteor.call('signOutFromTournament', tournamentId, this._id, function (error, result) {
+		Meteor.call('signOutFromTournament', tournamentId, function (error, result) {
 			if(error){
 				console.log(error.reason);
 			}

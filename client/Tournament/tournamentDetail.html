@@ -81,7 +81,7 @@
 <template name="tournamentGroup">
 		<div class="col s12 m4 l4 group">
 		<h4><a href="{{pathFor route='group' _id=_id}}">{{name}}</a> {{#if userIsMember}}{{#unless ended}}<i class="mdi mdi-close-circle" name="signOutFromTournament"></i>{{/unless}}{{/if}}</h4>
-		<p class="mainbot">{{mainbotName}}</p>
+		<p class="mainbot">{{botName}}</p>
 		</div>
 </template>
 

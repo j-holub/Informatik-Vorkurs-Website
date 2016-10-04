@@ -30,10 +30,10 @@ Meteor.methods({
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
 				// wenn die Gruppe zu irgendwelchen Turnieren angemeldet war, muss sie abgemeldet werden
 				Tournaments.update({
-					'participants': groupId
+					'participants.group': groupId
 				},
 				{
-				 	$pull: {'participants': groupId}
+				 	$pull: {'participants': {'group': groupId}}
 				},
                 {
                     'multi': true
@@ -112,7 +112,7 @@ Meteor.methods({
 				if(Groups.findOne(groupId).members.length == 0) {
 					Meteor.call('deleteGroup', groupId, function(result, error){
 						if(error){
-							console.log(error.message);
+							console.log(error.reason);
 						}
 					});
 				}

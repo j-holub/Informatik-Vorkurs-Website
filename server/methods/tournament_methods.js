@@ -8,7 +8,6 @@ Meteor.methods({
 				// Werte checken
 				check(name, String);
 				check(date, Date);
-				console.log(date);
 				var data = {
 					name: name,
 					date: date,

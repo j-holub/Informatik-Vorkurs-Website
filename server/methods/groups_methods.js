@@ -83,6 +83,23 @@ Meteor.methods({
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
 				// checken ob der zu löschende Nutzer der Gruppenersteller ist
 				if(!(Groups.findOne(groupId).creator === userId)){
+
+					// Sollte es Roboter geben die zu einem Turnier eingetragen sind und
+					// dem User gehören, der die Gruppe verlässt, müssen diese ausgetragen werden
+
+					// eine Liste aller RoboterIds
+					var userRobotIds = Robots.find({'belongsTo': userId}).map(function (robot) {
+						return robot._id;
+					});
+
+					// Aus allen Turnieren austrage
+					Tournaments.update({
+						'participants.robot': {$in: userRobotIds}
+					}, {
+						$pull: {'participants': {'robot': {$in: userRobotIds}}}
+					});	
+				
+
 					// User aus der Gruppe entfernen
 					return Groups.update({_id: groupId}, {$pull: {'members': userId}});
 				}
@@ -122,7 +139,21 @@ Meteor.methods({
 					Groups.update({_id: groupId}, {$set: {'creator': newCreatorId}});
 				}
 
+				// Sollte es Roboter geben die zu einem Turnier eingetragen sind und
+				// dem User gehören, der die Gruppe verlässt, müssen diese ausgetragen werden
 
+				// eine Liste aller RoboterIds
+				var userRobotIds = Robots.find({'belongsTo': Meteor.userId()}).map(function (robot) {
+					return robot._id;
+				});
+
+				// Aus allen Turnieren austrage
+				Tournaments.update({
+					'participants.robot': {$in: userRobotIds}
+				}, {
+					$pull: {'participants': {'robot': {$in: userRobotIds}}}
+				});	
+				
 
 			}
 			// wenn nicht, Fehler werfen

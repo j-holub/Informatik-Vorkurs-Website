@@ -2,22 +2,11 @@ Template.groupdetail.helpers({
 	listMembers: function () {
 		return Meteor.users.find({_id: {$in: this.members}});
 	},
-	getMainbot: function() {
-		if(this.mainbot){
-			return Robots.findOne(this.mainbot);
-			
-		}
-	},
 	memberBots: function() {
 		return Robots.find({'belongsTo': {$in: this.members}});
 	},
 	isCreator: function() {
 		return this.creator === Meteor.userId();
-	},
-	// wird in einem {{#with getMainbot}} Kontext aufgerufen,
-	// daher referenziert this einen Roboter
-	mainBotDownloadable: function() {
-		return this.downloadable;
 	},
 	// wird in einem {{#with getMainbot}} Kontext aufgerufen,
 	// daher referenziert this einen Roboter
@@ -38,16 +27,6 @@ Template.groupdetail.events({
 		if(Meteor.Device.isDesktop()){
 			$('[name=searchUsers]').focus();
 		}
-	},
-	'click [name=clearGroupRobot]': function () {
-		// Das HTML befindet sich in einem {{#with getMainbot}} im groupDetail Template
-		var groupId = Template.parentData()._id;
-		// wird in einem #with block aufgerufen. Deswegen Template.parentData()
-		Meteor.call('clearGroupRobot', Template.parentData()._id, function (error, result) {
-			if(error){
-				console.log(error.reason);
-			}
-		});
 	},
 	'click #leave': function () {
 		Meteor.call('leaveGroup', this._id, function (error, result) {

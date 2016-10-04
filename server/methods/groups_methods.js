@@ -83,17 +83,6 @@ Meteor.methods({
 			if(Groups.findOne(groupId).creator === Meteor.userId()){
 				// checken ob der zu löschende Nutzer der Gruppenersteller ist
 				if(!(Groups.findOne(groupId).creator === userId)){
-
-					// war der aktuelle Mainbot der des Users, diesen clearen
-					var mainbotId = Groups.findOne(groupId).mainbot;
-					if(Robots.findOne(mainbotId).belongsTo === Meteor.userId()){
-						Meteor.call('clearGroupRobot', groupId, function (error, result) {
-							if(error){
-								console.log(error.reason);
-							}
-						});
-					}
-
 					// User aus der Gruppe entfernen
 					return Groups.update({_id: groupId}, {$pull: {'members': userId}});
 				}
@@ -117,16 +106,6 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// checken ob der User auch Gruppenmitglied ist
 			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
-
-				// war der aktuelle Mainbot der des Users, diesen clearen
-				var mainbotId = Groups.findOne(groupId).mainbot;
-				if(Robots.findOne(mainbotId).belongsTo === Meteor.userId()){
-					Meteor.call('clearGroupRobot', groupId, function (error, result) {
-						if(error){
-							console.log(error.reason);
-						}
-					});
-				}
 
 				Groups.update({_id: groupId}, {$pull: {'members': Meteor.userId()}});
 				// sollte dies der letzte User in der Gruppe gewesen sein muss die Gruppe gelöscht werden
@@ -152,54 +131,4 @@ Meteor.methods({
 			}
 		}
 	},
-	'selectGroupRobot': function(groupId, robotId){
-		// checkt ob der User eingeloggt is
-		if(Meteor.userId()){
-			// checken ob der User auch Gruppenmitglied ist
-			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
-				// checken ob der Roboter auch zu einem der User gehört
-				if(_.indexOf(Groups.findOne(groupId).members, Robots.findOne(robotId).belongsTo) != -1){
-					return Groups.update({_id: groupId}, {$set: {'mainbot': robotId}});
-				}
-				else{
-					throw new Meteor.Error("Kein Roboterzugriff", "Der Roboter gehört keinem Mitglied dieser Gruppe");
-				}
-			}
-			// wenn nicht, Fehler werfen
-			else{
-				throw new Meteor.Error("Kein Gruppenmitglied", "Du bist kein Mitglied dieser Gruppe");
-			}
-		}
-		// Fehler werfen
-		else{
-			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
-		}
-
-	},
-	'clearGroupRobot': function(groupId){
-		// checkt ob der User eingeloggt is
-		if(Meteor.userId()){
-			// checken ob der User auch Gruppenmitglied ist
-			if(_.indexOf(Groups.findOne(groupId).members, Meteor.userId()) != -1){
-				// die Gruppe aus allen Turnieren austragen in denen sie eingetragen ist
-				var tournaments = Tournaments.find({participants: groupId});
-				tournaments.forEach(function (tournament) {
-					Meteor.call('signOutFromTournament', tournament._id, groupId, function(result, error) {
-						if(error){
-							console.log(error.reason);
-						}
-					})
-				});
-				return Groups.update({_id: groupId}, {$unset: {'mainbot': ""}});
-			}
-			// wenn nicht, Fehler werfen
-			else{
-				throw new Meteor.Error("Kein Gruppenmitglied", "Du bist kein Mitglied dieser Gruppe");
-			}
-		}
-		// Fehler werfen
-		else{
-			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
-		}
-	}
 });

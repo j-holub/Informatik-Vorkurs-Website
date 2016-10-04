@@ -109,15 +109,6 @@ Template.tournamentEntry.helpers({
 		return Groups.find({members: Meteor.userId()}).count() > 0;
 
 	},
-	userGroupHasMainbot: function () {
-		var usergroup = Groups.findOne({members: Meteor.userId()});
-		if(usergroup && usergroup.mainbot){
-			return true;
-		}
-		else{
-			return false;
-		}
-	},
 	userGroupHasRobots: function () {
 		if(Groups.findOne({members: Meteor.userId()})){
 			// die members liste is eh nur eine Liste von IDs, genau so wie das belongsTo Feld der Roboer
@@ -126,12 +117,6 @@ Template.tournamentEntry.helpers({
 		}
 		else{
 			return false;
-		}
-	},
-	mainbotName: function() {
-		var group = Groups.findOne({members: Meteor.userId()});
-		if(group && group.mainbot){
-			return Robots.findOne(group.mainbot).name;
 		}
 	},
 	listGroupRobots: function() {
@@ -190,9 +175,6 @@ Template.tournamentGroup.helpers({
 		var tournamentId = Template.parentData(2)._id;
 		var tournamentDate = Tournaments.findOne({_id: tournamentId}).date;
 		return tournamentDate < new Date();
-	},
-	mainbotName: function () {
-		return Robots.findOne(this.mainbot).name;
 	},
 	botName: function () {
 		// Das Turnier aus dem Parent Kontext holen

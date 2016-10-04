@@ -19,18 +19,6 @@
 				{{/if}}
 				</div>
 
-				<h3 class="subheading">Hauptroboter</h3>
-				{{#if mainbot}}
-				{{#with getMainbot}}
-					<div id="mainbot">
-
-					<h3>{{name}} {{#with ..}}{{#if isMember }} <i class="mdi mdi-close-circle" name="clearGroupRobot"></i> {{/if}}{{/with}}</h3>
-					<p class="botdescription">{{description}}</p>
-					</div>
-				{{/with}}
-				{{else}}
-					<p class="nobot">Kein Roboter ausgewählt</p>
-				{{/if}}
 
 			</div>
 			<div class="col l6 m12 s12">

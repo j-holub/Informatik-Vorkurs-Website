@@ -5,11 +5,14 @@ Template.register.events({
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		// Die Input Fields abfragen
-		email = $('.register [name=email]').val();
-		password = $('.register [name=password]').val();
-		passwordRepeat = $('.register [name=passwordrepeat]').val();
-		firstname = $('.register [name=firstname]').val();
-		lastname = $('.register [name=lastname]').val();
+		var email = $('.register [name=email]').val();
+		var password = $('.register [name=password]').val();
+		var passwordRepeat = $('.register [name=passwordrepeat]').val();
+		var firstname = $('.register [name=firstname]').val();
+		var lastname = $('.register [name=lastname]').val();
+
+		var year = new Date().getFullYear();
+
 		// Passwörter vergleichen
 		if(password === passwordRepeat){
 			// Den User anlegen
@@ -19,6 +22,7 @@ Template.register.events({
 				profile: {
 					firstname: firstname,
 					lastname: lastname,
+					year: year
 				}
 				// wenn kein Fehler vorliegt User einloggen
 				}, function (error, userId){

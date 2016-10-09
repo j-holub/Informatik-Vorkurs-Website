@@ -89,34 +89,3 @@ Template.user.helpers({
 	}
 });
 
-Template.user.events({
-	// blurt das userbild beim mouseover
-	'mouseenter .user': function (event) {
-		// Auf Mobilgeräten macht das Probleme
-		if(Meteor.Device.isDesktop()){
-			// das entsprechende Userbild finden
-			var image = $(event.target).find('.avatar-image');
-			// die vague variable festlegen
-			var vague = $(image).Vague({
-				intensity: 2,
-				forceSVGURl: false,
-			});
-			vague.blur();
-		}
-	},
-	// entblurt das userbild wenn der mauszeiger dieses verlässt
-	'mouseleave .user': function (event) {
-		// Auf Mobilgeräten macht das Probleme
-		if(Meteor.Device.isDesktop()){
-			// das entsprechende Userbild finden
-			var image = $(event.target).find('.avatar-image');
-			// die vague variable festlegen
-			var vague = $(image).Vague({
-				intensity: 2,
-				forceSVGURl: false,
-			});
-			vague.unblur();
-		}
-	}
-});
-

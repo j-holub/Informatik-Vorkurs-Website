@@ -40,6 +40,24 @@ div.username{
 	}
 }
 
+div.userimage{
+	.avatar{
+		overflow: hidden;
+		img{
+			transition: all 1s ease;	
+			max-width: 100%;
+		}
+		img:hover{	
+			transform: scale(1.3);
+			filter: blur(0.5px);
+		}
+	}
+
+}
+
+
+	
+
 
 // desktop
 @media screen and (min-width: $medium-screen-up){

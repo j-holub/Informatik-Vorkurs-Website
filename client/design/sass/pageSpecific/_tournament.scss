@@ -10,7 +10,11 @@ div#tournamentList{
 
 		p{
 			font-size: 0.85em;
-			color: $headingColor;
+			color: $lightTextColor;
+
+			i{
+				color: $textColor;
+			}
 		}
 
 		margin: 1.1em 0;
@@ -58,11 +62,19 @@ div#tournamentDetail{
 		margin-bottom: 0.2em;
 	}
 
+	p.info{
+		color: $lightTextColor;
+		i{
+			color: $textColor;
+		}
+	}
+
 	.mainbot{
 		text-align: center;
 		margin-top: 0.05em;
 
 		font-size: 0.8em;
+		color: $lightTextColor;
 	}
 
 	i{
@@ -97,6 +109,7 @@ div#tournamentDetail{
 	.infomessage{
 		text-align: center;
 		font-style: italic;
+		color: $lightTextColor;
 	}
 
 

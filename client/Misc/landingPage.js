@@ -2,8 +2,8 @@ Template.landingPage.onRendered(function(){
 	// viewport Höhe holen
 	var viewportHeight = $(window).height();
 	// landingpage Bild auf diese Höhe setzen
-	$('#landingPageImage').css('height', viewportHeight);
-	$('#landingPageImage .verticalCenter').css('height', viewportHeight);
+	// $('#landingPageImage').css('height', viewportHeight);
+	// $('#landingPageImage .verticalCenter').css('height', viewportHeight);
 
 	// Pfeil setzten
 	$('#downArrow').css('top', 0.85 * viewportHeight);

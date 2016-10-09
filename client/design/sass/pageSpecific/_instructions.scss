@@ -33,3 +33,33 @@ div#instructions{
 	}
 
 }
+
+div.instructionText{
+
+	h1,h2{
+		color: $headingColor;
+	}
+
+	p{
+		text-align: justify;
+		font-size: 1.2em;
+
+		a{
+			text-decoration: underline;
+			color: #000;
+		}
+		a:hover{
+			color: $secondaryColorShade;
+		}
+
+		b{
+			color: #000;
+		}
+	}
+
+	span.command{
+		background-color: #f7f7f7;
+		color: #000;
+		padding: 0.1em 0.4em;
+	}
+}

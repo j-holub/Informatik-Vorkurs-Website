@@ -1,0 +1,55 @@
+<template name="osxChoice">
+	
+	<div class="container">
+		<p><a href="{{pathFor route='osxInstall'}}">Programme Installieren</a></p>
+		<p>Eclipse Einrichten</p>
+	</div>
+
+</template>
+
+<template name="osxInstall">
+	
+	<div class="container instructionText">
+		
+		<h1>Installieren der Programme</h1>
+
+		<p>Es müssen drei Dinge installiert weden</p>
+
+		<ul>
+			<li>Java JDK</li>
+			<li>RoboCode</li>
+			<li>Eclipse als IDE</li>
+		</ul>
+
+
+		<h2>Java JDK</h2>
+
+			<p>Benötigt wird ein möglichst aktuelles <b>Java JDK</b> (nicht nur das <b>JRE</b>) um überhaupt Java Code ausführen zu können. Sowohl <b>RoboCode</b> als auch die <b>Eclipse IDE</b> benötigen Java.</P>
+
+			<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">JDK Download</a></p>
+
+			<p>Benötigt wird natürlich die OS X Version. Einfach die <i>.dmg</i> Datei herunterladen, ausführen und den Installationshinweisen folgen.</p>
+
+
+		<h2>RoboCode</h2>
+
+			<p>	Als nächtes müssen wir RoboCode installieren, dazu lädst du einfach <a href="https://sourceforge.net/projects/robocode/files/robocode/" target="_blank">hier</a> die aktuellste Version herunter (<b>nicht</b> <i>dotnet</i> und <b>nicht</b> <i>testing</i>).</p>
+
+			<p>Führe die Datei aus und wähle ein <i>Installationsverzeichnis</i> in dem du auf <b>Nein</b> klickst. Wir empfehlen <span class="command">.robocode</span> in deinem Homeverzeichnis.</p>
+
+			<p><span class="command">/Users/&lt;username&gt;/.robocode</span></p>
+
+			<p>Wichtig ist, dass du dir merkst, wo der Ordner zu finden ist und das Ordner die mit einem Punkt beginnen, so genannte Versteckte Ordner sind. Das ist alles für <b>RoboCode</b></p>
+
+
+		<h2>Eclipse</h2>
+
+			<p>Eclipse ist eine <b>IDE</b> (Integrated Developers Environment), die uns beim Programmieren und Entwickeln das Leben sehr viel leichter macht.</p>
+
+			<p>Lade dir dazu <a href="http://www.eclipse.org/downloads/" target="_blank">hier</a> die aktuellste Version des <i>Eclipse Installers</i> herunter und führe diesen aus. Die Option die wir benötigen ist <i>Eclipse for Java Developers</i>. Wähle diese und einen Installationspfad der dir gefällt aus.</p>
+
+			<p>Der Installer wird dann alle benötigten Dateien herunterladen.</p>
+
+	</div>
+
+</template>

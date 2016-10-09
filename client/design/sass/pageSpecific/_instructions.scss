@@ -1,0 +1,35 @@
+div#instructions{
+
+	margin-top: 2em;
+	
+	a{
+		text-align: center;
+
+		padding: 2em 1em;
+
+		
+	}
+	a:hover{
+		color: $secondaryColorShade;
+
+		i{
+			color: $secondaryColorShade;			
+		}
+	}
+
+	i{
+		font-size: 4em;
+		color: $lightTextColor;
+
+		display: block;
+		margin: 0 auto;
+
+		transition: all 0.3s ease-in-out;
+	}
+
+	p{
+		margin-top: 0;
+		font-size: 1.4em;
+	}
+
+}

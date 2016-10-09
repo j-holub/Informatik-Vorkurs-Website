@@ -80,32 +80,6 @@ Template.profile.events({
 		});
 		// Verhindert, dass das label des Profilbildes auch geklickt wird
 		return false;
-	},
-	// Blurred das Profilbild beim mousehover
-	'mouseenter #userProfile .avatar-image': function(event){
-		// Auf Mobilgeräten macht das Probleme
-		if(Meteor.Device.isDesktop()){
-			if(Template.currentData()._id == Meteor.userId()){
-				// Die AnimationOptions sind im CSS nachgebaut
-				var vague = $('#userProfile .avatar-image').Vague({
-					intensity: 2,
-					forceSVGURl: false,
-				});
-				vague.blur();
-			}
-		}
-	},
-	// Entfernt den Blureffekt
-	'mouseleave #userProfile .avatar-image': function(event){
-		// Auf Mobilgeräten macht das Probleme
-		if(Meteor.Device.isDesktop()){
-			// Die AnimationOptions sind im CSS nachgebaut
-			var vague = $('#userProfile .avatar-image').Vague({
-				intensity: 2,
-				forceSVGURl: false,
-			});
-			vague.unblur();
-		}
 	}
 });
 

@@ -239,6 +239,9 @@ div#userProfile{
 	.avatar-image{
 		transition: filter 0.5s ease-in-out;
 	}
+	.avatar-image:hover{
+		filter: blur(2px);
+	}
 
 	#deleteProfilePic{
 		position: absolute;

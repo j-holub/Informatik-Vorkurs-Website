@@ -2,14 +2,14 @@
 	<section id="groups">
 	<div class="container">
 	
-	<table>
+	<div class="list">
 	{{#each listGroups}}
-	<tr>
-		<td><a href="{{pathFor route='group'}}">{{name}}</a></td>
-		<td>{{memberCount}} <i class="mdi mdi-account"></i></td>
-	</tr>
+	<div class="element">
+		<div><a href="{{pathFor route='group'}}">{{name}}</a></div>
+		<div>{{memberCount}} <i class="mdi mdi-account"></i></div>
+	</div>
 	{{/each}}
-	</table>
+	</div>
 
 	{{>createGroupModal}}
 

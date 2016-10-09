@@ -1,0 +1,53 @@
+
+div.list{
+	display: flex;
+	flex-direction: column;
+
+	margin-bottom: 2em;
+
+	div.element{
+		display: flex;
+		flex-direction: row;
+
+		flex-wrap: nowrap;
+
+		justify-content: space-between;
+		align-items: center;
+
+		padding: 0.7em 0.8em;
+
+		border-bottom: 0.1em solid $headingColor;
+
+		font-size: 1.2em;
+		letter-spacing: 0.05em;
+
+		transition: all 0.3s ease-in-out;
+
+		i{
+			color: #000;
+		}
+
+		a{
+			color: $textColor !important;
+		}
+	}
+	div.element:hover{
+		color: $secondaryColorShade !important;
+		a{
+			color: $secondaryColorShade !important;
+		}
+	}
+
+	div.element:last-of-type{
+		border: none;
+	}
+}
+
+// desktop
+@media screen and (min-width: $medium-screen-up){
+	div.list{
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

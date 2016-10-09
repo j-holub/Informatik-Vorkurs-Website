@@ -2,17 +2,17 @@
 	<section id="codesnippets">
 	<div class="container">
 
-	<table>
+	<div class="list">
 	{{#each listSnippets}}
-	<tr>
-		<td><a href="{{pathFor route='snippet'}}">{{name}}</a></td>
-		<td>{{{linesOfCode}}}</td>
+	<div class="element">
+		<div><a href="{{pathFor route='snippet'}}">{{name}}</a></div>
+		<div>{{{linesOfCode}}}</div>
 		{{#if isInRole "admin"}}
-		<td><i class="deleteSnippet mdi mdi-delete delete"></i></td>
+		<div><i class="deleteSnippet mdi mdi-delete delete"></i></div>
 		{{/if}}
-	</tr>
+	</div>
 	{{/each}}
-	</table>
+	</div>
 
 	{{#if isInRole "admin"}}
 	{{>addSnippetModal}}

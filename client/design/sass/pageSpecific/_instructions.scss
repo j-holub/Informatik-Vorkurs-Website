@@ -34,6 +34,16 @@ div#instructions{
 
 }
 
+div.instructionChoice{
+	p{
+		text-align: center;
+		font-size: 1.6em;
+	}
+	a:hover{
+		color: $secondaryColorShade;
+	}
+}
+
 div.instructionText{
 
 	h1,h2{

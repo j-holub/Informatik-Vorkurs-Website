@@ -1,11 +1,75 @@
 <template name="linuxEclipse">
 	
 	<div class="container instructionText">
-		
+
 		<h1>Eclipse einrichten</h1>
 
-			<p>Für die Linux Anleitung fehlen aktuell leider noch die Screenshots. Es funktioniert aber exakt so wie unter Eclipse, nur dass sich der <b>RoboCode Ordner</b> an einer anderen Stelle befindet. Man muss schauen, wo der Paket Manager diesen hinpackt. Auf dem <b>Tux</b> ist dieser unter <span class="command">/usr/share/robocode</span> zu finden. Dies sollte auf anderen Linuxen ebenfalls der Fall sein.</p>
-	
+			<p>Hier wird erklärt wie man <b>RoboCode</b> in die <b>Eclipse IDE</b> einbinden kann.</p>
+
+		<h2>Projekt anlegen</h2>
+
+			<p>Gehe oben im Menü auf <i>File -> New -> Java Project</i> und gib dem Projekt einen Namen (am besten den deines Roboters). Klicke noch <b>nicht</b> auf <i>Finish</i>.</p>
+
+			<img src="/images/Instructions/Linux/01_Projekt anlegen.png" alt="Projekt anlegen" />
+
+			<p>Klicke auf <i>Next</i> und wähle den <i>Libraries</i> Reiter oben aus. Klicke am Rand auf <i>Add External JARs</i> um die <b>RoboCode Jar</b> hinzu zu fügen.</p>
+
+			<img src="/images/Instructions/Linux/02_External Jar hinzufuegen.png" alt="Ext Jar" />
+
+			<p>Wenn du Robocode über die Pakerverwaltung installiert hast findest du diese unter <span class="command">/usr/share/java/robocode.jar</span>.</p>
+
+			<img src="/images/Instructions/Linux/03_Robocode Jar hinzufuegen.png" alt="RoboCode Jar" />
+
+			<p>Klicke auf <i>Finish</i> und das Projekt ist erfolgreich angelegt.</p>
+
+
+
+		<h2>Roboter anlegen</h2>
+
+			<p>Als erstes müssen wir ein Paket anlegen. Gib diesem bitte einen <b>eindeutigen</b> Namen, z.B. <span class="command">infovk.&lt;sci-benutzername&gt;</span>.</p>
+
+			<p>Dazu mache einfach einen Rechtsklick auf das Projekt links und wähle <i>New -> Package</i>.</p>
+
+			<img src="/images/Instructions/Linux/04_Paket anlegen.png" alt="Paket anlegen" />
+
+			<p>Klicke dann auf <i>Finish</i>.</p>
+
+			<p>Als nächstes müssen wir eine Klasse anlegen. Dazu wieder einen Rechtsklick auf das Projekt und dann <i>New -> Class</i>. Unter <b>Name</b> gebt ihr den Namen eures Roboters ein und bei <b>Superclass</b> gibt es zwei Möglichkeiten. Die Anfänger wählen erstmal <span class="command">robocode.Robot</span> aus und die Fortgeschrittenen <span class="command">robocode.AdvancedRobot</span>.</p>
+
+			<img src="/images/Instructions/Linux/05_Klasse anlegen (Robot).png" alt="Klasse anlegen" />
+
+			<p>Damit ist euer Roboter fertig angelegt.</p>
+
+
+
+		<h2>RoboCode von Eclipse aus starten</h2>
+
+			<p>Jetzt müssen wir noch einrichten, dass ihr RoboCode auch von Eclipse aus starten könnt. Bevor du das tust, solltest du Robocode einmal alleine gestartet haben und wieder beendet. Danach klicke zuerst mit rechts auf das Projekt und dann <i>Run As -> Run Configurations</i>.</p>
+
+
+			<p>Dort wählt ihr <b>Java Application</b> und klickt auf den <b>New Button</b> oben links. Gib der Konfiguration einen Namen und trage bei <b>Main Class</b> <span class="command">robocode.Robocode</span> ein.</p>
+
+			<img src="/images/Instructions/Linux/06_Run Configuration.png" alt="Run Configuration" />
+
+			<p>Danach klicke auf den <b>Arguments</b> Reiter und trage unter <b>VM Arguments</b> folgendes ein</p>
+
+			<p><span class="command">-Xmx512M -Dsun.io.useCanonCaches=false -Ddebug=true</span></p>
+
+			<p>Unter <b>Other</b> trägst du das das Verzeichnis ein, in dem die Nutzerdaten von <b>RoboCode</b> liegen, also <span class="command">&dollar;&lbrace;env:HOME&rbrace;/.robocode</span>. </p>
+
+			<img src="/images/Instructions/Linux/07_Run Configuration Argumente.png" alt="Run Configuration Argumente">
+
+
+			<p>Dann auf <i>Apply</i> klicken. Wenn du jetzt auf <i>Run</i> klickst, sollte sich RoboCode öffnen.</p>
+
+
+
+		<h2>Deinen Roboter in RoboCode verfügbar machen</h2>
+
+			<p>Das Problem ist, dass RoboCode euren Roboter noch nicht findet. Um dies zu ändern starte erstmal RoboCode (In Eclipse auf <b>Run</b> klicken) und gehe zu <i>Options -> Preferences -> Developement Options</i>. Trage dort den bin im Ordner deines Roboterprojektes (im Eclipse Workspace Ordner) ein.</p>
+
+			<img src="/images/Instructions/Linux/08_RoboCode Dev Optionen.png" alt="RoboCode Dev Optionen">
+
 	</div>
 
 </template>

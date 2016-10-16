@@ -88,7 +88,9 @@ Template.tournamentDetail.helpers({
 	},
 	// checkt ob ein Turnier schon vorbei ist
 	ended: function() {
-		return this.date < new Date();
+		var tomorrow = new Date();
+		tomorrow.setDate(tomorrow.getDate() - 1);
+		return this.date < tomorrow;
 	},
 	userHasRobots: function(){
 		var userRobots = Robots.find({belongsTo: Meteor.userId()}).fetch();
@@ -174,7 +176,10 @@ Template.tournamentGroup.helpers({
 		// da dieses Template innerhalb von tournamentDetail > tournamentParticipants
 		var tournamentId = Template.parentData(2)._id;
 		var tournamentDate = Tournaments.findOne({_id: tournamentId}).date;
-		return tournamentDate < new Date();
+
+		var tomorrow = new Date();
+		tomorrow.setDate(tomorrow.getDate() - 1);
+		return tournamentDate < tomorrow;
 	},
 	botName: function () {
 		// Das Turnier aus dem Parent Kontext holen

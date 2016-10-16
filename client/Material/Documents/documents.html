@@ -14,7 +14,7 @@
 
 <template name="document">
 	<div class="element center">
-		<div><a href="{{downloadUrl}}" target="_blank">{{name}}</a></div>
+		<div><a href="{{downloadUrl}}" target="_blank">{{name}}</a>{{#if isInRole "admin"}} <i class="deleteDocument mdi mdi-delete" name="deleteDocument"></i> {{/if}}</div>
 	</div>
 </template>
 

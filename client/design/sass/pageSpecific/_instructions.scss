@@ -93,4 +93,11 @@ div#documents{
 	p{
 		text-align: center;
 	}
+	i{
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+	i:hover{
+		color: $warningColor;
+	}
 }

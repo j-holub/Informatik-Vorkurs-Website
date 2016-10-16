@@ -6,8 +6,35 @@ Template.documents.helpers({
 
 Template.document.helpers({
 	downloadUrl: function(){
-		return DocumentData.findOne({_id: this.data}).url();
+		var documentFile = DocumentData.findOne({_id: this.data});
+		if(documentFile){
+			return documentFile.url();
+		}
 	},
+});
+
+Template.document.events({
+	'click [name=deleteDocument]': function (event) {
+		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
+		var documentToDelete = Documents.findOne({_id: this._id});
+		var documentId = documentToDelete._id;
+		// Daten löschen
+		var deletedDocument = RobotData.remove({_id: documentToDelete.data}, function(error, file){
+			if(error){
+				console.log(error.reason);
+			}
+			else{
+				// Den Roboter selbst löschen
+				Meteor.call('deleteDocument', documentId, function (error, result) {
+					if(error){
+						// Ist das löschen in der DB fehlgschlagen fügen wir die Daten auch wieder hinzu
+						DocumentData.insert(deletedDocument);
+						console.log(error.reason);
+					}
+				});
+			}
+		});
+	}
 });
 
 

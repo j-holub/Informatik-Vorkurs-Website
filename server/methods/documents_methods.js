@@ -19,4 +19,15 @@ Meteor.methods({
 			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
 	},
+	// Löscht einen Roboter
+	'deleteDocument': function(documentId){
+		// überpürfen ob aktuell ein User eingeloggt ist
+		if(Meteor.userId()){		
+			return Documents.remove({_id: documentId});
+		}
+		// Fehler werfen
+		else{
+			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");	
+		}
+	},
 });

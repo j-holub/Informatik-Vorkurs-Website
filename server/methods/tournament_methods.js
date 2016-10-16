@@ -42,7 +42,9 @@ Meteor.methods({
 			// überprüfen ob der User Mitglied dieser Gruppe ist
 			if(usergroup){
 				// checken ob das turnier noch läuft
-				if(tournament.date >= new Date()){
+				var tomorrow = new Date();
+				tomorrow.setDate(tomorrow.getDate() - 1);
+				if(tournament.date >= tomorrow){
 					// checken ob die Gruppe noch nicht zu diesem Turnier angemeldet ist
 					if(Tournaments.find({_id: tournamentId, 'participants.group': usergroup._id}).count() == 0){
 						return Tournaments.update({
@@ -82,7 +84,9 @@ Meteor.methods({
 			var usergroup = Groups.findOne({'members': Meteor.userId()});
 			if(usergroup){
 				// checken ob das turnier noch läuft
-				if(Tournaments.findOne({_id: tournamentId}).date >= new Date()){
+				var tomorrow = new Date();
+				tomorrow.setDate(tomorrow.getDate() - 1);
+				if(Tournaments.findOne({_id: tournamentId}).date >= tomorrow){
 					// austragen
 					return Tournaments.update({
 						_id: tournamentId

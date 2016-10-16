@@ -6,8 +6,11 @@ Template.tournaments.helpers({
 	// Formatiert das Ergebnis direkt als Matrix zum anzeigen in der Web UI
 	listActiveTournaments: function() {
 
+		// Date Objekt für morgen
+		var tomorrow = new Date();
+		tomorrow.setDate(tomorrow.getDate() - 1);
 		var data = Tournaments.find({
-			date: { $gte: new Date }
+			date: { $gte: tomorrow }
 		}).fetch();
 
 

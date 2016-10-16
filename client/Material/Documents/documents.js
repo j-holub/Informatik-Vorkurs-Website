@@ -1,0 +1,91 @@
+Template.documents.helpers({
+	listDocuments: function () {
+		return Documents.find({}, {sort: {name: -1}});
+	}
+});
+
+
+Template.uploadDocument.events({
+	// Handelt das Upload Formular um einen Dokument hochzuladen
+	'submit form': function (event, template) {
+		// verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
+		event.preventDefault();
+		// Daten sammeln
+		var name = $('[name=documentName]').val();
+		var documentFile = template.find('input:file').files[0];
+		// schauen ob überhaupt eine Datei angehangen wurden
+		if($('[name=documentData]').val() == ''){
+			Meteor.customFunctions.errorToast("Keine Roboterdatei gefunden");
+		}
+		// Falls eine Datei exisitiert geht es weiter
+		else{
+			var currentUserId = Meteor.userId();
+			// Robot Data hochladen
+			var uploadedDocument = DocumentData.insert(documentFile, function(error, fileObj){
+				// Überprüfung ob es fehler gab
+				if(error){
+					Meteor.customFunctions.errorToast(error.message);
+				}
+				// wenn nicht den Roboter anlegen
+				else{
+					// Roboter in die Datenbank eintragen
+					Meteor.call('uploadDocument', name, uploadedDocument._id, function(error, resultId){
+						if(error){
+							// löscht die Daten für den Fall, dass das eintragen des Roboters in die Datenbank fehlgeschlagen ist
+							Meteor.customFunctions.errorToast(error.reason);
+							DocumentData.remove(uploadedDocument);
+						}
+						// In diesem Fall ging alles gut und das Form wird resettet
+						else{
+							// Uploadform resetten
+							$('#uploadDocument')[0].reset();
+							// Standarttext auf den File Upload Button setzten
+							$('#documentData').next('label').children('span').html('Datei');
+							// Modal schließen
+							$('#documentModal').removeClass('active');
+						}
+					});
+				}
+			});
+		}
+	},
+	// zeigt den Dateinamen auf dem Button an
+	'change #documentData': function(event){
+		// Datei namen von dem event holen
+		var fileName = event.target.value.split('\\').pop();
+		var label = $('#documentData').next('label');
+		var originalLabelValue = label.val();
+
+		if(fileName){
+			// Label auf den Dateinamen setzten
+			label.find('span').html(fileName);
+		}
+		else{
+			// auf den Originalen Text setzen
+			label.html(originalLabelValue);
+		}
+	},
+	'click #uploadDocumentButton': function(){
+		$('#documentModal').addClass('active');
+		// wenn Desktop sofort die eingabe fokusieren
+		if(Meteor.Device.isDesktop()){
+			$('[name=documentName]').focus();
+		}
+	},
+	'click .modalClose': function(){
+		$('#documentModal').removeClass('active');
+		// Uploadform resetten
+		$('#uploadDocument')[0].reset();
+		// Standarttext auf den File Upload Button setzten
+		$('#documentData').next('label').children('span').html('Datei');
+	},
+	'click .modalBackground': function(event) {
+		if(!(event.target != $('.modalBackground')[0])){
+			$('#documentModal').removeClass('active');
+			// Uploadform resetten
+			$('#uploadDocument')[0].reset();
+			// Standarttext auf den File Upload Button setzten
+			$('#documentData').next('label').children('span').html('Datei');
+		}
+	}
+});

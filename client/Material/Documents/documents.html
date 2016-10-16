@@ -1,0 +1,34 @@
+<template name="documents">
+	{{#each listDocuments}}
+		bla
+	{{/each}}
+
+	{{#if isInRole "admin"}}
+		{{>uploadDocument}}
+	{{/if}}
+</template>
+
+<template name="document">
+	
+</template>
+
+<template name="uploadDocument">
+	<p><button id="uploadDocumentButton" class="borderButton">Dokument hochladen</button></p>
+
+
+	<div class="modalBackground" id="documentModal">
+		<div class="modal">
+		<div class="modalHeader">Dokument hochladen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
+
+		<div class="modalContent">
+		<form id="uploadDocument">
+		<input type="text" name="documentName" placeholder="Name">
+		<input type="file" name="documentData" id="documentData"><label for="documentData"><i class="mdi mdi-file"></i> <span>Datei</span></label>
+		
+		</form>
+		</div>
+		
+		<div class="modalFooter"><input type="submit" value="Upload" form="uploadDocument"></div>
+		</div>
+	</div>
+</template>

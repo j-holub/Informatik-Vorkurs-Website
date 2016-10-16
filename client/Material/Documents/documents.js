@@ -4,6 +4,12 @@ Template.documents.helpers({
 	}
 });
 
+Template.document.helpers({
+	downloadUrl: function(){
+		return DocumentData.findOne({_id: this.data}).url();
+	},
+});
+
 
 Template.uploadDocument.events({
 	// Handelt das Upload Formular um einen Dokument hochzuladen

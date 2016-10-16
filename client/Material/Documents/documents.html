@@ -1,15 +1,21 @@
 <template name="documents">
-	{{#each listDocuments}}
-		bla
-	{{/each}}
+	<div class="container" id="documents">
+		<div class="list">
+		{{#each listDocuments}}
+			{{>document}}
+		{{/each}}
+		</div>
 
-	{{#if isInRole "admin"}}
-		{{>uploadDocument}}
-	{{/if}}
+		{{#if isInRole "admin"}}
+			{{>uploadDocument}}
+		{{/if}}
+	</div>
 </template>
 
 <template name="document">
-	
+	<div class="element center">
+		<div><a href="{{downloadUrl}}" target="_blank">{{name}}</a></div>
+	</div>
 </template>
 
 <template name="uploadDocument">

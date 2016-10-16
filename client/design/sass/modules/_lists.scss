@@ -41,6 +41,9 @@ div.list{
 	div.element:last-of-type{
 		border: none;
 	}
+	div.element.center{
+		justify-content: center;
+	}
 }
 
 // desktop

@@ -1,6 +1,6 @@
 Template.documents.helpers({
 	listDocuments: function () {
-		return Documents.find({}, {sort: {name: -1}});
+		return Documents.find({}, {sort: {name: 1}});
 	}
 });
 

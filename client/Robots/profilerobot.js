@@ -13,7 +13,10 @@ Template.profileRobot.helpers({
 		return name;
 	},
 	downloadUrl: function(){
-		return RobotData.findOne({_id: this.data}).url({download: true});
+		var robotFile = RobotData.findOne({_id: this.data});
+		if(robotFile){
+			return robotFile.url({download: true});
+		}
 	},
 	belongsToUser: function(){
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde

@@ -36,7 +36,7 @@ Template.uploadRobot.events({
 							// Standarttext auf den File Upload Button setzten
 							$('#robotData').next('label').children('span').html('Datei');
 							// Modal schließen
-							$('#testModal').removeClass('active');
+							$('#robotModal').removeClass('active');
 						}
 					});
 				}
@@ -60,14 +60,14 @@ Template.uploadRobot.events({
 		}
 	},
 	'click #uploadRobotButton': function(){
-		$('#testModal').addClass('active');
+		$('#robotModal').addClass('active');
 		// wenn Desktop sofort die eingabe fokusieren
 		if(Meteor.Device.isDesktop()){
 			$('[name=robotName]').focus();
 		}
 	},
 	'click .modalClose': function(){
-		$('#testModal').removeClass('active');
+		$('#robotModal').removeClass('active');
 		// Uploadform resetten
 		$('#uploadRobot')[0].reset();
 		// Standarttext auf den File Upload Button setzten
@@ -75,7 +75,7 @@ Template.uploadRobot.events({
 	},
 	'click .modalBackground': function(event) {
 		if(!(event.target != $('.modalBackground')[0])){
-			$('#testModal').removeClass('active');
+			$('#robotModal').removeClass('active');
 			// Uploadform resetten
 			$('#uploadRobot')[0].reset();
 			// Standarttext auf den File Upload Button setzten

@@ -4,7 +4,9 @@ Meteor.methods({
 		// check ob User eingeloggt
 		if(Meteor.userId()){
 			// schauen, dass das Datum in der Zukunft liegt
-			if(date >= new Date()){
+			var tomorrow = new Date();
+			tomorrow.setDate(tomorrow.getDate() - 1);
+			if(date >= tomorrow){
 				// Werte checken
 				check(name, String);
 				check(date, Date);

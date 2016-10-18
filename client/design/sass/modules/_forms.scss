@@ -91,6 +91,21 @@ input[type=file] + label:hover{
 }
 
 
+// Checkboxen
+input[type=checkbox] {
+	display: none;
+}
+input[type=checkbox] + label:before {
+	font-family: 'Material Design Icons';
+	content: "\F227";
+	letter-spacing: 0.3em;
+}
+input[type=checkbox]:checked + label:before {
+	font-family: 'Material Design Icons';
+	content: "\F22B";
+	letter-spacing: 0.3em;
+}
+
 // die Buttons etwas den forms anpassen
 
 form{

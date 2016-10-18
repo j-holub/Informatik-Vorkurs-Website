@@ -201,7 +201,7 @@ ul#navi{
 
 		transition: all 0.3s ease-in-out;
 
-		border-left: 0.8em solid $primaryColor;
+		border-left: 0.3em solid $primaryColor;
 
 		box-sizing: border-box;
 
@@ -215,7 +215,7 @@ ul#navi{
 
 	}
 	li.active{
-		border-left: 0.8em solid $primaryColorShade;
+		border-left: 0.3em solid $primaryColorShade;
 	}
 
 }

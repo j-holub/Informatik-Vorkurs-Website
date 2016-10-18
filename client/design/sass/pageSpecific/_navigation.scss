@@ -128,18 +128,14 @@ nav{
 		li.active{
 			background-color:$primaryColor;
 			border-bottom: 0.3em solid $primaryColorShade;
-			a{
-				color: #FFF;
-			}
+			color: #FFF;
 		}
 
 		// Vererbung will hier leider nich
 		li:hover{
 			background-color:$primaryColor;
 			border-bottom: 0.3em solid $primaryColorShade;
-			a{
-				color: #FFF;
-			}
+			color: #FFF;
 		}
 
 		a{

@@ -30,9 +30,9 @@
 
 	{{#if belongsToUser }}
 	{{#if isDownloadable }}
-	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle" checked ><label for="downloadToggle"></label></p>
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle{{_id}}" class="toggleBox" checked ><label for="downloadToggle{{_id}}"></label></p>
 	{{else}}
-	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle"><label for="downloadToggle"></label></p>
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle{{_id}}" class="toggleBox"><label for="downloadToggle{{_id}}"></label></p>
 	{{/if}}
 	{{/if}}
 

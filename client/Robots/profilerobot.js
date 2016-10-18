@@ -53,7 +53,7 @@ Template.profileRobot.events({
 			}
 		});
 	},
-	'change #downloadToggle': function(event){
+	'change .toggleBox': function(event){
 		// this._id referenziert die Id des Roboters mit dem das Template gerendert wurde
 		var robotId = this._id;
 		// status in der Datenbank updaten

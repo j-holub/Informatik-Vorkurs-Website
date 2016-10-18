@@ -27,6 +27,15 @@
 	</div>
 
 	<p class="botdescription">{{description}}</p>
+
+	{{#if belongsToUser }}
+	{{#if isDownloadable }}
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle" checked ><label for="downloadToggle"></label></p>
+	{{else}}
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle"><label for="downloadToggle"></label></p>
+	{{/if}}
+	{{/if}}
+
 	</div>
 </template>
 

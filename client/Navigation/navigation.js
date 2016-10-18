@@ -29,7 +29,7 @@ Template.navigation.events({
 		
 	},
 	// Schließt das Menü bei drücken eines Links
-	'click #navi li a': function(event){
+	'click #navi a': function(event){
 		closeMenu();
 	},
 	// Schließt das Menü bei drücken des ausgergrauten Hintergrunds

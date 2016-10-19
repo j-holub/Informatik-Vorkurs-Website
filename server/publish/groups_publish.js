@@ -27,3 +27,9 @@ Meteor.publish('groups', function(groupId){
 		}
 	}
 });
+
+Meteor.publish('usergroup', function(){
+	if(this.userId){
+		return Groups.find({'members': this.userId});
+	}
+});

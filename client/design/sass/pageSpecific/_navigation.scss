@@ -100,6 +100,16 @@ ul#userInfo{
 	.avatar{
 		border-radius: 50%;
 	}
+
+	li#groupLink{
+		a{
+			transition: all 0.3s ease-in-out;
+		}
+		a:hover{
+			color: $secondaryColorShade;
+		}
+	}
+
 }
 
 

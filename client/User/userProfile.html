@@ -23,6 +23,15 @@
 
 		<p class="username"><span id="firstname">{{profile.firstname}}</span> <span id="lastname">{{profile.lastname}}</span></p>
 
+		<h2 id="groupnameHeading">Gruppe</h2>
+		{{#if hasGroup}}
+			{{#with userGroup}}
+			<p id="groupname"><a href="{{pathFor route='group'}}">{{name}}</a></p>
+			{{/with}}
+		{{else}}
+			<p class="infomessage">Keine Gruppe</p>
+		{{/if}}
+
 		<!-- Form für den Dateiupload. Das label befindet sich allerdings um das Avatar Template herum -->
 		<form id="profilePicUpload">
 			<input type="file" name="profilePic" id="profilePic">
@@ -59,6 +68,15 @@
 		</div>
 
 		<p class="username"><span id="firstname">{{profile.firstname}}</span> <span id="lastname">{{profile.lastname}}</span></p>
+
+		<h2 id="groupnameHeading" class="noFitTextJS">Gruppe</h2>
+		{{#if hasGroup}}
+			{{#with userGroup}}
+			<p id="groupname"><a href="{{pathFor route='group'}}">{{name}}</a></p>
+			{{/with}}
+		{{else}}
+			<p id="groupname" class="infomessage">Keine Gruppe</p>
+		{{/if}}
 
 		<!-- Form für den Dateiupload. Das label befindet sich allerdings um das Avatar Template herum -->
 		<form id="profilePicUpload">

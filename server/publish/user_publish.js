@@ -7,7 +7,8 @@ Meteor.publish('users', function(specificUserId){
 			return [
 				Meteor.users.find({_id: specificUserId}),
 				// TODO nur benötigtes Profilbild publishen
-				ProfilePics.files.find()
+				ProfilePics.files.find(),
+				Groups.find({'members': specificUserId})
 			]
 		}
 		// Ansonsten gib alle user aus

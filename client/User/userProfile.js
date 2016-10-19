@@ -36,6 +36,18 @@ Template.profile.helpers({
 			$('#userProfile .avatar').removeClass('avatar-hover');
 		}
 	},
+	hasGroup: function() {
+		return Groups.find({'members': this._id}).count() > 0;
+	},
+	userGroup: function() {
+		return Groups.findOne({'members': this._id});
+	},
+	groupName: function() {
+		var group = Groups.findOne({'members': this._id});
+		if(group){
+			return group.name;
+		}
+	}
 });
 
 

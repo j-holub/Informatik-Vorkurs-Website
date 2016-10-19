@@ -20,9 +20,9 @@ Router.route('/tournaments/:_id/download', {
 			var robot = Robots.findOne({_id: participant.robot});
 			var data  = RobotData.findOne({_id: robot.data});
 
-			var owner = Meteor.users.findOne({_id: robot.belongsTo});
+			var group = Groups.findOne({_id: participant.group});
 
-			archive.addFile(`${owner.profile.firstname} ${owner.profile.lastname} - ${robot.name}.jar`, new Buffer(data.url()));
+			archive.addFile(`${group.name} - ${robot.name}.jar`, new Buffer(data.url()));
 		});
 
 		// Ein Buffer des Archivs erzeugen

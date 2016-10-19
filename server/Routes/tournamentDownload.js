@@ -16,8 +16,8 @@ Router.route('/tournaments/:_id/download', {
 		var archive = new AdmZip();
 
 		// Jeden Roboter in das Ziparchiv packen
-		tournament.participants.forEach(function (participantId) {
-			var robot = Robots.findOne({_id: participantId});
+		tournament.participants.forEach(function (participant) {
+			var robot = Robots.findOne({_id: participant.robot});
 			var data  = RobotData.findOne({_id: robot.data});
 
 			var owner = Meteor.users.findOne({_id: robot.belongsTo});

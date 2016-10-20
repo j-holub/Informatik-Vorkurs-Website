@@ -7,11 +7,11 @@
 	
 	<div id="naviWrapper">
 	<ul id="navi">
-		<a href="{{pathFor route='users'}}"><li class="{{isActiveRoute regex='users|profile'}}">User</li></a>
-		<a href="{{pathFor route='groups'}}"><li class="{{isActiveRoute regex='group'}}">Gruppen</li></a>
-		<a href="{{pathFor route='tournaments'}}"><li class="{{isActiveRoute regex='tournament'}}">Turniere</li></a>
-		<a href="{{pathFor route='codesnippets'}}"><li class="{{isActiveRoute regex='snippet'}}">Code Snippets</li></a>
-		<a href="{{pathFor route='material'}}"><li class="{{isActiveRoute regex='material|instructions|documents|osx|linux|windows'}}">Material</li></a>
+		<li class="{{isActiveRoute regex='users|profile'}}"><a href="{{pathFor route='users'}}">User</a></li>
+		<li class="{{isActiveRoute regex='group'}}"><a href="{{pathFor route='groups'}}">Gruppen</a></li>
+		<li class="{{isActiveRoute regex='tournament'}}"><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
+		<li class="{{isActiveRoute regex='snippet'}}"><a href="{{pathFor route='codesnippets'}}">Code Snippets</a></li>
+		<li class="{{isActiveRoute regex='material|instructions|documents|osx|linux|windows'}}"><a href="{{pathFor route='material'}}">Material</a></li>
 	</ul>
 	</div>
 

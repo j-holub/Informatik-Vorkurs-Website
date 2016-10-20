@@ -126,8 +126,6 @@ nav{
 		li{
 			text-align: center;
 			
-			padding: 0 2em;
-
 			height: $navigationHeight;
 			box-sizing: border-box;
 
@@ -138,19 +136,24 @@ nav{
 		li.active{
 			background-color:$primaryColor;
 			border-bottom: 0.3em solid $primaryColorShade;
-			color: #FFF;
+			a{
+				color: $backgroundColor;
+			}
 		}
 
 		// Vererbung will hier leider nich
 		li:hover{
 			background-color:$primaryColor;
 			border-bottom: 0.3em solid $primaryColorShade;
-			color: #FFF;
+			a{
+				color: $backgroundColor;
+			}
 		}
 
 		a{
 			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
-			line-height: $navigationHeight - 3px;			
+			line-height: $navigationHeight - 3px;
+			padding: 0 1em;			
 		}
 	}
 
@@ -211,7 +214,7 @@ ul#navi{
 
 		transition: all 0.3s ease-in-out;
 
-		border-left: 0.3em solid $primaryColor;
+		border-left: 0.5em solid $primaryColor;
 
 		box-sizing: border-box;
 
@@ -225,7 +228,7 @@ ul#navi{
 
 	}
 	li.active{
-		border-left: 0.3em solid $primaryColorShade;
+		border-left: 0.5em solid $primaryColorShade;
 	}
 
 }

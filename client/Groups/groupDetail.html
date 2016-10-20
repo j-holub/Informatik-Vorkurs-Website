@@ -19,6 +19,16 @@
 				{{/if}}
 				</div>
 
+				<h3 id="tournamentHeading" class="subheading">Turniere</h3>
+
+				{{#if isSignedUpToTournaments}}
+					{{#each signedUpTournaments}}
+						<p class="tournamentName"><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a></p>
+					{{/each}}
+				{{else}}
+					<p class="infomessage">Diese Gruppe is zu keinem Turnier angemeldet</p>
+				{{/if}}
+
 
 			</div>
 			<div class="col l6 m12 s12">

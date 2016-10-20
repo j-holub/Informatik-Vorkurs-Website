@@ -105,7 +105,6 @@
 			}
 		}
 
-
 	}
 
 	ul#memberlist{
@@ -154,6 +153,29 @@
 		margin-bottom: 4em;
 		font-style: italic;
 	}
+
+	#tournamentHeading{
+		margin-bottom: 0.2em;
+	}
+
+	.tournamentName{
+		margin: 0.2em auto;
+		text-align: center;
+
+		a{
+			transition: all 0.3s ease-in-out;
+		}
+		a:hover{
+			color: $secondaryColorShade;
+		}
+	}
+
+	// mobile
+	@media screen and (max-width: $medium-screen){
+		.tournamentName:last-of-type{
+			margin-bottom: 2em;
+		}
+	}	
 
 }
 

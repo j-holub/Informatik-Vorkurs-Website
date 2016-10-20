@@ -16,6 +16,12 @@ Template.groupdetail.helpers({
 	// schaut ob der User Mitglied er Gruppe is
 	isMember: function () {
 		return $.inArray(Meteor.userId(), this.members) != -1;
+	},
+	isSignedUpToTournaments: function () {
+		return Tournaments.find({'participants.group': this._id}).count() > 0;
+	},
+	signedUpTournaments: function () {
+		return Tournaments.find({'participants.group': this._id});
 	}
 });
 

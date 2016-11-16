@@ -23,9 +23,9 @@ textarea{
 	text-align: center;
 
 	width: 100%;
-	box-sizing: border-box; 
+	box-sizing: border-box;
 
-}	
+}
 
 textarea{
 	text-align: left;
@@ -95,15 +95,18 @@ input[type=file] + label:hover{
 input[type=checkbox] {
 	display: none;
 }
-input[type=checkbox] + label:before {
+
+input[type=checkbox] + label:before{
 	font-family: 'Material Design Icons';
-	content: "\F227";
 	letter-spacing: 0.3em;
+	cursor: pointer;
+}
+
+input[type=checkbox] + label:before {
+	content: "\F227";
 }
 input[type=checkbox]:checked + label:before {
-	font-family: 'Material Design Icons';
 	content: "\F22B";
-	letter-spacing: 0.3em;
 }
 
 // die Buttons etwas den forms anpassen
@@ -150,7 +153,7 @@ form{
 	i{
 		position: absolute;
 		right: 1em;
-		color: $backgroundColor !important;		
+		color: $backgroundColor !important;
 	}
 }
 
@@ -159,8 +162,8 @@ form{
 	background-color: $primaryColorShade;
 	border: 1px solid $primaryColorShade;
 	border-bottom: none;
-	
-	
+
+
 
 	.dropdown{
 		max-height: 1000px;

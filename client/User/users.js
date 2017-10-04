@@ -1,15 +1,15 @@
 
 Template.users.helpers({
 	listUsers: function () {
-		// return Meteor.users.find({}, {sort: {lastname: 1}}).fetch();
 		let data = UserSearch.getData({
 			transform: function(matchText, regExp){
 				return matchText.replace(regExp, "<b>$&</b>")
 			},
-			sort: {'profile.firstname': 1}
+			sort: {'profile.year': -1, 'profile.firstname': 1}
 		});
 
-		return data;
+		let yearGroups = _.map(_.groupBy(data, user => user.profile.year), (val, key) => [parseInt(key), val]);
+		return _.sortBy(yearGroups, group => -group[0]);
 	},
 	// überprüft ob die Suche noch am laden ist
 	isLoading: function(){
@@ -56,7 +56,14 @@ Template.users.rendered = function () {
 	}
 };
 
-
+Template.users.helpers({
+	getYear: function (userGroup) {
+		return userGroup[0];
+	},
+	getUsersOfGroup: function (userGroup) {
+		return userGroup[1];
+	}
+})
 
 
 Template.user.helpers({

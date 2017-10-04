@@ -11,7 +11,7 @@
 		</div>
 	</div>
 
-	<div id="userList">
+
 
 	{{#if isLoading }}
 		{{>loading}}
@@ -19,12 +19,18 @@
 
 
 	{{#each listUsers}}
-		{{>user}}
+
+	<h1>{{getYear this}}</h1>
+	<div class="userList">
+		{{#each (getUsersOfGroup this) }}
+				{{>user}}
+		{{/each}}
+	</div>
+	<!-- userList -->
+
 	{{/each}}
 
 	{{/if}}
-	<!-- userList -->
-	</div>
 
 	<!-- container -->
 	</div>

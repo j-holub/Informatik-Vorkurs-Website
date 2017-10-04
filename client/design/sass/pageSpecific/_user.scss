@@ -3,11 +3,13 @@
 // #####################
 
 
-div#userList{
+div.userList{
 
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+
+	margin: 3em 0;
 
 div.userElement{
 

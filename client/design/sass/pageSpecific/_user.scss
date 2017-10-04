@@ -5,7 +5,28 @@
 
 div#userList{
 
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+div.userElement{
+
+	@media screen and (min-width: $large-screen-up){
+		width: 25%;
+	}
+	@media screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+		width: 33%;
+	}
+	@media screen and (min-width: $small-screen-up + 100) and (max-width: $medium-screen){
+		width: 50%;
+	}
+	@media screen and (max-width: $small-screen + 100){
+		width: 100%;
+	}
+
+}
 div.user{
+
 	//  Weil VagueJS es net selbst auf die Reihe bekommt
 	.avatar-image{
 		transition: filter 0.3s ease-in-out;
@@ -44,10 +65,10 @@ div.userimage{
 	.avatar{
 		overflow: hidden;
 		img{
-			transition: all 1s ease;	
+			transition: all 1s ease;
 			max-width: 100%;
 		}
-		img:hover{	
+		img:hover{
 			transform: scale(1.3);
 			filter: blur(0.5px);
 		}
@@ -56,13 +77,13 @@ div.userimage{
 }
 
 
-	
+
 
 
 // desktop
-@media screen and (min-width: $medium-screen-up){
+@media screen and (min-width: $small-screen-up){
 	div.userimage{
-		
+
 
 		padding: 0.5em;
 
@@ -87,12 +108,12 @@ div.userimage{
 }
 
 // mobile
-@media screen and (max-width: $medium-screen){
+@media screen and (max-width: $small-screen + 100){
 	div.user{
 		margin-left: auto;
 		margin-right: auto;
 
-		width: 95%;		
+		width: 95%;
 		padding: 0.7em 0;
 	}
 
@@ -141,11 +162,11 @@ div.userimage{
 }
 
 
-	
+
 	a{
 		color: $headingColor;
 	}
-	
+
 	a:hover,
 	a:focus{
 		color: $headingColor;
@@ -172,7 +193,7 @@ div#userSearch{
 		margin: 0;
 
 		font-size: 1.3em;
-		
+
 	}
 
 	button{
@@ -256,7 +277,7 @@ div#userProfile{
 	}
 
 	#avatarCenter{
-		text-align: center;		
+		text-align: center;
 	}
 
 	#groupnameHeading{
@@ -281,7 +302,7 @@ div#userProfile{
 
 	p.username{
 		text-align: center;
-		
+
 		font-size: 3.3em;
 
 		color: $headingColor;
@@ -316,7 +337,7 @@ div#userProfile{
 
 			margin-right: auto;
 			margin-left: auto;
-		
+
 		}
 	}
 
@@ -339,8 +360,8 @@ div#userProfile{
 	input[type=file] + label{
 		margin-top: 0.8em !important;
 		padding: 1em 0.6em;
-		
-		
+
+
 		font-size: 0.9em !important;
 	}
 

@@ -16,18 +16,10 @@
 	{{#if isLoading }}
 		{{>loading}}
 	{{else}}
-	
-	
+
+
 	{{#each listUsers}}
-		
-		<div class="row">
-		{{#each this}}
-			
 		{{>user}}
-
-		{{/each}}
-		</div>
-
 	{{/each}}
 
 	{{/if}}
@@ -41,7 +33,7 @@
 
 
 <template name="user">
-	<div class="col s12 m12 l3">
+	<div class="userElement">
 		<a href="{{pathFor route='profile'}}">
 		<div class="user">
 		<div class="userimage">

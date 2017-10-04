@@ -2,36 +2,14 @@
 Template.users.helpers({
 	listUsers: function () {
 		// return Meteor.users.find({}, {sort: {lastname: 1}}).fetch();
-		var data = UserSearch.getData({
+		let data = UserSearch.getData({
 			transform: function(matchText, regExp){
 				return matchText.replace(regExp, "<b>$&</b>")
 			},
 			sort: {'profile.firstname': 1}
 		});
 
-		var formattedResultList;
-
-		if(data.length > 4){
-
-		// Rückgabeliste basteln
-		formattedResultList = new Array(Math.ceil(data.length / 4));
-		// neues Array in jedem eintrag erstellen
-		for (var i = 0; i < formattedResultList.length; i++) {
-			formattedResultList[i] = [];
-		}
-		// Die Suchergebnisse entsprechend einsortieren
-		for (var i = 0; i < data.length; i++) {
-			formattedResultList[Math.floor(i/4)][i % 4] = data[i];
-		}
-
-		}
-		else{
-			formattedResultList = new Array(1);
-			formattedResultList[0] = data;
-		}
-
-		// an den Client liefern
-		return formattedResultList;
+		return data;
 	},
 	// überprüft ob die Suche noch am laden ist
 	isLoading: function(){
@@ -88,4 +66,3 @@ Template.user.helpers({
 		return ($.inArray(role, this.roles) != -1);
 	}
 });
-

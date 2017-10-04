@@ -45,7 +45,7 @@ nav{
 		}
 
 		a{
-			font-size: 1.6em;
+			font-size: 1.3em;
 			color: #000;
 			letter-spacing: 1px;
 
@@ -76,7 +76,7 @@ ul#userInfo{
 	}
 	i:hover{
 		color: $warningColor;
-	}	
+	}
 
 	li{
 		float: left;
@@ -87,7 +87,7 @@ ul#userInfo{
 		margin-right: 0.3em;
 
 		color: $headingColor;
-		font-size: 1.3em;
+		font-size: 1.1em;
 
 		.firstname{
 			font-family: 'Montserrat-Regular';
@@ -117,15 +117,15 @@ ul#userInfo{
 @media screen and (min-width: $medium-screen-up){
 
 nav{
-	
+
 	height: $navigationHeight;
 
-	ul#navi{	
+	ul#navi{
 
 
 		li{
 			text-align: center;
-			
+
 			height: $navigationHeight;
 			box-sizing: border-box;
 
@@ -153,11 +153,11 @@ nav{
 		a{
 			// hiermit werden die einzeln Menüpunkte ordentlich zentriert
 			line-height: $navigationHeight - 3px;
-			padding: 0 1em;			
+			padding: 0 1em;
 		}
 	}
 
-	
+
 	#menuButton{
 		display: none;
 	}
@@ -173,7 +173,7 @@ nav{
 		height: $navigationHeight;
 	}
 
-	
+
 
 }
 }
@@ -267,7 +267,7 @@ ul#navi{
 	transition: all 0.3s ease-in-out;
 
 	box-sizing: border-box;
-	
+
 
 	overflow: scroll;
 }
@@ -295,7 +295,7 @@ ul#navi{
 }
 
 #backgroundDarken.active{
-	visibility: visible;	
+	visibility: visible;
 	background-color: rgba(0,0,0,0.4);
 }
 

@@ -1,19 +1,19 @@
 div#instructions{
 
 	margin-top: 2em;
-	
+
 	a{
 		text-align: center;
 
 		padding: 2em 1em;
 
-		
+
 	}
 	a:hover{
 		color: $secondaryColorShade;
 
 		i{
-			color: $secondaryColorShade;			
+			color: $secondaryColorShade;
 		}
 	}
 
@@ -52,7 +52,9 @@ div.instructionText{
 
 	p{
 		text-align: justify;
-		font-size: 1.2em;
+		line-height: 1.6em !important;
+
+		margin: 2em 0;
 
 		a{
 			text-decoration: underline;
@@ -74,7 +76,7 @@ div.instructionText{
 	}
 
 	img{
-		
+
 		display: block;
 		margin: 0.2em auto;
 

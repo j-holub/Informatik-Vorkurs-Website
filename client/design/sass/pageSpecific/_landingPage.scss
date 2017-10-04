@@ -17,7 +17,7 @@
 
 		width: 100%;
 		box-sizing: border-box;
-		
+
 		text-align: center;
 
 		.content{
@@ -92,7 +92,7 @@
 		padding: 0 2em;
 		// überschreibt ein paar geerbte werte
 		font-size: 1.2em !important;
-		line-height: 1.2em !important;
+		line-height: 1.4em !important;
 	}
 
 	hr{
@@ -163,13 +163,13 @@ div#landingPageImage{
 // mobile
 @media screen and (max-width: $medium-screen){
 div#landingPageImage{
-	
+
 	// bild für die mobile version
 	background-image: url(/images/landingPageImage-mobile.jpg);
 
 	#headline{
 		font-size: 3.5em;
-		letter-spacing: 0.02em;		
+		letter-spacing: 0.02em;
 		color: white;
 	}
 
@@ -180,7 +180,7 @@ div#landingPageImage{
 		color: white;
 	}
 
-	
+
 
 	button{
 		border-width: 0.2em;
@@ -201,7 +201,7 @@ div#landingPageImage{
 		font-size: 7em;
 		letter-spacing: 0.05em;
 
-		color: white;		
+		color: white;
 	}
 
 	#subline{
@@ -228,7 +228,7 @@ div#downArrow{
 	bottom: 0.5em;
 
 	text-align: center;
-	
+
 
 	color: rgba(150, 150, 150, 0.5);
 
@@ -238,7 +238,7 @@ div#downArrow{
 	.fa-stack{
 		cursor: pointer;
 	}
-	
+
 }
 
 div#downArrow .fa-stack:hover{

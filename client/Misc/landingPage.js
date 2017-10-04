@@ -1,37 +1,35 @@
 Template.landingPage.onRendered(function(){
 	// viewport Höhe holen
-	var viewportHeight = $(window).height();	
+	var viewportHeight = $(window).height();
 
 	if(Meteor.Device.isDesktop()){
 
 		// stripe Bereich anpassen
-		$('#stripe').css('min-height', 0.4 * viewportHeight);
-		$('#stripe .verticalCenter').css('height', 0.4 * viewportHeight);
-			
+		$('#stripe').css('min-height', 0.2 * viewportHeight);
+		$('#stripe .verticalCenter').css('height', 0.2 * viewportHeight);
+
 	}
 
-	// FlowTypeJS 
+	// FlowTypeJS
 	$('#information').flowtype({
-		minimum: 500,
-		maximum: 1200,
-		maxFont: 30
+		minFont: 14,
+		maxFont: 22
 	});
 
 	$('#robocode').flowtype({
-		minimum: 500,
-		maximum: 1200,
-		maxFont: 30
+		minFont: 14,
+		maxFont: 22
 	});
 
 	$('#stripe .content').flowtype({
-		minimum: 400,
-		maximum: 1200,
+		minFont: 14,
+		maxFont: 22,
 	});
 
 	// FitTextJS
-	$('h1').fitText(1.2);
+	$('h1').fitText(1.4);
 
-	
+
 });
 
 Template.landingPage.events({
@@ -42,7 +40,7 @@ Template.landingPage.events({
 		// $(window).scrollTo('#loginRegisterArea', 800);
 		$('#LoginModal').addClass('active');
 		if(Meteor.Device.isDesktop()){
-			$('.login [name=email]').focus();		
+			$('.login [name=email]').focus();
 		}
 	},
 	'click #LoginModal .modalClose': function() {

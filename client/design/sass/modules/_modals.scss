@@ -26,7 +26,7 @@ div.modalBackground{
 	div.modal{
 
 		margin-left: auto;
-		margin-right: auto;		
+		margin-right: auto;
 
 		background-color: $backgroundColor;
 
@@ -54,9 +54,9 @@ div.modalBackground{
 
 			animation-name: modalFadeInMobile;
 		}
-		
-		
-		animation-duration: 0.4s; 
+
+
+		animation-duration: 0.4s;
 
 		overflow: hidden;
 
@@ -64,16 +64,16 @@ div.modalBackground{
 		div.modalHeader{
 
 			line-height: 2em;
-			font-size: 1.3em;
-			font-family: $headingFont;
+			font-size: 1.5em;
+			font-family: $headingFontBold;
 
-			background-color: $primaryColor;
-			color: $backgroundColor;
+			background-color: $backgroundColor;
+			color: $textColor;
 
 			text-align: center;
 
 			position: relative;
-		
+
 			// schließen button
 			i{
 				float: right;
@@ -81,7 +81,7 @@ div.modalBackground{
 
 				line-height: 2em;
 
-				color: $backgroundColor !important;
+				color: $textColor !important;
 
 				cursor: pointer;
 			}
@@ -98,17 +98,18 @@ div.modalBackground{
 
 			font-size: 1.3em;
 
-			background-color: $backgroundColor;
+			padding: 0.2em 0;
+
+			background-color: $primaryColor;
 
 			text-align: center;
-
-			background-color: #DDDDDD;
-
 		}
 
 		div.modalContent{
 
-			padding:  1em 2em;
+			padding:  1em 0em;
+			width: 95%;
+			margin: auto;
 
 			text-align: center;
 
@@ -123,7 +124,7 @@ div.modalBackground{
 				color: $warningColor !important;
 			}
 		}
-		
+
 
 		button{
 			font-size: 0.7em;
@@ -143,14 +144,12 @@ div.modalBackground{
 	input[type=email],
 	input[type=password],
 	textarea{
-		border-bottom: 2px solid $textColor;
-		border-right: none;
-		border-left: none;
-		border-top: none;
+		box-sizing: border-box;
+		border: none;
 
-		border-radius: 0;
+		border-radius: 0.2em;
 
-		margin: 0.5em 0;
+		background-color: #EEF1F6;
 	}
 
 	input[type=text]:focus,
@@ -161,13 +160,48 @@ div.modalBackground{
 	input[type=password]:hover,
 	textarea:focus,
 	textarea:hover{
-		border-bottom: 2px solid $primaryColor;
+		border-bottom: 0.2em solid $primaryColor;
 		border-right: none;
 		border-left: none;
 		border-top: none;
 
-		border-radius: none;
+
+		background-color: #EEF1F6;
 	}
+
+	input[type=file] + label{
+		margin: 0.5em 0 !important;
+		color: $backgroundColor !important;
+
+		font-family: 'Montserrat-Regular';
+		text-align: center;
+	}
+
+	input[type=submit]{
+		margin: 0.5em 0 !important;
+		margin-bottom: 0 !important;
+		font-family: 'Montserrat-Regular';
+		font-size: 1.2em !important;
+		letter-spacing: 0.1em !important;
+
+		padding: 0.3em 1em !important;
+
+
+		width: 100%;
+	}
+
+	label{
+		display: inline-block;
+		width: 100%;
+		text-align: left;
+
+		text-indent: 0.1em;
+
+		margin-top: 0.3em;
+
+		color: $textColor !important;
+	}
+
 }
 
 div.active{

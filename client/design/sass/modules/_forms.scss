@@ -10,26 +10,23 @@ textarea{
 
 	border-radius: 0.3em;
 
+	font-family: 'Montserrat-UltraLight';
+
 	// Standarts resetten
 	appearance: none;
 	box-shadow: none;
 
 	border: 2px solid $lightTextColor;
 
-	color: $textColor;
+	color: $lightTextColor;
 
 	transition: all 0.3s ease-out;
-
-	text-align: center;
 
 	width: 100%;
 	box-sizing: border-box;
 
 }
 
-textarea{
-	text-align: left;
-}
 
 input[type=text]:focus,
 input[type=text]:hover,
@@ -78,6 +75,11 @@ input[type=file]{
 input[type=file] + label{
 	@extend button;
 	display: inline-block;
+	width: 100% !important;
+
+	padding: 0.7em 0.3em !important;
+
+	color: $backgroundColor !important;
 }
 
 input[type=file] + label:hover{

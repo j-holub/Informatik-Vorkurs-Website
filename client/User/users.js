@@ -31,7 +31,7 @@ Template.users.events({
 		if(event.charCode == 13){
 			// Holt den link des ersten Users aus dem a Element
 			// TODO Error wenn kein suchergebnis da ist verhindern. Evtl per Session Variable die Anzahl der Ergebnisse sichern
-			var link = $('#userList').find('a')[0].href;
+			var link = $('.userList').find('a')[0].href;
 			// Gehe zu link
 			Router.go(link);
 		}

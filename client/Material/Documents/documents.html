@@ -28,13 +28,13 @@
 
 		<div class="modalContent">
 		<form id="uploadDocument">
-		<input type="text" name="documentName" placeholder="Name">
+		<label for="documentName">Name</label><input type="text" name="documentName">
 		<input type="file" name="documentData" id="documentData"><label for="documentData"><i class="mdi mdi-file"></i> <span>Datei</span></label>
-		
+
 		</form>
+		<input type="submit" value="Upload" form="uploadDocument">
 		</div>
-		
-		<div class="modalFooter"><input type="submit" value="Upload" form="uploadDocument"></div>
+
 		</div>
 	</div>
 </template>

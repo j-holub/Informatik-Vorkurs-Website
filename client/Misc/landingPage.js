@@ -27,7 +27,7 @@ Template.landingPage.onRendered(function(){
 	});
 
 	// FitTextJS
-	$('h1').fitText(1.4);
+	$('h1').fitText(1.7);
 
 
 });

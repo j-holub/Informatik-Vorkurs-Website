@@ -17,18 +17,18 @@
 		<span class="robotname">{{name}}</span>
 
 		<span class="robotactions">
-		{{#if checkDownloadableCondition}} 
+		{{#if checkDownloadableCondition}}
 		<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
-		{{/if}} 
+		{{/if}}
 		{{#if belongsToUser }} <i class="mdi mdi-delete delete" name="deleteRobot"></i>
 		{{/if}}
 		</span>
-	
+
 	</div>
 
 	<p class="botdescription">{{description}}</p>
 
-	{{#if belongsToUser }}
+	{{#if belongsToUserOrIsAdmin }}
 	{{#if isDownloadable }}
 	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle{{_id}}" class="toggleBox" checked ><label for="downloadToggle{{_id}}"></label></p>
 	{{else}}
@@ -38,4 +38,3 @@
 
 	</div>
 </template>
-

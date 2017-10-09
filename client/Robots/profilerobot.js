@@ -22,6 +22,9 @@ Template.profileRobot.helpers({
 		// this._id referenziert die ID des Objeckts mit dem das Template gerendert wurde
 		return Meteor.userId() == this.belongsTo;
 	},
+	belongsToUserOrIsAdmin: function() {
+		return Meteor.userId() == this.belongsTo || Roles.userIsInRole(Meteor.user(), ["admin"]);
+	},
 	isDownloadable: function(){
 		return this.downloadable;
 	},

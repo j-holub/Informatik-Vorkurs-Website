@@ -147,9 +147,9 @@ div.modalBackground{
 		box-sizing: border-box;
 		border: none;
 
-		border-radius: 0.2em;
+		border-radius: 0.3em;
 
-		background-color: #EEF1F6;
+		background-color: $lightBackgroundGray;
 	}
 
 	input[type=text]:focus,
@@ -166,7 +166,7 @@ div.modalBackground{
 		border-top: none;
 
 
-		background-color: #EEF1F6;
+		background-color: $lightBackgroundGray;
 	}
 
 	input[type=file] + label{

@@ -10,8 +10,6 @@
 	}
 
 	#stripe{
-		// background-color: #f6f6f8;
-		// background-color: $headingColor;
 		background-color: $primaryColor;
 		color: $backgroundColor;
 
@@ -27,6 +25,10 @@
 				display: table-cell;
 				vertical-align: top;
 			}
+		}
+
+		p{
+			color: $backgroundColor;
 		}
 
 	}

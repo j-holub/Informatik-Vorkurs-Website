@@ -1,13 +1,13 @@
 section#footer{
 
-	background-color: $headingColor;
+	background-color: #3B4859;
 
-	
+
 
 	width: 100%;
 
 	margin-top: 5em;
-	
+
 
 	// mobile
 	@media screen and (max-width: $medium-screen){
@@ -22,7 +22,7 @@ section#footer{
 			width: 80%;
 		}
 	}
-	
+
 	div#footerContent{
 
 		margin: 0 auto;
@@ -44,7 +44,7 @@ section#footer{
 
 			text-align: center;
 
-			
+
 		}
 
 
@@ -73,10 +73,10 @@ section#footer{
 
 		// Typography
 		a{
-			color: $lightTextColor;
+			color: $backgroundColor;
 		}
 		a:hover{
-			color: $backgroundColor;
+			color: $lightTextColor;
 		}
 
 		h3{
@@ -89,12 +89,12 @@ section#footer{
 		}
 
 
-		
+
 		// mobile
 		@media screen and (max-width: $medium-screen){
 			h3{
 				font-size: 1.3em;
-			}	
+			}
 		}
 
 		// desktop
@@ -104,7 +104,7 @@ section#footer{
 			}
 
 		}
-		
+
 		.links{
 
 			ul{

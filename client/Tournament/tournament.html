@@ -5,8 +5,8 @@
 	{{#each listActiveTournaments}}
 		<div class="row">
 		{{#each this}}
-		{{>tournament}}			
-		{{/each}}	
+		{{>tournament}}
+		{{/each}}
 		</div>
 	{{/each}}
 
@@ -56,15 +56,15 @@
 			<div class="modalHeader">Turnier erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
 			<div class="modalContent">
 				<form action="" id="createTournament">
-				<input type="text" name="tournamentName" placeholder="Name">
+				<label for="tournamentName">Turniername</label><input type="text" name="tournamentName">
 				<div id="dateDivider">
 					<div class="wrapper"><input type="text" name="day" placeholder="01"></div>
 					<div class="wrapper"><input type="text" name="month" placeholder="01"></div>
 					<div class="wrapper"><input type="text" name="year" placeholder="2016"></div>
 				</div>
 				</form>
+				<input type="submit" value="Erstellen" form="createTournament">
 			</div>
-			<div class="modalFooter"><input type="submit" value="Erstellen" form="createTournament"></div>
 		</div>
 	</div>
 
@@ -80,6 +80,3 @@
 		</table>
 	</form> -->
 </template>
-
-
-

@@ -1,7 +1,7 @@
 <template name="groups">
 	<section id="groups">
 	<div class="container">
-	
+
 	<div class="list">
 	{{#each listGroups}}
 	<div class="element">
@@ -26,10 +26,10 @@
 			<div class="modalHeader">Gruppe erstellen <span class="modalClose"><i class="mdi mdi-close"></i></span></div>
 			<div class="modalContent">
 				<form action="" id="createGroup">
-				<input type="text" name="groupName" placeholder="Gruppenname">
+				<label for="groupName">Gruppenname</label><input type="text" name="groupName">
 				</form>
+				<input type="submit" value="Erstellen" form="createGroup">
 			</div>
-			<div class="modalFooter"><input type="submit" value="Erstellen" form="createGroup"></div>
 		</div>
 	</div>
 </template>

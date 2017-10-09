@@ -1,11 +1,29 @@
 
 div#tournamentList{
 
-	.tournament{
-	
+	div.tournamentFlex{
+		display: flex;
+		flex-flow: row;
+		flex-wrap: wrap;
+	}
+
+	div.tournament{
+
+		@media screen and (min-width: $large-screen-up){
+			width: 33%;
+		}
+		@media screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+			width: 50%;
+		}
+		@media screen and (max-width: $medium-screen){
+			width: 100%;
+		}
+
 		h2,p{
 			text-align: center;
 			line-height: 0.05em;
+
+			font-size: 1.1em;
 		}
 
 		p{
@@ -19,7 +37,7 @@ div#tournamentList{
 
 		margin: 1.1em 0;
 
-	}	
+	}
 
 	a:hover,
 	a:focus{
@@ -35,8 +53,8 @@ div#tournamentList{
 
 
 	#pastTournaments{
-		max-height: 0;
-		overflow: hidden;
+		// max-height: 0;
+		// overflow: hidden;
 
 		transition: all 0.5s ease-in-out;
 	}
@@ -50,7 +68,7 @@ div#tournamentList{
 }
 
 div#tournamentDetail{
-	
+
 	h1,h2, h3, p{
 		text-align: center;
 	}
@@ -87,7 +105,7 @@ div#tournamentDetail{
 			color: $secondaryColor;
 		}
 	}
-	
+
 	.group i{
 		cursor: pointer;
 		transition: all 0.3s ease-in-out;
@@ -122,7 +140,7 @@ div#dateDivider{
 
 	margin-left: auto;
 	margin-right: auto;
-	
+
 	div.wrapper{
 		display: inline-block;
 
@@ -177,7 +195,7 @@ div#enterRobotModal{
 }
 
 ul.robotList{
-	
+
 	width: 100%;
 
 	overflow: scroll;
@@ -186,7 +204,7 @@ ul.robotList{
 
 	padding: 0;
 	margin: 0;
-	
+
 
 	li{
 		list-style: none;

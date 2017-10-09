@@ -3,7 +3,7 @@
 	<div class="container" id="tournamentList">
 
 	{{#each listActiveTournaments}}
-		<div class="row">
+		<div class="tournamentFlex">
 		{{#each this}}
 		{{>tournament}}
 		{{/each}}
@@ -23,13 +23,14 @@
 	</div> -->
 
 	<div id="pastTournaments">
-	{{#each listPastTournaments}}
-		<div class="row">
-		{{#each this}}
-		{{>tournament}}
+		<h2>Vergangene Turniere</h2>
+		<div class="tournamentFlex">
+		{{#each listPastTournaments}}
+			{{#each this}}
+			{{>tournament}}
+			{{/each}}
 		{{/each}}
 		</div>
-	{{/each}}
 	</div>
 
 	</div>
@@ -39,7 +40,7 @@
 
 
 <template name="tournament">
-	<div class="tournament col s12 m12 l6">
+	<div class="tournament">
 		<h2><a href="{{pathFor route='tournamentDetail'}}">{{name}}</a> {{#if isInRole "admin"}}<i class="mdi mdi-delete delete deleteTournament"></i>{{/if}}</h2>
 		<p><i class="mdi mdi-calendar-blank"></i> {{displayDate}} <i class="mdi mdi-account"></i> {{paticipantCount}} </p>
 	</div>

@@ -7,7 +7,7 @@
 				{{#if isMember}}
 					<p id="leave">Gruppe Verlassen</p>
 				{{/if}}
-				
+
 				<div id="memberlist">
 				{{#each listMembers}}
 					{{>groupmember}}
@@ -50,13 +50,13 @@
 
 
 <template name="groupmember">
-	
+
 	<div class="member username">
 	<a href="{{pathFor route='profile'}}">
 		{{>avatar user=this shape="circle" size="medium"}}
 		<span class="firstname">{{profile.firstname}}</span> <span class="lastname">{{profile.lastname}}</span>
 	</a>
-	</div> 
+	</div>
 </template>
 
 
@@ -66,7 +66,7 @@
 		<div class="modalHeader">User hinzufügen<span class="modalClose"><i class="mdi mdi-close"></i></span></div>
 
 		<div class="modalContent">
-			<input type="text" name="searchUsers" placeholder="Username" autocomplete="off" />
+			<label for="Username">Username</label><input type="text" name="searchUsers" autocomplete="off" />
 			<div id="Result" data-group-id="{{_id}}">
 				{{#each searchResult}}
 					{{#if isMember}}
@@ -76,11 +76,9 @@
 					{{/if}}
 				{{/each}}
 			</div>
-		</div>
-		
-		<div class="modalFooter">
 			<button class="secondary" id="Done">Fertig</button>
 		</div>
+
 		</div>
 	</div>
 </template>

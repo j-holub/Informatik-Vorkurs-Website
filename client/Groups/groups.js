@@ -9,6 +9,12 @@ Template.groups.helpers({
 	},
 	memberCount: function () {
 		return this.members.length;
+	},
+	getYear: function (group) {
+		return group[0];
+	},
+	getGroupsForYear: function (group) {
+		return group[1];
 	}
 });
 

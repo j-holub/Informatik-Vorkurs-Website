@@ -2,16 +2,20 @@
 	<section id="groups">
 	<div class="container">
 
-	<div class="list">
+	{{>createGroupModal}}
+
 	{{#each listGroups}}
-	<div class="element">
-		<div><a href="{{pathFor route='group'}}">{{name}}</a></div>
-		<div>{{memberCount}} <i class="mdi mdi-account"></i></div>
+	<h1>{{getYear this}}</h1>
+	<div class="groups">
+		{{#each (getGroupsForYear this)}}
+		<a href="{{pathFor route='group'}}">
+		<div class="group">{{name}} <span class="membercount">{{memberCount}} <i class="mdi mdi-account"></i></span></div>
+		</a>
+		{{/each}}
 	</div>
 	{{/each}}
-	</div>
 
-	{{>createGroupModal}}
+
 
 	</div>
 	</section>

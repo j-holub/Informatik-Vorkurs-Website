@@ -15,15 +15,18 @@ Meteor.publish('groups', function(groupId){
 			// leider muss alles gepublisht werden, da die reactivity sonst nicht funktioniert.
 			// Irgend ein Bug in Iron Router oder eine Unfähigkeit Meinerseits
 			return [
-				Groups.find(groupId), 
+				Groups.find(groupId),
 				Meteor.users.find(),
-				Robots.find(), 
+				Robots.find(),
 				RobotData.find()
 			];
 		}
 		// alle Gruppen
 		else{
-			return Groups.find();
+			return [
+				Groups.find(),
+				Meteor.users.find()
+			];
 		}
 	}
 });

@@ -1,6 +1,11 @@
 Template.groups.helpers({
+	// returns list of groups, grouped by their creators creation date
 	listGroups: function () {
-		return Groups.find({}, {sort: {'name': 1}});
+		let groups = Groups.find({}, {sort: {'name': 1}}).fetch();
+
+		let yearGroups = _.map(_.groupBy(groups, group => Meteor.users.findOne({_id: group.creator}).profile.year), (val, key) => [parseInt(key), val]);
+
+		return _.sortBy(yearGroups, group => -group[0]);
 	},
 	memberCount: function () {
 		return this.members.length;

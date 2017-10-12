@@ -23,10 +23,7 @@ Meteor.publish('groups', function(groupId){
 		}
 		// alle Gruppen
 		else{
-			return [
-				Groups.find(),
-				Meteor.users.find()
-			];
+			return Groups.find();
 		}
 	}
 });

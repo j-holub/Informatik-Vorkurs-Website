@@ -1,5 +1,5 @@
 Meteor.methods({
-	'createGroup': function(name){
+	'createGroup': function(name, year){
 		// checkt ob der User eingeloggt is
 		if(Meteor.userId()){
 			// checken ob der User nicht schon in einer anderen Gruppe ist
@@ -9,7 +9,8 @@ Meteor.methods({
 				var data = {
 					'name': name,
 					'creator': Meteor.userId(),
-					'members': [Meteor.userId()]
+					'members': [Meteor.userId()],
+					'year': year
 				}
 				return Groups.insert(data);
 			}
@@ -66,7 +67,7 @@ Meteor.methods({
 					throw new Meteor.Error("User schon in einer Gruppe", "Der Nutzer ist bereits Mitglied einer Gruppe");
 				}
 			}
-			// wenn der User nicht Gruppenersteller ist, Fehler werfen	
+			// wenn der User nicht Gruppenersteller ist, Fehler werfen
 			else{
 				throw new Meteor.Error("Du bist nicht der Ersteller dieser Gruppe", "Du bist nicht der Ersteller dieser Gruppe");
 			}
@@ -97,8 +98,8 @@ Meteor.methods({
 						'participants.robot': {$in: userRobotIds}
 					}, {
 						$pull: {'participants': {'robot': {$in: userRobotIds}}}
-					});	
-				
+					});
+
 
 					// User aus der Gruppe entfernen
 					return Groups.update({_id: groupId}, {$pull: {'members': userId}});
@@ -108,7 +109,7 @@ Meteor.methods({
 					throw new Meteor.Error("Gruppenersteller löschen", "Der Gruppenersteller kann nicht entfernt werden");
 				}
 			}
-			// wenn der User nicht Gruppenersteller ist, Fehler werfen	
+			// wenn der User nicht Gruppenersteller ist, Fehler werfen
 			else{
 				throw new Meteor.Error("Du bist nicht der Ersteller dieser Gruppe", "Du bist nicht der Ersteller dieser Gruppe");
 			}
@@ -152,8 +153,8 @@ Meteor.methods({
 					'participants.robot': {$in: userRobotIds}
 				}, {
 					$pull: {'participants': {'robot': {$in: userRobotIds}}}
-				});	
-				
+				});
+
 
 			}
 			// wenn nicht, Fehler werfen

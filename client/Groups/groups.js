@@ -19,8 +19,9 @@ Template.createGroupModal.events({
 		// Verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		// Die Input Fields abfragen
-		var name  = $('[name=groupName]').val();
-		Meteor.call('createGroup', name, function (error, result) {
+		let name  = $('[name=groupName]').val();
+		let year  = new Date().getFullYear();;
+		Meteor.call('createGroup', name, year, function (error, result) {
 			if(error){
 				Meteor.customFunctions.errorToast(error.reason);
 			}

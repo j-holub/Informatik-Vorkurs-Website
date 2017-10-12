@@ -42,6 +42,7 @@ Template.createGroupModal.events({
 	},
 	'click #createGroupButton': function(event){
 		$('#createGroupModal').addClass('active');
+		$('[name=groupName]').focus();
 	},
 	'click .modalClose': function(){
 		// Form resetten

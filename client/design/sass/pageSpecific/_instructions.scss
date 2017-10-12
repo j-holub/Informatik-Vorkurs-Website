@@ -17,6 +17,7 @@ div#instructions{
 		}
 	}
 
+
 	i{
 		font-size: 4em;
 		color: $lightTextColor;
@@ -49,12 +50,15 @@ div.instructionText{
 	h1,h2{
 		color: $headingColor;
 	}
+	h2{
+		text-align: left;
+	}
 
 	p{
 		text-align: justify;
 		line-height: 1.6em !important;
 
-		margin: 2em 0;
+		margin: 1em 0;
 
 		a{
 			text-decoration: underline;

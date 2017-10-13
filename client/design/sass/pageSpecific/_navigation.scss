@@ -114,7 +114,7 @@ ul#userInfo{
 
 
 // desktop
-@media screen and (min-width: $medium-screen-up){
+@media screen and (min-width: $navigationBreakpoint +1){
 
 nav{
 
@@ -179,7 +179,7 @@ nav{
 }
 
 // mobile
-@media screen and (max-width: $medium-screen){
+@media screen and (max-width: $navigationBreakpoint){
 
 
 ul#userInfo{

@@ -57,6 +57,7 @@ $large-screen-up: 1201px !default;
 // Navigation
 $navigationHeight: 70px;
 $navigationColor: #FAFAFA;
+$navigationBreakpoint: 1180px;
 
 // Alle Module importieren
 @import "modules/misc";

@@ -4,7 +4,7 @@
 	<nav id="navBar">
 
 	<i id="menuButton" class="mdi mdi-menu"></i>
-	
+
 	<div id="naviWrapper">
 	<ul id="navi">
 		<li class="{{isActiveRoute regex='users|profile'}}"><a href="{{pathFor route='users'}}">User</a></li>
@@ -12,6 +12,7 @@
 		<li class="{{isActiveRoute regex='tournament'}}"><a href="{{pathFor route='tournaments'}}">Turniere</a></li>
 		<li class="{{isActiveRoute regex='snippet'}}"><a href="{{pathFor route='codesnippets'}}">Code Snippets</a></li>
 		<li class="{{isActiveRoute regex='material|instructions|documents|osx|linux|windows'}}"><a href="{{pathFor route='material'}}">Material</a></li>
+		<li><a href="https://infovk.ewoche.de/javadoc/" target="_blank">Dokumentation</a></li>
 	</ul>
 	</div>
 
@@ -29,7 +30,7 @@
 		<li>{{>logout}}</li>
 	</ul>
 	{{/with}}
-	
+
 	</nav>
 
 

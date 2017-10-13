@@ -10,14 +10,23 @@
 		{{#if belongsToUser}}
 		<i class="mdi mdi-delete delete" name="deleteRobot"></i>
 		{{/if}}
-		{{#if checkDownloadableCondition}} 
+		{{#if checkDownloadableCondition}}
 		<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
-		{{/if}} 
+		{{/if}}
 		</span>
-	
+
 	</div>
 
 	<p class="botdescription">{{description}}</p>
+
+
+	{{#if belongsToUserOrIsAdmin }}
+	{{#if isDownloadable }}
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle{{_id}}" class="toggleBox" checked ><label for="downloadToggle{{_id}}"></label></p>
+	{{else}}
+	<p class="downloadState">Downloadbar: <input type="checkbox" id="downloadToggle{{_id}}" class="toggleBox"><label for="downloadToggle{{_id}}"></label></p>
+	{{/if}}
+	{{/if}}
+	
 	</div>
 </template>
-

@@ -12,6 +12,7 @@ div.userList{
 	margin: 3em 0;
 
 div.userElement{
+	padding: 1em 0;
 
 	@media screen and (min-width: $large-screen-up){
 		width: 25%;
@@ -23,8 +24,11 @@ div.userElement{
 		width: 50%;
 	}
 	@media screen and (max-width: $small-screen + 100){
+		padding: 0;
 		width: 100%;
 	}
+
+
 
 }
 div.user{
@@ -39,6 +43,8 @@ div.user{
 		border-radius: 50%;
 
 		transition: border 0.3s ease-in-out;
+
+		transform: scale(0.9);
 	}
 }
 
@@ -54,6 +60,8 @@ div.user:hover{
 
 div.username{
 	transition: all 0.3s ease-in-out;
+
+	font-size: 1.2em !important;
 
 	.firstname{
 		font-family: 'Montserrat-Regular';

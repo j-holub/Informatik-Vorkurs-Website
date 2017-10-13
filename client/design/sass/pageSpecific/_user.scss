@@ -255,6 +255,8 @@ div#userProfile{
 		transition: border 0.5s ease-in-out;
 
 		cursor: pointer;
+
+		transform: scale(0.8);
 	}
 
 	.avatar-hover:hover{
@@ -299,6 +301,8 @@ div#userProfile{
 		margin-top: 0.2em;
 		letter-spacing: 0.05em;
 
+		font-family: 'Montserrat-Hairline';
+
 		a{
 			transition: all 0.3s ease-in-out;
 		}
@@ -315,7 +319,12 @@ div#userProfile{
 	p.username{
 		text-align: center;
 
-		font-size: 3.3em;
+		font-size: 2.7em;
+
+		// mobile
+		@media screen and (max-width: $small-screen){
+			font-size: 2.4em;
+		}
 
 		color: $headingColor;
 		// font-family: 'Sertig';

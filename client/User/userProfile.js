@@ -6,7 +6,7 @@ Template.profile.helpers({
 		return Robots.find({'belongsTo': id}).count() > 0;
 	},
 	// das ganze MUSS als reaktiver Helper gemacht werden, da onRendered nicht aufgerufen wird,
-	// wenn man von einem anderen Profil auf sein eigenes Wechselt. Da dort das Template nicht 
+	// wenn man von einem anderen Profil auf sein eigenes Wechselt. Da dort das Template nicht
 	// neu gerendert, sondern nur die Daten verändert werden
 	// Das ganze gibt es halt dann leider doppelt, aber muss erstmal so
 	addDeleteProfilePicButton: function(){
@@ -100,7 +100,9 @@ Template.profile.events({
 // Fügt ebenfalls die hover klasse für das avatarbild hinzu um den blauen rand zu bekommen
 Template.profile.onRendered(function () {
 	// FitTextJs
-	$('h2').fitText(1.5);
+	$('h2').fitText(1.5, {
+		minFontSize: '25px'
+	});
 
 	var id = Template.currentData()._id;
 	if(id == Meteor.userId()){

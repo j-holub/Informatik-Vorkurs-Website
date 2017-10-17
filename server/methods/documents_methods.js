@@ -7,10 +7,11 @@ Meteor.methods({
 			// Die check funktion beendet die Funktion bei einem Fehler
 			// check(name, String);
 			// Datensatz anlegen
-			var data = {
+			let data = {
 				name: name,
 				data: uploadedDocumentFileId
 			};
+			console.log(data);
 			// Den Roboter in der Datenbank anlegen
 			return Documents.insert(data);
 		}
@@ -22,12 +23,12 @@ Meteor.methods({
 	// Löscht einen Roboter
 	'deleteDocument': function(documentId){
 		// überpürfen ob aktuell ein User eingeloggt ist
-		if(Meteor.userId()){		
+		if(Meteor.userId()){
 			return Documents.remove({_id: documentId});
 		}
 		// Fehler werfen
 		else{
-			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");	
+			throw new Meteor.Error("Nicht eingeloggt", "Du bist nicht eingeloggt");
 		}
 	},
 });

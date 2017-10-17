@@ -44,23 +44,26 @@ Template.uploadDocument.events({
 		// verhindert, dass das Formular abgeschickt, und die Seite neu geladen wird
 		event.preventDefault();
 		// Daten sammeln
-		var name = $('[name=documentName]').val();
-		var documentFile = template.find('input:file').files[0];
+		let name = $('[name=documentName]').val();
+		let documentFile = template.find('input:file').files[0];
 		// schauen ob überhaupt eine Datei angehangen wurden
 		if($('[name=documentData]').val() == ''){
 			Meteor.customFunctions.errorToast("Keine Roboterdatei gefunden");
 		}
 		// Falls eine Datei exisitiert geht es weiter
 		else{
-			var currentUserId = Meteor.userId();
-			// Robot Data hochladen
-			var uploadedDocument = DocumentData.insert(documentFile, function(error, fileObj){
+			let currentUserId = Meteor.userId();
+			// Document Data hochladen
+			let uploadedDocument = DocumentData.insert(documentFile, function(error, fileObj){
+				console.log(uploadedDocument);
 				// Überprüfung ob es fehler gab
 				if(error){
 					Meteor.customFunctions.errorToast(error.message);
+
 				}
-				// wenn nicht den Roboter anlegen
+				// wenn nicht das Dokument anlegen
 				else{
+
 					// Roboter in die Datenbank eintragen
 					Meteor.call('uploadDocument', name, uploadedDocument._id, function(error, resultId){
 						if(error){

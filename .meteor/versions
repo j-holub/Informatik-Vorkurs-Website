@@ -41,8 +41,7 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.3
 chrismbeckett:toastr@2.1.2_1
-coffeescript@1.12.7_3
-coffeescript-compiler@1.12.7_3
+coffeescript@1.1.4
 dapearce:material-icons@0.1.5
 ddp@1.2.5
 ddp-client@1.2.9

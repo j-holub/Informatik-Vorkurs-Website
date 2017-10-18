@@ -1,4 +1,5 @@
-#robotBox{
+#robotBox,
+#robotList{
 	margin-right: auto;
 	margin-left: auto;
 
@@ -53,5 +54,28 @@
 @media screen and (min-width: $medium-screen-up){
 	#robotBox{
 		width: 80%;
+	}
+}
+
+#robotList{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.profileBot{
+		@media screen and (min-width: $large-screen-up){
+			width: 33%;
+		}
+		@media screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+			width: 50%;
+		}
+		@media screen and (max-width: $medium-screen){
+			width: 100%;
+		}
+
+		box-sizing: border-box;
+
+		padding: 1em;
+		margin: 0;
 	}
 }

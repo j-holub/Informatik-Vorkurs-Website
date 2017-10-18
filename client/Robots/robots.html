@@ -1,0 +1,27 @@
+<template name="robots">
+	<div class="container" id="robotList">
+		{{#each listDownloadableRobots}}
+				{{>robot}}
+		{{/each}}
+	</div>
+</template>
+
+
+<template name="robot">
+	<div class="profileBot">
+
+	<div class="robottop">
+
+		<span class="robotname">{{name}}</span>
+
+		<span class="robotactions">
+		{{#if checkDownloadableCondition}}
+		<a href="{{downloadUrl}}"><i class="mdi mdi-download"></i></a>
+		{{/if}}
+		</span>
+
+	</div>
+
+	<p class="botdescription">{{description}}</p>
+	</div>
+</template>

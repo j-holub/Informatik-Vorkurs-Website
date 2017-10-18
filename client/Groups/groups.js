@@ -6,6 +6,7 @@ Template.groups.helpers({
 		let yearGroups = _.map(_.groupBy(groups, group => group.year), (val, key) => [parseInt(key), val]);
 
 		return _.sortBy(yearGroups, group => -group[0]);
+
 	},
 	memberCount: function () {
 		return this.members.length;

@@ -30,6 +30,6 @@
 
 	<p class="botdescription">{{description}}</p>
 
-	<p class="uploader"> &mdash; {{uploaderName belongsTo}}</p>
+	<a href="{{pathFor route='profile' _id=belongsTo}}"><p class="uploader"> &mdash; {{uploaderName belongsTo}}</p></a>
 	</div>
 </template>

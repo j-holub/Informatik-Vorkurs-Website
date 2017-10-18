@@ -11,7 +11,6 @@ Meteor.methods({
 				name: name,
 				data: uploadedDocumentFileId
 			};
-			console.log(data);
 			// Den Roboter in der Datenbank anlegen
 			return Documents.insert(data);
 		}

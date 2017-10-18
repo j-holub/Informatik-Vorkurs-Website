@@ -93,5 +93,10 @@
 	.uploader{
 		font-family: 'Montserrat-Hairline';
 		font-style: italic;
+
+		transition: all 0.3s ease;
+	}
+	.uploader:hover{
+		color: $secondaryColorShade;
 	}
 }

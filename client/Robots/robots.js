@@ -1,13 +1,17 @@
 
 Template.robots.helpers({
 	listDownloadableRobots: function() {
-		return Robots.find({'downloadable': true}, {sort: {'name': 1}});
-	}
-});
+		let robots =  Robots.find({'downloadable': true}, {sort: {'name': 1}}).fetch();
 
-Template.robots.events({
-	"click #foo": function(event, template){
+		let yearRobots = _.map(_.groupBy(robots, robot => robot.dateUploaded.getFullYear()), (val, key) => [parseInt(key), val]);
 
+		return _.sortBy(yearRobots, robot => -robot[0]);
+	},
+	getYear: function (robot) {
+		return robot[0];
+	},
+	getRobotsForYear: function (robot) {
+		return robot[1];
 	}
 });
 
@@ -19,7 +23,6 @@ Template.robot.helpers({
 	uploaderName: function (uploaderId) {
 		var uploader = Meteor.users.findOne({_id: uploaderId});
 		var name = uploader.profile.firstname + " " + uploader.profile.lastname;
-		alert(name);
 		return name;
 	},
 	downloadUrl: function(){
@@ -41,11 +44,5 @@ Template.robot.helpers({
 	checkDownloadableCondition: function(){
 		// Gehört dem User || downloadbar || User ist Admin
 		return (Meteor.userId() == this.belongsTo) || (this.downloadable) || Roles.userIsInRole(Meteor.user(), ["admin"]);
-	}
-});
-
-Template.robot.events({
-	"click #foo": function(event, template){
-
 	}
 });

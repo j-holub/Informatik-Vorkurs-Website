@@ -58,9 +58,16 @@
 }
 
 #robotList{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+
+	h1{
+		margin: 1em 0;
+	}
+
+	div.robots{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 
 	.profileBot{
 		@media screen and (min-width: $large-screen-up){
@@ -77,5 +84,14 @@
 
 		padding: 1em;
 		margin: 0;
+
+		p.botdescription{
+			margin-bottom: 0 !important;
+		}
+	}
+
+	.uploader{
+		font-family: 'Montserrat-Hairline';
+		font-style: italic;
 	}
 }

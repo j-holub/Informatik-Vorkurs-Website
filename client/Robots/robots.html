@@ -1,7 +1,13 @@
 <template name="robots">
 	<div class="container" id="robotList">
 		{{#each listDownloadableRobots}}
-				{{>robot}}
+		<h1>{{getYear this}}</h1>
+		<div class="robots">
+			{{#each (getRobotsForYear this)}}
+			{{>robot}}
+			{{/each}}
+		</div>
+
 		{{/each}}
 	</div>
 </template>
@@ -23,5 +29,7 @@
 	</div>
 
 	<p class="botdescription">{{description}}</p>
+
+	<p class="uploader"> &mdash; {{uploaderName belongsTo}}</p>
 	</div>
 </template>

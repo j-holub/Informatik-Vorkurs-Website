@@ -1,6 +1,8 @@
 <template name="linuxEclipse">
 	
 	<div class="container instructionText">
+		<h1>Robocode starten</h1>
+			<p>Auf den Tuxen ist es wichtig, dass ihr Robocode einmalig von Hand startet. Öffnet dazu ein Terminal und gebt <span class="command">robocode</span> ein.</p>
 
 		<h1>Eclipse einrichten</h1>
 
@@ -8,7 +10,11 @@
 
 		<h2>Projekt anlegen</h2>
 
-			<p>Gehe oben im Menü auf <i>File -> New -> Java Project</i> und gib dem Projekt einen Namen (am besten den deines Roboters). Klicke noch <b>nicht</b> auf <i>Finish</i>.</p>
+			<p>
+				Gehe oben im Menü auf <i>File -> New -> Project -> Java -> Java Project</i> und gib dem Projekt einen Namen (am besten den deines Roboters).
+				Stelle sicher, dass Java 11 benutzt wird, auf den Tuxen, wähle &quot;Use default JRE&quot;.
+				Klicke noch <b>nicht</b> auf <i>Finish</i>.
+			</p>
 
 			<img src="/images/Instructions/Linux/01_Projekt anlegen.png" alt="Projekt anlegen" />
 
@@ -16,7 +22,12 @@
 
 			<img src="/images/Instructions/Linux/02_External Jar hinzufuegen.png" alt="Ext Jar" />
 
-			<p>Wenn du Robocode über die Pakerverwaltung installiert hast findest du diese unter <span class="command">/usr/share/java/robocode.jar</span>.</p>
+			<p>
+				Wenn du Robocode mit dem Installer installiert hast, findest du die Jar unter <span class="command">~/robocode/libs/robocode.jar</span>.
+				Auf den Tuxen findest du sie unter <span class="command">~/.local/share/robocode/1.9.3.7/libs/robocode.jar</span>.
+				Eventuell kannst du diesen Ordner auf den Tuxen nicht sehen. Das liegt daran, dass Ordner die mit einem Punkt beginnen versteckt sind.
+				Drücke <span class="command">Ctrl+H</span> um sie anzuzeigen.
+			</p>
 
 			<img src="/images/Instructions/Linux/03_Robocode Jar hinzufuegen.png" alt="RoboCode Jar" />
 
@@ -55,7 +66,7 @@
 
 			<p><span class="command">-Xmx512M -Dsun.io.useCanonCaches=false -Ddebug=true</span></p>
 
-			<p>Unter <b>Other</b> trägst du das das Verzeichnis ein, in dem die Nutzerdaten von <b>RoboCode</b> liegen, also <span class="command">&dollar;&lbrace;env_var:HOME&rbrace;/.robocode</span>.(auf den Tuxen <span class="command">&dollar;&lbrace;env_var:HOME&rbrace;/.local/share/robocode/1.9.2.5/</span>) </p>
+			<p>Unter <b>Other</b> trägst du das das Verzeichnis ein, in dem die Nutzerdaten von <b>RoboCode</b> liegen, also <span class="command">&dollar;&lbrace;env_var:HOME&rbrace;/.robocode</span>.(auf den Tuxen <span class="command">&dollar;&lbrace;env_var:HOME&rbrace;/.local/share/robocode/1.9.3.7/</span>) </p>
 
 			<img src="/images/Instructions/Linux/07_Run Configuration Argumente.png" alt="Run Configuration Argumente">
 

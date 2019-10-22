@@ -18,6 +18,7 @@ Router.route('/tournaments/:_id/download', {
 		// Jeden Roboter in das Ziparchiv packen
 		tournament.participants.forEach(function (participant) {
 			var robot = Robots.findOne({_id: participant.robot});
+			if (robot === null) return;
 			var data  = RobotData.findOne({_id: robot.data});
 
 			var group = Groups.findOne({_id: participant.group});
